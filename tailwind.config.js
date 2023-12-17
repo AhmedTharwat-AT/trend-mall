@@ -8,13 +8,25 @@ export default {
         roboto: ["Roboto", "sans-serif"],
       },
       animation: {
-        textslide: "textslide 1.5s ease-out ",
-        gradHeight: "gradHeight 0.5s linear forwards  ",
-        decHeight: " decHeight 0.5s linear forwards  ",
+        slideRight: "slideRight 1.5s ease-out ",
+        slideLeft: "slideLeft 1.5s 1s ease-out both ",
+        slideBottom: "slideBottom 1.5s 0.5s  ease-out both",
+        gradHeight: "gradHeight 0.3s linear forwards  ",
+        decHeight: " decHeight 0.3s linear forwards  ",
       },
       keyframes: {
-        textslide: {
+        slideRight: {
           "0%": { transform: "translateX(-100%); opacity:0" },
+          "50%": { opacity: "0.1" },
+          "100%": { transform: "translateX(0); opacity:1" },
+        },
+        slideLeft: {
+          "0%": { transform: "translateX(100%); opacity:0" },
+          "50%": { opacity: "0.1" },
+          "100%": { transform: "translateX(0); opacity:1" },
+        },
+        slideBottom: {
+          "0%": { transform: "translateY(-20%); opacity:0" },
           "50%": { opacity: "0.1" },
           "100%": { transform: "translateX(0); opacity:1" },
         },
