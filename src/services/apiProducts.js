@@ -14,6 +14,7 @@ export async function getProducts() {
   const cloths = data.products.filter((pro) =>
     categories.includes(pro.category),
   );
+
   return cloths;
 }
 

@@ -1,8 +1,8 @@
 function Footer() {
   return (
-    <footer className="body-font text-gray-600 ">
-      <div className="container mx-auto px-5 py-24">
-        <div className="order-first flex flex-wrap text-center md:text-left">
+    <footer className="body-font bg-[var(--color-brand-50)] text-gray-600 ">
+      <div className="container  mx-auto px-5 py-24">
+        <div className="order-first flex flex-wrap  text-center md:text-left">
           <div className="w-full px-4 md:w-1/2 lg:w-1/4">
             <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
               CATEGORIES
@@ -93,31 +93,8 @@ function Footer() {
       </div>
       <div className="bg-gray-100">
         <div className="container mx-auto flex flex-col items-center px-5 py-6 sm:flex-row">
-          <a className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              className="h-10 w-10 rounded-full bg-blue-500 p-2 text-white"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
-          </a>
           <p className="mt-4 text-sm text-gray-500 sm:ml-6 sm:mt-0">
-            © 2020 Tailblocks —
-            <a
-              href="https://twitter.com/knyttneve"
-              rel="noopener noreferrer"
-              className="ml-1 text-gray-600"
-              target="_blank"
-            >
-              @knyttneve
-            </a>
+            © 2023 AhmedTharwat
           </p>
           <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
             <a className="text-gray-500">

@@ -30,6 +30,11 @@ ul li .active {
   }
 }
 
+header > div,
+section > div,
+nav > div {
+  @apply !max-w-conatin;
+}
 .product:hover a::before {
   background-color: var(--color-brand-500);
   width: 30px;

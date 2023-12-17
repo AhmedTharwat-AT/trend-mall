@@ -41,6 +41,9 @@ export default {
           "100%": { height: 0, display: "none" },
         },
       },
+      maxWidth: {
+        conatin: "1170px ",
+      },
     },
   },
   plugins: [],
