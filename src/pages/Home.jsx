@@ -1,5 +1,11 @@
+import HomeProducts from "../features/products/HomeProducts";
+
 function Home() {
-  return <div>homeasdas</div>;
+  return (
+    <>
+      <HomeProducts />
+    </>
+  );
 }
 
 export default Home;

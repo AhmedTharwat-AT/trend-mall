@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom";
-import MainNav from "./MainNav";
+import NavBar from "./NavBar";
+import Header from "./Header";
+import Footer from "./Footer";
 
 function AppLayout() {
   return (
-    <div className="bg-[var(--color-brand-500)]">
-      <MainNav />
+    <div className=" min-h-screen">
+      <NavBar />
+      <Header />
       <main>
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
+
 function Logo() {
   return (
-    <img
-      className="w-full object-cover"
-      src="./src/assets/trend-mall-head.png"
-      alt="trend mall"
-    />
+    <NavLink to="/home">
+      <h1 className="w-full text-2xl font-bold tracking-wide  ">
+        TREND <span className="font-light">MALL</span>
+      </h1>
+    </NavLink>
   );
 }
 
