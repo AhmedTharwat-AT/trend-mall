@@ -1,159 +1,144 @@
+import { useRef } from "react";
+import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+
 function Footer() {
+  const ref = useRef();
+  function handleMessage() {
+    if (!ref.current.value) return;
+    window.open(
+      `https://mail.google.com/mail/?view=cm&to=ahmedsarwat3000@gmail.com&from=${ref.current.value}","_blank`,
+    );
+  }
   return (
-    <footer className="body-font bg-[var(--color-brand-50)] text-gray-600 ">
+    <footer className="body-font bg-gray-950 text-gray-100 ">
       <div className="container  mx-auto px-5 py-24">
-        <div className="order-first flex flex-wrap  text-center md:text-left">
-          <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-              CATEGORIES
+        <div className="order-first flex flex-wrap gap-y-4 text-left">
+          <div className="mb-12 w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[22%]">
+            <h2 className="title-font mb-3 text-2xl font-semibold tracking-widest text-gray-100">
+              TREND <span className="font-medium">MALL</span>
             </h2>
-            <nav className="mb-10 list-none">
+            <p className="mb-3 text-sm tracking-wider">
+              Shop the Best Selection of Clothing and Accessories at Trend Mall
+            </p>
+            <NavLink
+              to="/shop"
+              className="peer  text-sm tracking-wider text-gray-300 "
+            >
+              SHOP NOW
+            </NavLink>
+            <div className="h-[2px] w-20 bg-white transition-all peer-hover:w-6 peer-hover:bg-[var(--color-brand-500)]"></div>
+          </div>
+          <div className="w-full px-4 sm:w-1/3 sm:pl-10 md:w-1/2 lg:w-[20%]">
+            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-100">
+              LINKS
+            </h2>
+            <nav className="mb-10 list-none space-y-1 capitalize">
               <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
+                <NavLink
+                  to="/home"
+                  className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
+                >
+                  home
+                </NavLink>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
+                <NavLink
+                  to="/products"
+                  className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
+                >
+                  shop
+                </NavLink>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
+                <NavLink
+                  to="/about"
+                  className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
+                >
+                  about
+                </NavLink>
               </li>
               <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                <NavLink
+                  to="/contact"
+                  className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
+                >
+                  contact us
+                </NavLink>
               </li>
             </nav>
           </div>
-          <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-              CATEGORIES
+          <div className="w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[24%]">
+            <h2 className="title-font mb-3 text-sm font-medium uppercase tracking-widest text-gray-100">
+              get in touch
             </h2>
-            <nav className="mb-10 list-none">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
+            <div className="mb-10 list-none">
+              <p className="text-sm text-gray-300 ">
+                you can reach for me with any of the following methods 🤙{" "}
+              </p>
+              <div className="mt-4 flex justify-start gap-3 text-xl sm:ml-auto ">
+                <a
+                  className="hover:text-[var(--color-brand-500)]"
+                  href="https://www.linkedin.com/in/ahmed-tharwat-at/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  className="hover:text-[var(--color-brand-500)]"
+                  href="https://github.com/AhmedTharwat-AT/AhmedTharwat-AT"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGithub />
+                </a>
+                <span className="flex gap-1 hover:text-[var(--color-brand-500)]">
+                  <FaPhone /> <span className="text-sm">+201092977348</span>
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-              CATEGORIES
+          <div className="w-full px-4 sm:w-2/3 md:w-1/2 lg:w-[34%] ">
+            <h2 className="title-font mb-3 text-sm font-medium uppercase tracking-widest text-gray-100">
+              SEND ME EMAIL
             </h2>
-            <nav className="mb-10 list-none">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-              SUBSCRIBE
-            </h2>
-            <div className="flex flex-wrap items-end justify-center md:flex-nowrap md:justify-start lg:flex-wrap xl:flex-nowrap">
-              <div className="relative mr-2 w-40 sm:mr-4 sm:w-auto lg:mr-0 xl:mr-4">
+            <p className="text-sm text-gray-300">
+              send me a message through gmail 💌
+            </p>
+            <div className="flex flex-1 flex-nowrap items-end justify-start gap-4 md:flex-nowrap">
+              <div className="relative mr-2 w-full sm:mr-4 lg:mr-0 xl:mr-4">
+                <input
+                  type="email"
+                  id="footer-field"
+                  ref={ref}
+                  name="footer-field"
+                  placeholder="Your email"
+                  className="peer mt-5 w-full border-b-2 bg-transparent px-1  py-1 text-base leading-8  text-gray-50/70 placeholder-transparent outline-none transition-colors duration-200 ease-in-out "
+                />
                 <label
                   htmlFor="footer-field"
-                  className="text-sm leading-7 text-gray-600"
+                  className="absolute left-0 top-0 ml-1 text-sm leading-7  text-gray-50/70 transition-all duration-300 peer-placeholder-shown:top-6 peer-focus:top-0"
                 >
-                  Placeholder
+                  Your email
                 </label>
-                <input
-                  type="text"
-                  id="footer-field"
-                  name="footer-field"
-                  className="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-blue-200"
-                />
               </div>
-              <button className="inline-flex flex-shrink-0 rounded border-0 bg-blue-500 px-6 py-2 text-white hover:bg-blue-600 focus:outline-none lg:mt-2 xl:mt-0">
-                Button
+              <button
+                onClick={handleMessage}
+                className="flex flex-shrink-0 rounded border-0 bg-[var(--color-brand-500)] px-6 py-2 tracking-wider text-white hover:bg-[var(--color-brand-600)]  lg:mt-2 xl:mt-0"
+              >
+                SEND
               </button>
             </div>
-            <p className="mt-2 text-center text-sm text-gray-500 md:text-left">
-              Bitters chicharrones fanny pack
-              <br className="hidden lg:block" />
-              waistcoat green juice
-            </p>
           </div>
         </div>
       </div>
-      <div className="bg-gray-100">
-        <div className="container mx-auto flex flex-col items-center px-5 py-6 sm:flex-row">
-          <p className="mt-4 text-sm text-gray-500 sm:ml-6 sm:mt-0">
-            © 2023 AhmedTharwat
-          </p>
-          <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
-            <a className="text-gray-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-              >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="0"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="none"
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                ></path>
-                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-              </svg>
-            </a>
-          </span>
-        </div>
+
+      <div className="bg-gray-800 px-5 py-6 text-center">
+        <p className="mt-4 text-sm text-gray-100 sm:ml-6 sm:mt-0">
+          Copyright © 2023 &mdash; 2024 All rights reserved &mdash; Ahmed
+          Tharwat
+        </p>
       </div>
     </footer>
   );

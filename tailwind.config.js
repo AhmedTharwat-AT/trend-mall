@@ -13,6 +13,7 @@ export default {
         slideBottom: "slideBottom 1.5s 0.5s  ease-out both",
         gradHeight: "gradHeight 0.3s linear forwards  ",
         decHeight: " decHeight 0.3s linear forwards  ",
+        textRepeat: " textRepeat 6s  linear infinite  ",
       },
       keyframes: {
         slideRight: {
@@ -30,14 +31,16 @@ export default {
           "50%": { opacity: "0.1" },
           "100%": { transform: "translateX(0); opacity:1" },
         },
+        textRepeat: {
+          "0%": { left: "-100%" },
+          "100%": { left: "-20.65%" },
+        },
         gradHeight: {
           "0%": { height: 0 },
-
           "100%": { height: "12rem " },
         },
         decHeight: {
           "0%": { height: "12rem" },
-
           "100%": { height: 0, display: "none" },
         },
       },

@@ -32,7 +32,8 @@ ul li .active {
 
 header > div,
 section > div,
-nav > div {
+nav > div,
+footer > div:first-child {
   @apply !max-w-conatin;
 }
 .product:hover a::before {
@@ -64,12 +65,10 @@ nav > div {
 
   html {
     height: 100%;
-
     font-family: "Roboto";
   }
 
   body {
-    height: 2000px;
     min-width: 376px;
   }
 
