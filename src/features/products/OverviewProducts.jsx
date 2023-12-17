@@ -5,8 +5,6 @@ import OverviewProduct from "./OverviewProduct";
 function OverviewProducts() {
   const { data: products, isLoading } = useQuery(["allProducts"], getProducts);
 
-  console.log(products);
-
   if (isLoading) return null;
 
   return (

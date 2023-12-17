@@ -14,7 +14,7 @@ function Footer() {
     <footer className="body-font bg-gray-950 text-gray-100 ">
       <div className="container  mx-auto px-5 py-24">
         <div className="order-first flex flex-wrap gap-y-4 text-left">
-          <div className="mb-12 w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[22%]">
+          <div className="group mb-12 w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[22%]">
             <h2 className="title-font mb-3 text-2xl font-semibold tracking-widest text-gray-100">
               TREND <span className="font-medium">MALL</span>
             </h2>
@@ -23,15 +23,15 @@ function Footer() {
             </p>
             <NavLink
               to="/shop"
-              className="peer  text-sm tracking-wider text-gray-300 "
+              className="text-sm tracking-wider text-gray-300 transition-all hover:opacity-80 "
             >
               SHOP NOW
             </NavLink>
-            <div className="h-[2px] w-20 bg-white transition-all peer-hover:w-6 peer-hover:bg-[var(--color-brand-500)]"></div>
+            <div className="h-[2px] w-20 bg-white transition-all group-hover:w-6 group-hover:bg-[var(--color-brand-500)]"></div>
           </div>
           <div className="w-full px-4 sm:w-1/3 sm:pl-10 md:w-1/2 lg:w-[20%]">
             <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-100">
-              LINKS
+              NAVIGATE
             </h2>
             <nav className="mb-10 list-none space-y-1 capitalize">
               <li>
@@ -76,7 +76,7 @@ function Footer() {
               <p className="text-sm text-gray-300 ">
                 you can reach for me with any of the following methods 🤙{" "}
               </p>
-              <div className="mt-4 flex justify-start gap-3 text-xl sm:ml-auto ">
+              <div className="mt-4 flex items-center justify-start gap-3 text-xl sm:ml-auto ">
                 <a
                   className="hover:text-[var(--color-brand-500)]"
                   href="https://www.linkedin.com/in/ahmed-tharwat-at/"
@@ -93,7 +93,7 @@ function Footer() {
                 >
                   <FaGithub />
                 </a>
-                <span className="flex gap-1 hover:text-[var(--color-brand-500)]">
+                <span className="flex items-center gap-2 text-base hover:text-[var(--color-brand-500)]">
                   <FaPhone /> <span className="text-sm">+201092977348</span>
                 </span>
               </div>

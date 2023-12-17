@@ -13,7 +13,7 @@ function OverviewProduct({ product }) {
 
       <img
         className="h-64 w-full object-cover"
-        src={product.thumbnail}
+        src={product.images[0]}
         alt={product.title}
       />
 
