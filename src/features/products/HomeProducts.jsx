@@ -30,7 +30,7 @@ function HomeProducts() {
   return (
     <section
       ref={ref}
-      className="mx-auto grid max-w-5xl grid-cols-1 md:mb-36  md:mt-28 md:grid-cols-2"
+      className="mx-auto grid max-w-5xl grid-cols-1 md:mb-56  md:mt-28 md:grid-cols-2"
     >
       <HomeProduct
         className={`${
