@@ -3,9 +3,11 @@ import { formatCurrency } from "../../utils/helpers";
 import StarRating from "../../components/StarRating";
 import SideProductList from "./SideProductList";
 
-function Product({ product }) {
+function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
   return (
-    <div className="group relative mx-auto flex w-full flex-col gap-5 overflow-hidden border border-gray-100 sm:w-60 md:w-60">
+    <div
+      className={`group relative mx-auto flex  flex-col gap-5 overflow-hidden border border-gray-100  ${responsive}`}
+    >
       {product.discountPercentage > 15 && (
         <span className="absolute left-0 top-5 z-10 bg-black px-3 text-sm font-medium uppercase tracking-widest text-white">
           sale
@@ -29,8 +31,8 @@ function Product({ product }) {
           <span className="animate-pulse text-lg font-bold">&rarr;</span>{" "}
         </Link>
 
-        <h3 className="text-sm  capitalize group-hover:opacity-0">
-          {product.title.split(" ").slice(0, 3).join(" ")}
+        <h3 className="truncate text-sm capitalize group-hover:opacity-0">
+          {product.title}
         </h3>
 
         <StarRating rating={Math.floor(product.rating)} />

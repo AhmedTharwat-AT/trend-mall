@@ -1,10 +1,12 @@
+import RouteHeading from "../components/RouteHeading";
 import ShopProducts from "../features/products/ShopProducts";
 
 function Shop() {
   return (
-    <div>
+    <>
+      <RouteHeading head="home" sup="shop" />
       <ShopProducts />
-    </div>
+    </>
   );
 }
 

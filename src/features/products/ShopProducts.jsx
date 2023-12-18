@@ -1,23 +1,12 @@
-import { useQuery } from "react-query";
-import { getAllProducts } from "../../services/apiProducts";
-import Product from "./Product";
+import ProductsOptions from "./ProductsOptions";
+import ShopProductsList from "./ShopProductsList";
 
 function ShopProducts() {
-  const { data: products, isLoading } = useQuery(
-    ["allProducts"],
-    getAllProducts,
-  );
-
-  if (isLoading) return null;
-
-  console.log(products);
-
   return (
     <section>
-      <div className="container mx-auto">
-        {products.map((pro) => (
-          <Product product={pro} key={pro.id} />
-        ))}
+      <div className="container mx-auto flex flex-wrap py-20">
+        <ProductsOptions />
+        <ShopProductsList />
       </div>
     </section>
   );

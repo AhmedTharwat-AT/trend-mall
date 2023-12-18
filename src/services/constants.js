@@ -1,3 +1,5 @@
 const URL = "https://dummyjson.com/products";
 
-export { URL };
+const PAGE_SIZE = 6;
+
+export { URL, PAGE_SIZE };
