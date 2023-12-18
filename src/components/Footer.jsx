@@ -1,15 +1,19 @@
 import { useRef } from "react";
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { validateEmail } from "../utils/helpers";
 
 function Footer() {
   const ref = useRef();
+
   function handleMessage() {
     if (!ref.current.value) return;
+    if (!validateEmail(ref.current.value)) return;
     window.open(
       `https://mail.google.com/mail/?view=cm&to=ahmedsarwat3000@gmail.com&from=${ref.current.value}","_blank`,
     );
   }
+
   return (
     <footer className="body-font bg-gray-950 text-gray-100 ">
       <div className="container  mx-auto px-5 py-24">
@@ -22,7 +26,7 @@ function Footer() {
               Shop the Best Selection of Clothing and Accessories at Trend Mall
             </p>
             <NavLink
-              to="/shop"
+              to="/products"
               className="text-sm tracking-wider text-gray-300 transition-all hover:opacity-80 "
             >
               SHOP NOW
@@ -114,18 +118,24 @@ function Footer() {
                   ref={ref}
                   name="footer-field"
                   placeholder="Your email"
-                  className="peer mt-5 w-full border-b-2 bg-transparent px-1  py-1 text-base leading-8  text-gray-50/70 placeholder-transparent outline-none transition-colors duration-200 ease-in-out "
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  className="peer mt-5 w-full border-b-2 bg-transparent px-1  py-1 text-base leading-8  text-gray-50/70 placeholder-transparent outline-none transition-colors duration-200 ease-in-out invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 "
                 />
                 <label
                   htmlFor="footer-field"
-                  className="absolute left-0 top-0 ml-1 text-sm leading-7  text-gray-50/70 transition-all duration-300 peer-placeholder-shown:top-6 peer-focus:top-0"
+                  className="absolute left-0 top-2 ml-1 cursor-text text-xs leading-none text-gray-50/70 transition-all duration-300 peer-placeholder-shown:top-7 peer-placeholder-shown:text-sm 
+                  peer-focus:top-2
+                  peer-focus:text-xs"
                 >
                   Your email
                 </label>
+                <span className="absolute -bottom-6 left-0 mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                  Please enter a valid email address
+                </span>
               </div>
               <button
                 onClick={handleMessage}
-                className="flex flex-shrink-0 rounded border-0 bg-[var(--color-brand-500)] px-6 py-2 tracking-wider text-white hover:bg-[var(--color-brand-600)]  lg:mt-2 xl:mt-0"
+                className="flex flex-shrink-0  border-0 bg-[var(--color-brand-500)] px-6 py-2 tracking-wider text-white hover:bg-[var(--color-brand-600)]  lg:mt-2 xl:mt-0"
               >
                 SEND
               </button>

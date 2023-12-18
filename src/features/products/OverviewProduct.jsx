@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import StarRating from "../../components/StarRating";
 import { formatCurrency } from "../../utils/helpers";
+import SideProductList from "./SideProductList";
 
 function OverviewProduct({ product }) {
   return (
-    <div className="group relative mx-auto flex w-full flex-col gap-5 border border-gray-100 sm:w-60 md:w-60">
+    <div className="group relative mx-auto flex w-full flex-col gap-5 overflow-hidden border border-gray-100 sm:w-60 md:w-60">
       {product.discountPercentage > 15 && (
         <span className="absolute left-0 top-5 z-10 bg-black px-3 text-sm font-medium uppercase tracking-widest text-white">
           sale
         </span>
       )}
+
+      <SideProductList className="group-hover:right-3" />
 
       <img
         className="h-64 w-full object-cover"

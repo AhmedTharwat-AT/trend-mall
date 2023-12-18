@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function HomeProduct({ product, className = "", textStyle = "" }) {
   return (
     <div className={className + " group relative mb-10 md:mb-0"}>
-      <div className="img-wrapper relative mx-auto border before:absolute before:bottom-5 before:right-5 before:h-full before:w-full before:border before:border-[var(--color-brand-500)] md:w-3/4 md:border-black md:before:content-['']">
+      <div className="img-wrapper relative mx-auto border before:absolute before:bottom-5 before:right-5 before:h-full before:w-full before:border-[var(--color-brand-500)] md:w-3/4 md:border-black md:before:border md:before:content-['']">
         <img
           className=" h-[25rem] w-full object-cover  "
           src={product.images.at(0)}

@@ -10,8 +10,6 @@ function HomeProducts() {
     rootMargin: "35px",
   });
 
-  console.log(products);
-
   return (
     <section
       ref={ref}

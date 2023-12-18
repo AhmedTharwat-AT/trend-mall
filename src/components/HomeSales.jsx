@@ -5,7 +5,7 @@ function HomeSales() {
   return (
     <section className="overflow-hidden bg-[var(--color-brand-50)]">
       <div className="group container mx-auto flex  flex-wrap items-center space-y-8  px-5 py-36 sm:px-5 lg:py-24 ">
-        <div className="relative mb-5 space-y-2 whitespace-nowrap pl-24 text-2xl tracking-widest text-gray-500 sm:pl-32 sm:text-3xl lg:w-1/5 lg:pl-1">
+        <div className="relative mb-5 space-y-2 whitespace-nowrap pl-16 text-2xl tracking-widest text-gray-500 sm:pl-32 sm:text-3xl lg:w-1/5 lg:pl-1">
           <span className="absolute -left-3 top-[-45px] z-[5] h-52 w-44 rounded-lg bg-gray-50 sm:w-64 lg:-left-96 lg:w-[500px]"></span>
           <p className="relative z-10">Clothings Hot</p>
           <p className="relative z-10 text-black">Shoe Collection</p>

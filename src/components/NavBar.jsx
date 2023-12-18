@@ -9,10 +9,15 @@ function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
   const { ref } = useNavBarPosition();
 
+  function handleLinkClick(e) {
+    if (e.target.closest("a")) setShowMenu(false);
+  }
+
   return (
     <nav
       ref={ref}
       className="absolute left-0 top-0 z-50 w-full min-w-[375px] bg-gray-200 bg-opacity-40 bg-none"
+      onClick={handleLinkClick}
     >
       <div className="container mx-auto flex h-20 w-full   items-center justify-between  px-6 py-3 md:gap-4">
         <Logo />
