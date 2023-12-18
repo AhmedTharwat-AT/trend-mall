@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 function HomeProduct({ product, className = "", textStyle = "" }) {
+  console.log(product);
   return (
     <div className={className + " group relative mb-10 md:mb-0"}>
       <div className="img-wrapper relative mx-auto border before:absolute before:bottom-5 before:right-5 before:h-full before:w-full before:border-[var(--color-brand-500)] md:w-3/4 md:border-black md:before:border md:before:content-['']">
@@ -18,7 +19,7 @@ function HomeProduct({ product, className = "", textStyle = "" }) {
         <Link
           className="relative text-sm font-medium uppercase tracking-[7px] before:absolute before:left-0 before:top-6 before:h-[2px] before:w-28 before:bg-black before:transition-all before:duration-300 before:content-[''] group-hover:before:w-10 
           group-hover:before:bg-[var(--color-brand-500)] "
-          to="/products"
+          to="/shop"
         >
           shop now
         </Link>

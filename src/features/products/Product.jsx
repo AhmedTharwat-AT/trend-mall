@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import StarRating from "../../components/StarRating";
 import { formatCurrency } from "../../utils/helpers";
+import StarRating from "../../components/StarRating";
 import SideProductList from "./SideProductList";
 
-function OverviewProduct({ product }) {
+function Product({ product }) {
   return (
     <div className="group relative mx-auto flex w-full flex-col gap-5 overflow-hidden border border-gray-100 sm:w-60 md:w-60">
       {product.discountPercentage > 15 && (
@@ -15,7 +15,7 @@ function OverviewProduct({ product }) {
       <SideProductList className="group-hover:right-3" />
 
       <img
-        className="h-64 w-full object-cover"
+        className="h-60 w-full object-cover"
         src={product.images[0]}
         alt={product.title}
       />
@@ -35,7 +35,7 @@ function OverviewProduct({ product }) {
 
         <StarRating rating={Math.floor(product.rating)} />
 
-        <p className="text-md font-semibold tracking-wider">
+        <p className="text-lg font-semibold tracking-wider">
           {formatCurrency(product.price)}
         </p>
       </div>
@@ -43,5 +43,5 @@ function OverviewProduct({ product }) {
   );
 }
 
-export default OverviewProduct;
+export default Product;
 // discountPercentage

@@ -34,7 +34,7 @@ function NavBar() {
           </li>
 
           <li className="text-[var(--color-grey-900)] transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)]">
-            <NavLink to="/products" className="w-full">
+            <NavLink to="/shop" className="w-full">
               Shop
             </NavLink>
           </li>

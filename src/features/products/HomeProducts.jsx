@@ -1,10 +1,13 @@
 import { useQuery } from "react-query";
-import { getProducts } from "../../services/apiProducts";
+import { getMenProducts } from "../../services/apiProducts";
 import HomeProduct from "./HomeProduct";
 import useObserverState from "../../hooks/useObserverState";
 
 function HomeProducts() {
-  const { data: products, isLoading } = useQuery(["allProducts"], getProducts);
+  const { data: products, isLoading } = useQuery(
+    ["menProducts"],
+    getMenProducts,
+  );
   const { ref, isVisible } = useObserverState({
     threshold: 0,
     rootMargin: "35px",

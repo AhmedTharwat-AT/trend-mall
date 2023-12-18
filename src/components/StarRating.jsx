@@ -1,13 +1,13 @@
 function StarRating({ rating = 0, size = "10px" }) {
   return (
-    <div className="flex items-center space-x-[1px]">
+    <div className="flex items-center ">
       {Array(5)
         .fill(1)
         .map((_, i) => (
           <svg
             key={i}
-            className={` h-[14px] w-[14px] stroke-gray-900 ${
-              i + 1 <= rating ? "text-yellow-300" : "text-gray-100"
+            className={` h-[14px] w-[14px] stroke-gray-400 ${
+              i + 1 <= rating ? "text-[var(--color-star-100)]" : "text-gray-100"
             }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"

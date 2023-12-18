@@ -1,18 +1,33 @@
 import { URL } from "./constants";
-const categories = ["mens-shirts", "mens-shoes", "mens-watches", "sunglasses"];
+const menCategory = ["mens-shirts", "mens-shoes", "mens-watches", "sunglasses"];
+const menAndWomen = [
+  "fragrances",
+  "mens-shirts",
+  "mens-shoes",
+  "mens-watches",
+  "womens-watches",
+  "womens-bags",
+  "womens-jewellery",
+  "sunglasses",
+];
 
-// if (Object.keys(options).length > 0)
-//   url =
-//     url +
-//     `?${options.limit ? `limit=${options.limit}&` : ""}${
-//       options.skip ? `skip=${options.skip}` : ""
-//     }`;
-export async function getProducts() {
+export async function getMenProducts() {
   const res = await fetch(URL + "?limit=0");
   const data = await res.json();
 
   const cloths = data.products.filter((pro) =>
-    categories.includes(pro.category),
+    menCategory.includes(pro.category),
+  );
+
+  return cloths;
+}
+
+export async function getAllProducts() {
+  const res = await fetch(URL + "?limit=0");
+  const data = await res.json();
+
+  const cloths = data.products.filter((pro) =>
+    menAndWomen.includes(pro.category),
   );
 
   return cloths;

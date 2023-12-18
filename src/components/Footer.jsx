@@ -15,29 +15,29 @@ function Footer() {
   }
 
   return (
-    <footer className="body-font bg-gray-950 text-gray-100 ">
-      <div className="container  mx-auto px-5 py-24">
+    <footer className="body-font mt-auto bg-gray-950 text-gray-100 ">
+      <div className="container  mx-auto px-5 pb-24 pt-16 sm:pb-14">
         <div className="order-first flex flex-wrap gap-y-4 text-left">
           <div className="group mb-12 w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[22%]">
-            <h2 className="title-font mb-3 text-2xl font-semibold tracking-widest text-gray-100">
+            <h2 className="title-font mb-4 text-3xl font-semibold tracking-widest text-gray-100">
               TREND <span className="font-medium">MALL</span>
             </h2>
-            <p className="mb-3 text-sm tracking-wider">
+            <p className="mb-3 text-sm font-thin leading-6 tracking-widest text-gray-100 opacity-80">
               Shop the Best Selection of Clothing and Accessories at Trend Mall
             </p>
             <NavLink
-              to="/products"
+              to="/shop"
               className="text-sm tracking-wider text-gray-300 transition-all hover:opacity-80 "
             >
               SHOP NOW
             </NavLink>
             <div className="h-[2px] w-20 bg-white transition-all group-hover:w-6 group-hover:bg-[var(--color-brand-500)]"></div>
           </div>
-          <div className="w-full px-4 sm:w-1/3 sm:pl-10 md:w-1/2 lg:w-[20%]">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-100">
+          <div className="w-full px-4 sm:w-1/3 sm:pl-10 md:w-1/2 md:pl-16 lg:w-[20%]">
+            <h2 className="title-font mb-5 text-sm font-medium tracking-widest text-gray-100">
               NAVIGATE
             </h2>
-            <nav className="mb-10 list-none space-y-1 capitalize">
+            <nav className="mb-10 list-none space-y-2 capitalize tracking-widest">
               <li>
                 <NavLink
                   to="/home"
@@ -73,11 +73,11 @@ function Footer() {
             </nav>
           </div>
           <div className="w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[24%]">
-            <h2 className="title-font mb-3 text-sm font-medium uppercase tracking-widest text-gray-100">
+            <h2 className="title-font mb-5 text-sm font-medium uppercase tracking-widest text-gray-100">
               get in touch
             </h2>
             <div className="mb-10 list-none">
-              <p className="text-sm text-gray-300 ">
+              <p className="text-sm leading-6 tracking-wide text-gray-300 ">
                 you can reach for me with any of the following methods 🤙{" "}
               </p>
               <div className="mt-4 flex items-center justify-start gap-3 text-xl sm:ml-auto ">
@@ -104,7 +104,7 @@ function Footer() {
             </div>
           </div>
           <div className="w-full px-4 sm:w-2/3 md:w-1/2 lg:w-[34%] ">
-            <h2 className="title-font mb-3 text-sm font-medium uppercase tracking-widest text-gray-100">
+            <h2 className="title-font mb-5 text-sm font-medium uppercase tracking-widest text-gray-100">
               SEND ME EMAIL
             </h2>
             <p className="text-sm text-gray-300">
