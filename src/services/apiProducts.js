@@ -25,7 +25,13 @@ export async function getAllProducts() {
   return products;
 }
 
-export async function getFilterProducts({ page, sort, query, category }) {
+export async function getFilterProducts({
+  page,
+  sort,
+  query,
+  category,
+  brand,
+}) {
   //search
   let res = null;
   if (query) {
@@ -36,9 +42,25 @@ export async function getFilterProducts({ page, sort, query, category }) {
   }
 
   const data = await res.json();
-  const products = data.products.filter((pro) =>
-    allCategories.includes(pro.category),
-  );
+
+  let products = [];
+
+  //category
+  if (category != "All") {
+    products = data.products.filter((pro) => category === pro.category);
+  }
+
+  //brands
+  if (brand) {
+    products = data.products.filter((pro) => brand === pro.brand);
+  }
+
+  if (!brand && category == "All")
+    products = data.products.filter((pro) => {
+      if (category != "All") return category === pro.category;
+      return allCategories.includes(pro.category);
+    });
+
   const count = products.length;
 
   //sort

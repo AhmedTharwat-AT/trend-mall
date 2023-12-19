@@ -1,14 +1,28 @@
-import { createContext, useContext, useState } from "react";
+import { cloneElement, createContext, useContext, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const SelectContext = createContext();
 
 function Select({ children }) {
-  const [open, setOpen] = useState("");
+  const [open, setOpen] = useState();
   return (
     <SelectContext.Provider value={{ open, setOpen }}>
       {children}
     </SelectContext.Provider>
+  );
+}
+
+function Head({ children, onClick }) {
+  const { setOpen } = useContext(SelectContext);
+  return (
+    <>
+      {cloneElement(children, {
+        onClick: () => {
+          setOpen();
+          onClick?.();
+        },
+      })}
+    </>
   );
 }
 
@@ -22,7 +36,9 @@ function Toggle({ title }) {
       className="group my-3 flex cursor-pointer items-center justify-between"
       onClick={handleClick}
     >
-      <h1 className="text-base font-medium uppercase">{title}</h1>
+      <h1 className="text-base font-medium uppercase transition-all group-hover:opacity-80">
+        {title}
+      </h1>
 
       <IoIosArrowDown
         className={`text-2xl opacity-80 transition-all group-hover:animate-pulse ${
@@ -42,19 +58,20 @@ function Options({ title, options, onClick }) {
         open === title ? `max-h-48 ` : "max-h-0 "
       }`}
     >
-      {options.map((op, i) => (
+      {options.map((option, i) => (
         <h2
-          onClick={onClick}
+          onClick={() => onClick?.(option)}
           className="cursor-pointer text-sm tracking-wide text-gray-500 transition-all hover:text-black"
           key={i}
         >
-          {op.replace("-", " ")}
+          {option.replace("-", " ")}
         </h2>
       ))}
     </div>
   );
 }
 
+Select.Head = Head;
 Select.Toggle = Toggle;
 Select.Options = Options;
 
