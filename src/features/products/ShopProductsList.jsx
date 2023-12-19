@@ -3,6 +3,7 @@ import PaginationInfo from "../../components/PaginationInfo";
 import Pagination from "../../components/Pagination";
 import useFilteredProducts from "./useFilteredProducts";
 import Spinner from "../../components/Spinner";
+import SortFilter from "../../components/SortFilter";
 
 function ShopProductsList() {
   const { products, isLoading } = useFilteredProducts();
@@ -16,7 +17,10 @@ function ShopProductsList() {
 
   return (
     <div className="flex w-full flex-col  px-5 lg:min-h-[848px]  lg:w-3/4">
-      <PaginationInfo />
+      <div className="flex flex-wrap items-center justify-between gap-5 pb-10 ">
+        <PaginationInfo />
+        <SortFilter />
+      </div>
 
       {isLoading ? (
         <Spinner />

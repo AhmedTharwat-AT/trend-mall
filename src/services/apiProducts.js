@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE, URL } from "./constants";
 const menCategory = ["mens-shirts", "mens-shoes", "mens-watches", "sunglasses"];
 const menAndWomen = [
@@ -33,20 +34,29 @@ export async function getAllProducts() {
   return products;
 }
 
-export async function getFilterProducts(page = 0) {
-  // let url = "?limit=6&skip=0";
-  // if (page > 0) url = `?limit=6&skip=${page * 6}`;
-
+// const [searchParams] = useSearchParams();
+// const page = searchParams.get("page") || 0;
+export async function getFilterProducts({ page, sort }) {
   const res = await fetch(URL + "?limit=0");
   const data = await res.json();
-
   const products = data.products.filter((pro) =>
     menAndWomen.includes(pro.category),
   );
 
-  const filteredProducts = products.slice(
-    page * PAGE_SIZE,
-    page * PAGE_SIZE + PAGE_SIZE,
+  //sort
+
+  let sortedProducts = [...products];
+  if (sort == "low") {
+    sortedProducts.sort((a, b) => +a.price - +b.price);
+  }
+  if (sort == "high") {
+    sortedProducts.sort((a, b) => +b.price - +a.price);
+  }
+
+  //filter
+  const filteredProducts = sortedProducts.slice(
+    (page - 1) * PAGE_SIZE,
+    (page - 1) * PAGE_SIZE + PAGE_SIZE,
   );
 
   return filteredProducts;

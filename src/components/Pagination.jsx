@@ -1,37 +1,41 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import useProducts from "../features/products/useProducts";
 import { PAGE_SIZE } from "../services/constants";
 
 function Pagination() {
-  const { count = 20, isLoading } = useProducts();
+  const { count, isLoading } = useProducts();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [currPage, setCurrPage] = useState(+searchParams.get("page") || 0);
+  const currPage = +searchParams.get("page") || 1;
   const pageNum = Math.floor(count / PAGE_SIZE);
 
-  useEffect(() => {
-    const urlPage = searchParams.get("page") || 0;
-    if (currPage === urlPage) return;
-
-    searchParams.set("page", currPage);
+  function handleNextPage() {
+    if (currPage + 1 > pageNum) return;
+    searchParams.set("page", currPage + 1);
     setSearchParams(searchParams);
-  }, [currPage, searchParams, setSearchParams]);
+  }
+
+  function handlePerviousPage() {
+    if (currPage - 1 < 1) return;
+    searchParams.set("page", currPage - 1);
+    setSearchParams(searchParams);
+  }
 
   if (isLoading) return null;
 
   return (
     <div className="mt-auto flex justify-center space-x-8 p-3 pt-10 text-4xl">
       <IoIosArrowBack
-        onClick={() => setCurrPage((c) => (c - 1 < 0 ? c : c - 1))}
+        onClick={handlePerviousPage}
         className={`${
-          currPage === 0
+          currPage === 1
             ? "cursor-not-allowed text-gray-500 "
             : "cursor-pointer hover:-translate-x-1"
         }  transition-all `}
       />
       <IoIosArrowForward
-        onClick={() => setCurrPage((c) => (c + 1 > pageNum ? c : c + 1))}
+        onClick={handleNextPage}
         className={`${
           currPage === pageNum
             ? "cursor-not-allowed text-gray-500 "
