@@ -12,8 +12,6 @@ export default {
         slideLeft: "slideLeft 0.5s 0.8s ease-out both ",
         slideBottom: "slideBottom 0.5s 0.1s ease-out both",
         slideTop: "slideTop 0.5s  ease-out both",
-        gradHeight: "gradHeight 0.3s linear forwards  ",
-        decHeight: " decHeight 0.3s linear forwards  ",
         textRepeat: " textRepeat 6s  linear infinite  ",
       },
       keyframes: {
@@ -40,14 +38,6 @@ export default {
         textRepeat: {
           "0%": { left: "-100%" },
           "100%": { left: "-20.65%" },
-        },
-        gradHeight: {
-          "0%": { height: 0 },
-          "100%": { height: "12rem " },
-        },
-        decHeight: {
-          "0%": { height: "12rem" },
-          "100%": { height: 0, display: "none" },
         },
       },
       maxWidth: {

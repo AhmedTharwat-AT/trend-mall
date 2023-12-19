@@ -1,16 +1,7 @@
-import { useSearchParams } from "react-router-dom";
-import { PAGE_SIZE, URL } from "./constants";
-const menCategory = ["mens-shirts", "mens-shoes", "mens-watches", "sunglasses"];
-const menAndWomen = [
-  "fragrances",
-  "mens-shirts",
-  "mens-shoes",
-  "mens-watches",
-  "womens-watches",
-  "womens-bags",
-  "womens-jewellery",
-  "sunglasses",
-];
+import { PAGE_SIZE, URL, CATEGORIES, MEN_CATEGORIES } from "./constants";
+
+const menCategory = [...MEN_CATEGORIES];
+const allCategories = [...CATEGORIES];
 
 export async function getMenProducts() {
   const res = await fetch(URL + "?limit=0");
@@ -28,17 +19,13 @@ export async function getAllProducts() {
   const data = await res.json();
 
   const products = data.products.filter((pro) =>
-    menAndWomen.includes(pro.category),
+    allCategories.includes(pro.category),
   );
 
   return products;
 }
 
-// const [searchParams] = useSearchParams();
-// const page = searchParams.get("page") || 0;
-export async function getFilterProducts({ page, sort, query }) {
-  console.log(query);
-
+export async function getFilterProducts({ page, sort, query, category }) {
   //search
   let res = null;
   if (query) {
@@ -47,15 +34,14 @@ export async function getFilterProducts({ page, sort, query }) {
   if (!query) {
     res = await fetch(URL + `?limit=0`);
   }
+
   const data = await res.json();
   const products = data.products.filter((pro) =>
-    menAndWomen.includes(pro.category),
+    allCategories.includes(pro.category),
   );
-
   const count = products.length;
 
   //sort
-
   let sortedProducts = [...products];
   if (sort == "low") {
     sortedProducts.sort((a, b) => +a.price - +b.price);
@@ -64,7 +50,7 @@ export async function getFilterProducts({ page, sort, query }) {
     sortedProducts.sort((a, b) => +b.price - +a.price);
   }
 
-  //result per page
+  //results per page
   const filteredProducts = sortedProducts.slice(
     (page - 1) * PAGE_SIZE,
     (page - 1) * PAGE_SIZE + PAGE_SIZE,
@@ -78,7 +64,7 @@ export async function getAllBrands() {
   const data = await res.json();
 
   const products = data.products
-    .filter((pro) => menAndWomen.includes(pro.category))
+    .filter((pro) => allCategories.includes(pro.category))
     .map((el) => el.brand);
 
   const brands = [...new Set(products)];

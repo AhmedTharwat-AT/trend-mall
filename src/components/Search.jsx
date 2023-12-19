@@ -19,6 +19,7 @@ function Search({ onSearch }) {
         className="w-full rounded border-2 bg-gray-50 px-2 py-2 pr-6 text-sm focus:outline-none"
         type="text"
         value={query}
+        placeholder="Search"
         onChange={(e) => setQuery(e.target.value)}
       />
       <span
