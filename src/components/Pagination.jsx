@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import useProducts from "../features/products/useProducts";
 import { PAGE_SIZE } from "../services/constants";
+import useFilteredProducts from "../features/products/useFilteredProducts";
 
 function Pagination() {
-  const { count, isLoading } = useProducts();
+  const { count, isLoading } = useFilteredProducts();
   const [searchParams, setSearchParams] = useSearchParams();
   const currPage = +searchParams.get("page") || 1;
-  const pageNum = Math.floor(count / PAGE_SIZE);
+  const pageNum = Math.ceil(count / PAGE_SIZE);
 
   function handleNextPage() {
     if (currPage + 1 > pageNum) return;

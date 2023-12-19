@@ -36,12 +36,23 @@ export async function getAllProducts() {
 
 // const [searchParams] = useSearchParams();
 // const page = searchParams.get("page") || 0;
-export async function getFilterProducts({ page, sort }) {
-  const res = await fetch(URL + "?limit=0");
+export async function getFilterProducts({ page, sort, query }) {
+  console.log(query);
+
+  //search
+  let res = null;
+  if (query) {
+    res = await fetch(URL + `/search?q=${query}&limit=0&`);
+  }
+  if (!query) {
+    res = await fetch(URL + `?limit=0`);
+  }
   const data = await res.json();
   const products = data.products.filter((pro) =>
     menAndWomen.includes(pro.category),
   );
+
+  const count = products.length;
 
   //sort
 
@@ -53,13 +64,13 @@ export async function getFilterProducts({ page, sort }) {
     sortedProducts.sort((a, b) => +b.price - +a.price);
   }
 
-  //filter
+  //result per page
   const filteredProducts = sortedProducts.slice(
     (page - 1) * PAGE_SIZE,
     (page - 1) * PAGE_SIZE + PAGE_SIZE,
   );
 
-  return filteredProducts;
+  return { filteredProducts, count };
 }
 
 export async function getAllBrands() {

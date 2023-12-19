@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom";
-import useProducts from "../features/products/useProducts";
 import { PAGE_SIZE } from "../services/constants";
+import useFilteredProducts from "../features/products/useFilteredProducts";
 
 function PaginationInfo() {
-  const { isLoading, count } = useProducts();
+  const { isLoading, count } = useFilteredProducts();
   const [searchParams] = useSearchParams();
   const currPage = +searchParams.get("page") || 1;
 

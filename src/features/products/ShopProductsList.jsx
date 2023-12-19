@@ -10,7 +10,7 @@ function ShopProductsList() {
 
   if (!isLoading && !products.length)
     return (
-      <div className="flex w-full flex-col  px-5 lg:min-h-[848px]  lg:w-3/4">
+      <div className="flex w-full flex-col px-5 lg:min-h-[848px]  lg:w-3/4">
         <p className="col-span-3">There are no products</p>
       </div>
     );
@@ -25,7 +25,7 @@ function ShopProductsList() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className="relative grid grid-cols-1 gap-5 sm:grid-cols-2   lg:grid-cols-3 ">
+        <div className="relative grid grid-cols-1 gap-5  sm:grid-cols-2 lg:grid-cols-3  lg:gap-x-20 ">
           {products.map((pro) => (
             <Product
               responsive="w-full lg:w-56 md:w-[350px] sm:w-60"
