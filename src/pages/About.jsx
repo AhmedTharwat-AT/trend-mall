@@ -1,4 +1,5 @@
-import AboutSection from "../components/AboutSection";
+import AboutHead from "../components/AboutHead";
+import AboutTestimonal from "../components/AboutTestimonal";
 import BgSeperator from "../components/BgSeperator";
 import RouteHeading from "../components/PageHeading";
 
@@ -7,7 +8,8 @@ function About() {
     <>
       <RouteHeading head="home" sup="about us" />
       <BgSeperator src="./src/assets/carousel/img-1.jpg" alt="trend mall" />
-      <AboutSection>section one</AboutSection>
+      <AboutHead />
+      <AboutTestimonal />
     </>
   );
 }

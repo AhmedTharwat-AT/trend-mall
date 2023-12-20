@@ -9,7 +9,7 @@ function BgSeperator({
         alt={alt}
         src={src}
       />
-      <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-3 py-2 text-3xl font-semibold uppercase mix-blend-screen sm:px-4 sm:text-5xl">
+      <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-3 py-2 text-2xl font-semibold uppercase mix-blend-screen sm:px-4 sm:text-4xl  lg:text-6xl">
         {alt}
       </h1>
     </div>

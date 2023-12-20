@@ -43,6 +43,10 @@ export default {
       maxWidth: {
         conatin: "1170px ",
       },
+      backgroundImage: {
+        about:
+          'url("https://preview.colorlib.com/theme/malefashion/img/about/testimonial-pic.jpg.webp")',
+      },
     },
   },
   plugins: [],

@@ -16,31 +16,29 @@ function ContactContent() {
               <h2 className="title-font text-xs font-semibold tracking-widest text-gray-900">
                 ADDRESS
               </h2>
-              <p className="mt-1">
-                Photo booth tattooed prism, portland taiyaki hoodie neutra
-                typewriter
-              </p>
+              <p className="mt-1">El Mansoura, Ad Daqahliyah, Egypt </p>
             </div>
             <div className="mt-4 px-6 lg:mt-0 lg:w-1/2">
               <h2 className="title-font text-xs font-semibold tracking-widest text-gray-900">
                 EMAIL
               </h2>
               <a className="leading-relaxed text-indigo-500">
-                example@email.com
+                ahmedsarwat3000@email.com
               </a>
               <h2 className="title-font mt-4 text-xs font-semibold tracking-widest text-gray-900">
                 PHONE
               </h2>
-              <p className="leading-relaxed">123-456-7890</p>
+              <p className="leading-relaxed">+201092977348</p>
             </div>
           </div>
         </div>
         <div className="mt-8 flex w-full flex-col bg-white md:ml-auto md:mt-0 md:w-1/2 md:py-8 lg:w-1/3">
           <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
-            Feedback
+            Contact Me
           </h2>
           <p className="mb-5 leading-relaxed text-gray-600">
-            Post-ironic portland shabby chic echo park, banjo fashion axe
+            Send me an email of what do you think about this project , and if
+            you need a react.js dev for a project.
           </p>
           <div className="relative mb-4">
             <label htmlFor="name" className="text-sm leading-7 text-gray-600">
@@ -78,12 +76,8 @@ function ContactContent() {
             ></textarea>
           </div>
           <button className="rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none">
-            Button
+            Send
           </button>
-          <p className="mt-3 text-xs text-gray-500">
-            Chicharrones blog helvetica normcore iceland tousled brook viral
-            artisan.
-          </p>
         </div>
       </div>
     </section>
