@@ -9,6 +9,7 @@ function useFilteredProducts() {
   const query = searchParams.get("query") || "";
   const category = searchParams.get("category") || "All";
   const brand = searchParams.get("brand") || "";
+  const range = searchParams.get("range") || "";
 
   const { data: { filteredProducts: products, count } = {}, isLoading } =
     useQuery(
@@ -19,8 +20,9 @@ function useFilteredProducts() {
         `query=${query}`,
         `category=${category}`,
         `brand=${brand}`,
+        `range=${range}`,
       ],
-      () => getFilterProducts({ page, sort, query, category, brand }),
+      () => getFilterProducts({ page, sort, query, category, brand, range }),
     );
 
   return { products, isLoading, count };

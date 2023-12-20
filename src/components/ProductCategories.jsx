@@ -1,56 +1,107 @@
 import { useQuery } from "react-query";
-import { CATEGORIES } from "../services/constants";
+import { CATEGORIES, PRICES_RANGE } from "../services/constants";
 import Select from "./Select";
-import { getAllBrands } from "../services/apiProducts";
+import { getBrands } from "../services/apiProducts";
 import { useSearchParams } from "react-router-dom";
+import Option from "./Option";
+import { formatCurrency } from "../utils/helpers";
 
 function ProductCategories() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data: brands, isLoading } = useQuery(["brands"], getAllBrands);
+  const currCategory = searchParams.get("category") || "All";
+  const currBrand = searchParams.get("brand") || "";
+  const { data: brands, isLoading } = useQuery(["brands", currCategory], () =>
+    getBrands(currCategory),
+  );
 
   function handleSelectingGategory(option) {
-    searchParams.set("category", option);
-    searchParams.delete("brand");
+    if (option === currCategory) {
+      searchParams.delete("category");
+    } else {
+      searchParams.set("category", option);
+    }
+    searchParams.delete("range");
     setSearchParams(searchParams);
   }
   function handleSelectingBrand(option) {
     searchParams.set("brand", option);
-    searchParams.delete("category");
+    searchParams.delete("range");
     setSearchParams(searchParams);
   }
-  function handleClear() {
-    searchParams.set("category", "All");
+  function handlePriceRange(option) {
+    searchParams.set("range", `${option.from}-${option.to}`);
+    setSearchParams(searchParams);
+  }
+  function handleReset() {
+    searchParams.delete("category");
     searchParams.delete("brand");
+    searchParams.delete("range");
+    searchParams.delete("page");
+    searchParams.delete("sort");
+    searchParams.delete("query");
     setSearchParams(searchParams);
   }
 
   return (
     <div className="mt-10 [&>div]:border-b-2 [&>div]:pb-2">
-      <Select>
-        <Select.Head onClick={handleClear}>
-          <h1 className="mb-6 cursor-pointer text-lg font-medium tracking-wide transition-all hover:opacity-80">
-            All Products
-          </h1>
-        </Select.Head>
-        <div>
-          <Select.Toggle title="categories" />
-          <Select.Options
-            onClick={handleSelectingGategory}
-            title="categories"
-            options={CATEGORIES}
-          />
-        </div>
+      <Select.Head onClick={handleReset}>
+        <h1 className="mb-6 cursor-pointer text-lg font-medium tracking-wide transition-all hover:opacity-80">
+          All Products
+        </h1>
+      </Select.Head>
+      <div>
+        <Select.Toggle title="categories" />
+        <Select.Options title="categories">
+          {CATEGORIES.map((option, i) => (
+            <Option
+              onClick={() => handleSelectingGategory(option)}
+              isActive={option === currCategory}
+              key={i}
+            >
+              {option.replace("-", " ")}
+            </Option>
+          ))}
+        </Select.Options>
+      </div>
+      <div>
+        <Select.Toggle title="brands" />
         {!isLoading && (
-          <div>
-            <Select.Toggle title="brands" />
-            <Select.Options
-              onClick={handleSelectingBrand}
-              title="brands"
-              options={brands}
-            />
-          </div>
+          <Select.Options title="brands">
+            {brands.map((option, i) => (
+              <Option
+                onClick={() => handleSelectingBrand(option)}
+                isActive={option === currBrand}
+                key={i}
+              >
+                {option.replace("-", " ")}
+              </Option>
+            ))}
+          </Select.Options>
         )}
-      </Select>
+      </div>
+
+      <div>
+        <Select.Toggle title="price" />
+        <Select.Options title="price">
+          {PRICES_RANGE.map((option, i) => (
+            <Option
+              onClick={() => handlePriceRange(option)}
+              isActive={
+                `${option.from}-${option.to}` === searchParams.get("range")
+              }
+              key={i}
+            >
+              <div>
+                <span>
+                  {formatCurrency(option.from)}
+                  {option.to ? "" : "+"}{" "}
+                </span>
+                {option.to ? <span> - {formatCurrency(option.to)}</span> : ""}
+              </div>
+            </Option>
+          ))}
+        </Select.Options>
+      </div>
     </div>
   );
 }

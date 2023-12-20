@@ -24,8 +24,8 @@ function NavBar() {
 
         <ul
           className={`${
-            showMenu ? "max-h-44 py-10" : "max-h-0 "
-          } max-md:drop-menu text-base font-medium capitalize tracking-wider transition-all duration-500 md:flex md:animate-none md:space-x-4`}
+            showMenu ? "max-h-44 py-10" : "max-md:max-h-0 "
+          } max-md:drop-menu text-base font-medium capitalize tracking-wider transition-all duration-500 md:flex md:animate-none md:space-x-4 `}
         >
           <li className=" p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)]">
             <NavLink to="/home" className="w-full">

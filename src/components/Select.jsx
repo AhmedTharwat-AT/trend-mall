@@ -1,7 +1,7 @@
 import { cloneElement, createContext, useContext, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const SelectContext = createContext();
+export const SelectContext = createContext();
 
 function Select({ children }) {
   const [open, setOpen] = useState();
@@ -49,24 +49,17 @@ function Toggle({ title }) {
   );
 }
 
-function Options({ title, options, onClick }) {
-  const { open } = useContext(SelectContext);
+function Options({ title, children, onClick }) {
+  const { open, setOpen } = useContext(SelectContext);
 
   return (
     <div
-      className={`origin-top space-y-1 overflow-y-scroll capitalize transition-all duration-300 ${
+      onClick={() => setOpen("")}
+      className={`origin-top space-y-2 overflow-y-scroll capitalize transition-all duration-300 ${
         open === title ? `max-h-48 ` : "max-h-0 "
       }`}
     >
-      {options.map((option, i) => (
-        <h2
-          onClick={() => onClick?.(option)}
-          className="cursor-pointer text-sm tracking-wide text-gray-500 transition-all hover:text-black"
-          key={i}
-        >
-          {option.replace("-", " ")}
-        </h2>
-      ))}
+      {children}
     </div>
   );
 }

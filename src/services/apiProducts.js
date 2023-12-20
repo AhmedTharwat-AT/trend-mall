@@ -1,3 +1,4 @@
+import { sortArray } from "../utils/helpers";
 import { PAGE_SIZE, URL, CATEGORIES, MEN_CATEGORIES } from "./constants";
 
 const menCategory = [...MEN_CATEGORIES];
@@ -31,6 +32,7 @@ export async function getFilterProducts({
   query,
   category,
   brand,
+  range,
 }) {
   //search
   let res = null;
@@ -40,37 +42,29 @@ export async function getFilterProducts({
   if (!query) {
     res = await fetch(URL + `?limit=0`);
   }
-
   const data = await res.json();
-
-  let products = [];
+  let products = [...data.products];
 
   //category
   if (category != "All") {
-    products = data.products.filter((pro) => category === pro.category);
+    products = products.filter((pro) => category === pro.category);
   }
-
   //brands
   if (brand) {
-    products = data.products.filter((pro) => brand === pro.brand);
+    products = products.filter((pro) => brand === pro.brand);
   }
 
-  if (!brand && category == "All")
-    products = data.products.filter((pro) => {
-      if (category != "All") return category === pro.category;
-      return allCategories.includes(pro.category);
-    });
-
-  const count = products.length;
+  //range
+  if (range) {
+    const [from, to] = range.split("-");
+    products = products.filter(
+      (pro) => +pro.price > +from && (+to ? +pro.price < +to : true),
+    );
+  }
 
   //sort
-  let sortedProducts = [...products];
-  if (sort == "low") {
-    sortedProducts.sort((a, b) => +a.price - +b.price);
-  }
-  if (sort == "high") {
-    sortedProducts.sort((a, b) => +b.price - +a.price);
-  }
+  let sortedProducts = sortArray(products, sort, "price");
+  const count = sortedProducts.length;
 
   //results per page
   const filteredProducts = sortedProducts.slice(
@@ -81,27 +75,24 @@ export async function getFilterProducts({
   return { filteredProducts, count };
 }
 
-export async function getAllBrands() {
+export async function getBrands(category) {
   const res = await fetch(URL + "?limit=0");
   const data = await res.json();
+  let products = [];
 
-  const products = data.products
-    .filter((pro) => allCategories.includes(pro.category))
-    .map((el) => el.brand);
+  if (category == "All")
+    products = data.products.filter((pro) =>
+      allCategories.includes(pro.category),
+    );
 
+  if (category != "All")
+    products = data.products.filter((pro) => category === pro.category);
+
+  products = products.map((el) => el.brand);
   const brands = [...new Set(products)];
 
   return brands;
 }
-
-// export async function getFilterProducts(options = "") {
-//   let url = URL;
-//   if (options.length > 0) url += options;
-
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   return data.products;
-// }
 
 // const categories = [
 //   "fragrances",

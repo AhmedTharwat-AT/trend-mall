@@ -21,8 +21,8 @@ function SortFilter() {
         value={currSort}
         className="text-sm font-medium  focus:outline-none "
       >
-        <option value="low">Low to high</option>
-        <option value="high">High to low</option>
+        <option value="asc">Low to high</option>
+        <option value="desc">High to low</option>
         <option value="def">Default</option>
       </select>
     </div>

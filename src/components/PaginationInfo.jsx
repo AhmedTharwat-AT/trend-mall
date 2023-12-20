@@ -10,12 +10,12 @@ function PaginationInfo() {
   const from = (currPage - 1) * PAGE_SIZE + 1;
   const to = currPage * PAGE_SIZE > count ? count : currPage * PAGE_SIZE;
 
-  if (isLoading) return null;
-
   return (
     <div>
       <p className="text-sm font-thin tracking-wider opacity-90">
-        Showing {from} &mdash; {to} of {count} results
+        {isLoading
+          ? "Loading ..."
+          : `Showing ${from} \u2014 ${to} of ${count} results`}
       </p>
     </div>
   );
