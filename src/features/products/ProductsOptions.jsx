@@ -13,6 +13,7 @@ function ProductsOptions() {
     searchParams.delete("brand");
     searchParams.delete("range");
     searchParams.delete("page");
+    searchParams.delete("sort");
     setSearchParams(searchParams);
   }
 

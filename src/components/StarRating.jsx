@@ -7,7 +7,9 @@ function StarRating({ rating = 0, size = "10px" }) {
           <svg
             key={i}
             className={` h-[14px] w-[14px] stroke-gray-400 ${
-              i + 1 <= rating ? "text-[var(--color-star-100)]" : "text-gray-100"
+              i + 1 <= rating
+                ? "text-[var(--color-brand-500)]"
+                : "text-gray-100"
             }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"

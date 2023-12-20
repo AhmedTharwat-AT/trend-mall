@@ -49,6 +49,9 @@ export async function getFilterProducts({
   if (category != "All") {
     products = products.filter((pro) => category === pro.category);
   }
+  if (category == "All") {
+    products = products.filter((pro) => allCategories.includes(pro.category));
+  }
   //brands
   if (brand) {
     products = products.filter((pro) => brand === pro.brand);

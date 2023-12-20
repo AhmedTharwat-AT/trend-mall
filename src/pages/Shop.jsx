@@ -1,10 +1,10 @@
-import RouteHeading from "../components/RouteHeading";
+import PageHeading from "../components/PageHeading";
 import ShopProducts from "../features/products/ShopProducts";
 
 function Shop() {
   return (
     <>
-      <RouteHeading head="home" sup="shop" />
+      <PageHeading head="home" sup="shop" />
       <ShopProducts />
     </>
   );

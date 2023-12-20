@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 function SortFilter() {
-  const [currSort, setSort] = useState("def");
   const [searchParams, setSearchParams] = useSearchParams();
+  const [currSort, setSort] = useState("def");
+
+  useEffect(() => {
+    const currSort = searchParams.get("sort") || "def";
+    setSort(currSort);
+  }, [searchParams]);
 
   function handleSelecting(e) {
     setSort(e.target.value);

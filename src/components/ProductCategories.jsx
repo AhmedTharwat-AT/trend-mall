@@ -10,8 +10,10 @@ function ProductCategories() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currCategory = searchParams.get("category") || "All";
   const currBrand = searchParams.get("brand") || "";
-  const { data: brands, isLoading } = useQuery(["brands", currCategory], () =>
-    getBrands(currCategory),
+  const currRange = searchParams.get("range") || "";
+  const { data: brands, isLoading: isLoadingBrands } = useQuery(
+    ["brands", currCategory],
+    () => getBrands(currCategory),
   );
 
   function handleSelectingGategory(option) {
@@ -21,15 +23,24 @@ function ProductCategories() {
       searchParams.set("category", option);
     }
     searchParams.delete("range");
+    searchParams.delete("brand");
     setSearchParams(searchParams);
   }
   function handleSelectingBrand(option) {
-    searchParams.set("brand", option);
+    if (option === currBrand) {
+      searchParams.delete("brand");
+    } else {
+      searchParams.set("brand", option);
+    }
     searchParams.delete("range");
     setSearchParams(searchParams);
   }
   function handlePriceRange(option) {
-    searchParams.set("range", `${option.from}-${option.to}`);
+    if (`${option.from}-${option.to}` === currRange) {
+      searchParams.delete("range");
+    } else {
+      searchParams.set("range", `${option.from}-${option.to}`);
+    }
     setSearchParams(searchParams);
   }
   function handleReset() {
@@ -63,9 +74,9 @@ function ProductCategories() {
           ))}
         </Select.Options>
       </div>
-      <div>
-        <Select.Toggle title="brands" />
-        {!isLoading && (
+      {!isLoadingBrands && brands.length > 0 && (
+        <div>
+          <Select.Toggle title="brands" />
           <Select.Options title="brands">
             {brands.map((option, i) => (
               <Option
@@ -77,8 +88,8 @@ function ProductCategories() {
               </Option>
             ))}
           </Select.Options>
-        )}
-      </div>
+        </div>
+      )}
 
       <div>
         <Select.Toggle title="price" />
@@ -86,9 +97,7 @@ function ProductCategories() {
           {PRICES_RANGE.map((option, i) => (
             <Option
               onClick={() => handlePriceRange(option)}
-              isActive={
-                `${option.from}-${option.to}` === searchParams.get("range")
-              }
+              isActive={`${option.from}-${option.to}` === currRange}
               key={i}
             >
               <div>

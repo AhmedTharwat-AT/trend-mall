@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../../utils/helpers";
 import StarRating from "../../components/StarRating";
-import SideProductList from "./SideProductList";
+import SideProductMenu from "./SideProductMenu";
 
 function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
   return (
@@ -14,7 +14,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
         </span>
       )}
 
-      <SideProductList className="group-hover:right-3" />
+      <SideProductMenu className="group-hover:right-3" />
 
       <img
         className="h-60 w-full object-cover"
@@ -37,7 +37,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
 
         <StarRating rating={Math.floor(product.rating)} />
 
-        <p className="text-lg font-semibold tracking-wider">
+        <p className="text-lg font-semibold tracking-wider opacity-80">
           {formatCurrency(product.price)}
         </p>
       </div>

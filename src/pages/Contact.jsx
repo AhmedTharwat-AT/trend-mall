@@ -1,5 +1,13 @@
+import ContactContent from "../components/ContactContent";
+import PageHeading from "../components/PageHeading";
+
 function Contact() {
-  return <div>contact</div>;
+  return (
+    <>
+      <PageHeading head="home" sup="contact" />
+      <ContactContent />
+    </>
+  );
 }
 
 export default Contact;

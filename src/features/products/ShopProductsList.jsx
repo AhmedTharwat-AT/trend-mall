@@ -7,6 +7,7 @@ import SortFilter from "../../components/SortFilter";
 
 function ShopProductsList() {
   const { products, isLoading } = useFilteredProducts();
+  console.log("shop");
 
   if (!isLoading && !products.length)
     return (
