@@ -27,19 +27,12 @@ ul li .active {
   }
 }
 
-header > div,
-section > div,
-nav > div,
-footer > div:first-child {
-  @apply !max-w-conatin;
-}
-
 @layer base {
   *,
   *::before,
   *::after {
     /* Creating animations for dark mode */
-    box-sizing: border-box;
+    box-sizing: inherit;
     transition:
       color 0.1s,
       background-color 0.3s,
@@ -47,6 +40,7 @@ footer > div:first-child {
   }
 
   html {
+    box-sizing: border-box;
     height: 100%;
     font-family: "Roboto";
   }

@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import Option from "./Option";
 import { formatCurrency } from "../utils/helpers";
 
-function ProductCategories() {
+function ProductCategoriesList() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currCategory = searchParams.get("category") || "All";
   const currBrand = searchParams.get("brand") || "";
@@ -24,6 +24,7 @@ function ProductCategories() {
     }
     searchParams.delete("range");
     searchParams.delete("brand");
+    searchParams.delete("query");
     setSearchParams(searchParams);
   }
   function handleSelectingBrand(option) {
@@ -33,6 +34,7 @@ function ProductCategories() {
       searchParams.set("brand", option);
     }
     searchParams.delete("range");
+    searchParams.delete("query");
     setSearchParams(searchParams);
   }
   function handlePriceRange(option) {
@@ -115,4 +117,4 @@ function ProductCategories() {
   );
 }
 
-export default ProductCategories;
+export default ProductCategoriesList;

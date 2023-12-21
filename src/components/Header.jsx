@@ -1,7 +1,7 @@
 function Header() {
   return (
-    <header className=" animate-slideTop  flex h-[calc(100vh-80px)] items-center justify-center bg-[url('/src/assets/carousel/img-2.jpg')] bg-cover bg-right-top text-gray-600">
-      <div className="container mx-auto  px-5 py-24 ">
+    <header className=" flex  h-[calc(100vh-80px)] animate-slideTop items-center justify-center bg-[url('/src/assets/carousel/img-2.jpg')] bg-cover bg-right-top text-gray-600">
+      <div className=" container mx-auto px-5 py-24 ">
         <div className="flex animate-slideRight flex-col items-start md:mb-0 md:w-3/4 md:pr-16 lg:flex-grow lg:pr-24">
           <h1 className="title-font mb-4 text-3xl font-normal uppercase  text-[var(--color-grey-900)] lg:text-5xl">
             Trend Mall

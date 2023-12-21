@@ -1,11 +1,11 @@
-import ProductsOptions from "./ProductsOptions";
+import ProductsCategories from "./ProductsCategories";
 import ShopProductsList from "./ShopProductsList";
 
 function ShopProducts() {
   return (
     <section>
       <div className="container mx-auto flex flex-wrap py-20">
-        <ProductsOptions />
+        <ProductsCategories />
         <ShopProductsList />
       </div>
     </section>

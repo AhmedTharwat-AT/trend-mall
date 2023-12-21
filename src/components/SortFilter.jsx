@@ -18,7 +18,7 @@ function SortFilter() {
   }
 
   return (
-    <div className="flex items-center justify-center gap-2 ">
+    <div className="xm:ml-0 ml-auto flex items-center justify-center gap-2 ">
       <p className=" text-sm">Sort By Price </p>
       <select
         name="sort"

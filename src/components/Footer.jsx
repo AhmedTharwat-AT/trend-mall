@@ -18,8 +18,8 @@ function Footer() {
     <footer className="body-font mt-auto bg-gray-950 text-gray-100 ">
       <div className="container  mx-auto px-5 pb-24 pt-16 sm:pb-14">
         <div className="order-first flex flex-wrap gap-y-4 text-left">
-          <div className="group mb-12 w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[22%]">
-            <h2 className="title-font mb-4 text-3xl font-semibold tracking-widest text-gray-100">
+          <div className="group mb-12 w-full px-4  sm:w-1/2 lg:w-[22%]">
+            <h2 className="title-font mb-4 text-3xl font-semibold tracking-widest text-gray-100 sm:whitespace-nowrap">
               TREND <span className="font-medium">MALL</span>
             </h2>
             <p className="mb-3 text-sm font-thin leading-6 tracking-widest text-gray-100 opacity-80">
@@ -33,11 +33,11 @@ function Footer() {
             </NavLink>
             <div className="h-[2px] w-20 bg-white transition-all group-hover:w-6 group-hover:bg-[var(--color-brand-500)]"></div>
           </div>
-          <div className="w-full px-4 sm:w-1/3 sm:pl-10 md:w-1/2 md:pl-16 lg:w-[20%]">
+          <div className="w-full px-4  sm:w-1/2 sm:pl-5 lg:w-[20%] lg:pl-16">
             <h2 className="title-font mb-5 text-sm font-medium tracking-widest text-gray-100">
               NAVIGATE
             </h2>
-            <nav className="mb-10 list-none space-y-2 capitalize tracking-widest">
+            <nav className="mb-10 list-none space-y-2 pl-1 capitalize tracking-widest sm:pl-0">
               <li>
                 <NavLink
                   to="/home"
@@ -72,7 +72,7 @@ function Footer() {
               </li>
             </nav>
           </div>
-          <div className="w-full px-4 sm:w-1/3 md:w-1/2 lg:w-[24%]">
+          <div className="w-full px-4  sm:w-1/2 lg:w-[24%]">
             <h2 className="title-font mb-5 text-sm font-medium uppercase tracking-widest text-gray-100">
               get in touch
             </h2>
@@ -103,7 +103,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="w-full px-4 sm:w-2/3 md:w-1/2 lg:w-[34%] ">
+          <div className="w-full px-4 sm:w-1/2  lg:w-[34%] ">
             <h2 className="title-font mb-5 text-sm font-medium uppercase tracking-widest text-gray-100">
               SEND ME EMAIL
             </h2>

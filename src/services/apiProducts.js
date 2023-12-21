@@ -26,6 +26,12 @@ export async function getAllProducts() {
   return products;
 }
 
+export async function getProduct(id) {
+  const res = await fetch(URL + `/${id}`);
+  const data = await res.json();
+  return data;
+}
+
 export async function getFilterProducts({
   page,
   sort,

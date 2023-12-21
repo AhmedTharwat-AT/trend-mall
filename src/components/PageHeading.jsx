@@ -4,8 +4,8 @@ function PageHeading({ head, sup }) {
   const navigate = useNavigate();
 
   return (
-    <section role="heading" className="bg-[var(--color-head-100)] py-10">
-      <div className="container mx-auto max-w-conatin px-7 ">
+    <section role="heading" className=" bg-[var(--color-head-100)] py-10">
+      <div className="container mx-auto  px-7 ">
         <div className="mb-3 flex items-center justify-between">
           <h1 className="text-2xl font-bold capitalize tracking-wider">
             {sup}

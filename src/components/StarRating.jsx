@@ -1,4 +1,9 @@
-function StarRating({ rating = 0, size = "10px" }) {
+function StarRating({ rating = 0, size = "sm" }) {
+  const variants = {
+    sm: "h-[14px] h-[14px] ",
+    md: "h-[16px] h-[16px] ",
+    lg: "h-[18px] h-[18px] ",
+  };
   return (
     <div className="flex items-center ">
       {Array(5)
@@ -6,7 +11,7 @@ function StarRating({ rating = 0, size = "10px" }) {
         .map((_, i) => (
           <svg
             key={i}
-            className={` h-[14px] w-[14px] stroke-gray-400 ${
+            className={` ${variants[size]} stroke-gray-400 ${
               i + 1 <= rating
                 ? "text-[var(--color-brand-500)]"
                 : "text-gray-100"

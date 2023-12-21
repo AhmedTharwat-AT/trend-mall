@@ -7,7 +7,6 @@ import SortFilter from "../../components/SortFilter";
 
 function ShopProductsList() {
   const { products, isLoading } = useFilteredProducts();
-  console.log("shop");
 
   if (!isLoading && !products.length)
     return (
@@ -18,8 +17,11 @@ function ShopProductsList() {
 
   return (
     <div className="flex w-full flex-col  px-5 lg:min-h-[848px]  lg:w-3/4">
-      <div className="flex flex-wrap items-center justify-between gap-5 pb-10 ">
-        <PaginationInfo />
+      <div className="flex flex-wrap items-center justify-between gap-5 px-0 pb-10  ">
+        <div className="flex w-full items-center sm:w-auto">
+          <Pagination css="gap-4 pr-4 text-3xl mr-auto sm:mr-0" />
+          <PaginationInfo />
+        </div>
         <SortFilter />
       </div>
 
@@ -37,7 +39,9 @@ function ShopProductsList() {
         </div>
       )}
 
-      <Pagination />
+      <div className="mt-auto flex justify-center ">
+        <Pagination css="space-x-8 p-3 pt-10 text-4xl" />
+      </div>
     </div>
   );
 }
