@@ -2,7 +2,7 @@ function Spinner() {
   // <div className="mx-auto  flex flex-1 items-center justify-center p-20 ">
   // <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ">
   return (
-    <div className="mx-auto  flex flex-1 items-center justify-center p-20 ">
+    <div className="mx-auto flex h-full w-full flex-1 items-center justify-center p-5 ">
       <svg
         aria-hidden="true"
         className="inline h-20 w-20 animate-spin fill-[var(--color-brand-500)] text-gray-200 "

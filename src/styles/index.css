@@ -43,9 +43,12 @@ ul li .active {
     box-sizing: border-box;
     height: 100%;
     font-family: "Roboto";
+    scroll-behavior: smooth;
   }
 
   body {
+    height: 100%;
+    min-height: 100%;
     min-width: 376px;
   }
 

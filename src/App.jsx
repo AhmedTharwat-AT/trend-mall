@@ -3,16 +3,18 @@ import {
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import { Provider } from "react-redux";
+import { Toaster } from "react-hot-toast";
+import store from "./store";
+
 import Home from "./pages/Home";
 import AppLayout from "./components/AppLayout";
-import Product from "./pages/Product";
+import ProductPage from "./pages/ProductPage";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import PageNotFound from "./components/PageNotFound";
-import { Provider } from "react-redux";
-import store from "./store";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "shop/:productID",
-        element: <Product />,
+        element: <ProductPage />,
       },
       {
         path: "cart",
@@ -59,6 +61,7 @@ function App() {
   return (
     <Provider store={store}>
       <RouterProvider router={router} />;
+      <Toaster position="top-right" />
     </Provider>
   );
 }

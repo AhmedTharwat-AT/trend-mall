@@ -10,7 +10,10 @@ function NavBar() {
   const { ref } = useNavBarPosition();
 
   function handleLinkClick(e) {
-    if (e.target.closest("a")) setShowMenu(false);
+    if (e.target.closest("a")) {
+      setShowMenu(false);
+      window.scrollTo(0, 0);
+    }
   }
 
   return (

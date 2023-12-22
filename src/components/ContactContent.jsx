@@ -1,8 +1,8 @@
 function ContactContent() {
   return (
-    <section className="body-font relative text-gray-600">
-      <div className="container mx-auto flex flex-wrap px-5 py-24 sm:flex-nowrap">
-        <div className="relative flex items-end justify-start overflow-hidden rounded-lg bg-gray-300 p-10 sm:mr-10 md:w-1/2 lg:w-2/3">
+    <section className="relative text-gray-600">
+      <div className="container mx-auto flex flex-wrap px-5 py-24 lg:flex-nowrap">
+        <div className="relative flex w-full items-end justify-start overflow-hidden rounded-lg bg-gray-300 p-10 lg:mr-10 lg:w-2/3">
           <iframe
             width="100%"
             height="100%"
@@ -32,7 +32,7 @@ function ContactContent() {
             </div>
           </div>
         </div>
-        <div className="mt-8 flex w-full flex-col bg-white md:ml-auto md:mt-0 md:w-1/2 md:py-8 lg:w-1/3">
+        <div className="mt-8 flex w-full flex-col bg-white sm:px-28 md:ml-auto md:mt-0 md:py-8 lg:w-1/3 lg:px-0">
           <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
             Contact Me
           </h2>

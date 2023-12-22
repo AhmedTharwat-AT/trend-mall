@@ -1,8 +1,14 @@
+import useObserverState from "../hooks/useObserverState";
 import Trend from "./Trend";
 
 function HomeTrends() {
+  const { ref, isVisible } = useObserverState({
+    threshold: 0,
+    rootMargin: "-20px",
+  });
+  console.log(isVisible);
   return (
-    <section className="mb-40 mt-16 ">
+    <section ref={ref} className="mb-40 mt-16 ">
       <div className="container mx-auto flex flex-col items-center gap-5 px-2 py-4">
         <div className="text-center">
           <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
@@ -15,7 +21,11 @@ function HomeTrends() {
             </span>
           </h1>
         </div>
-        <div className="flex w-full flex-col flex-wrap items-start justify-center gap-y-20 sm:flex-row">
+        <div
+          className={`${
+            isVisible ? "animate-slideRight" : ""
+          } flex w-full flex-col flex-wrap items-start justify-center gap-y-20 sm:flex-row`}
+        >
           <Trend src="https://preview.colorlib.com/theme/malefashion/img/blog/blog-2.jpg" />
           <Trend src="https://preview.colorlib.com/theme/malefashion/img/blog/blog-3.jpg.webp" />
           <Trend src="https://preview.colorlib.com/theme/malefashion/img/blog/blog-1.jpg" />

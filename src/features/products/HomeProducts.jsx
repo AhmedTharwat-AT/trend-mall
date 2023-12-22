@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { getMenProducts } from "../../services/apiProducts";
 import HomeProduct from "./HomeProduct";
 import useObserverState from "../../hooks/useObserverState";
+import Spinner from "../../components/Spinner";
 
 function HomeProducts() {
   const { data: products, isLoading } = useQuery(
@@ -14,12 +15,11 @@ function HomeProducts() {
   });
 
   return (
-    <section
-      ref={ref}
-      className="mx-auto grid max-w-5xl grid-cols-1 md:mb-56  md:mt-28 md:grid-cols-2"
-    >
-      {isLoading ? null : (
-        <>
+    <section ref={ref} className=" w-full  bg-gray-100  md:pb-56 md:pt-28">
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="container mx-auto grid  max-w-5xl grid-cols-1 md:grid-cols-2">
           <HomeProduct
             className={`${
               isVisible ? "md:animate-slideRight " : ""
@@ -43,7 +43,7 @@ function HomeProducts() {
             product={products.filter((el) => el.category == "mens-watches")[2]}
             key={products[2].id}
           />
-        </>
+        </div>
       )}
     </section>
   );

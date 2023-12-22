@@ -4,17 +4,26 @@ import { FaHeart } from "react-icons/fa";
 
 import Quantity from "../../components/Quantity";
 import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
+import { addItem } from "./cartSlice";
 
 function ProductAdd({ product }) {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
-  function handleAddToCart() {}
+  function handleAddToCart() {
+    dispatch(addItem({ ...product, quantity }));
+    toast.success("Added item successfully");
+  }
 
   return (
     <div>
       <div className="flex items-center justify-between py-3">
-        <Quantity quantity={quantity} setQuantity={setQuantity} />
+        <Quantity
+          quantity={quantity}
+          onIncrease={() => setQuantity((q) => q + 1)}
+          onDecrease={() => setQuantity((q) => (q == 1 ? q : q - 1))}
+        />
         <p className="select-none text-lg font-medium">
           Total price :{" "}
           <span className="font-semibold">
@@ -22,18 +31,15 @@ function ProductAdd({ product }) {
           </span>
         </p>
       </div>
-      <div className="mt-2 flex gap-5 transition-all">
+      <div className="mt-2 flex items-center gap-3 transition-all">
         <button
           onClick={handleAddToCart}
           className="ml-auto flex rounded border-0 bg-indigo-500 px-6 py-2 text-white hover:bg-indigo-600 focus:outline-none"
         >
           Add to cart
         </button>
-        <button className="group flex items-center rounded bg-gray-500 px-2 py-1 text-base text-white hover:bg-red-500">
-          Favourite
-          <span className="text-md ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border-0 bg-gray-200  text-red-500">
-            <FaHeart />
-          </span>
+        <button className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all hover:text-2xl hover:text-red-600">
+          <FaHeart />
         </button>
       </div>
     </div>

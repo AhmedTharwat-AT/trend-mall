@@ -12,7 +12,7 @@ function ProductDetails() {
   const { data: product, isLoading } = useQuery(["product", productID], () =>
     getProduct(productID),
   );
-  console.log(product);
+
   const {
     brand,
     category,
@@ -21,7 +21,6 @@ function ProductDetails() {
     price,
     rating,
     stock,
-    images,
     title,
   } = product || {};
 
@@ -39,8 +38,8 @@ function ProductDetails() {
     <div className="overflow-hidden text-gray-600">
       <div className="container mx-auto px-5 py-12">
         <div className="mx-auto flex flex-wrap  ">
-          <ProductImages images={images} />
-          <div className="mt-6 w-full animate-slideBottom  divide-y-2 lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
+          <ProductImages product={product} />
+          <div className="relative mt-6 w-full animate-slideBottom  divide-y-2 lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
             <div>
               <p className=" text-sm uppercase tracking-tight  text-gray-500">
                 {"shop / " + category + " / " + brand}
