@@ -36,7 +36,7 @@ function ProductDetails() {
     );
 
   return (
-    <div className=" overflow-hidden  text-gray-600">
+    <div className="overflow-hidden text-gray-600">
       <div className="container mx-auto px-5 py-12">
         <div className="mx-auto flex flex-wrap  ">
           <ProductImages images={images} />

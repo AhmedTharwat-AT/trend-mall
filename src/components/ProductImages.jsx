@@ -20,7 +20,7 @@ function ProductImages({ images }) {
         className="aspect-[4/3] w-full animate-slideRight object-cover object-center transition-all  "
         src={images[currImage]}
       />
-      <div className="flex w-full items-center justify-start gap-5  py-2">
+      <div className="flex w-full items-center justify-start gap-5 overflow-x-scroll py-2  ">
         {images.map((im, i) => (
           <img
             className={`h-20 w-20 cursor-pointer   transition-all hover:opacity-100 ${

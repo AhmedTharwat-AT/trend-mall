@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { IoMdAddCircle, IoMdRemoveCircle } from "react-icons/io";
 
 function Quantity({ setQuantity, quantity }) {

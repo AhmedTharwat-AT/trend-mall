@@ -3,9 +3,13 @@ import { formatCurrency } from "../../utils/helpers";
 import { FaHeart } from "react-icons/fa";
 
 import Quantity from "../../components/Quantity";
+import { useDispatch } from "react-redux";
 
 function ProductAdd({ product }) {
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {}
 
   return (
     <div>
@@ -19,7 +23,10 @@ function ProductAdd({ product }) {
         </p>
       </div>
       <div className="mt-2 flex gap-5 transition-all">
-        <button className="ml-auto flex rounded border-0 bg-indigo-500 px-6 py-2 text-white hover:bg-indigo-600 focus:outline-none">
+        <button
+          onClick={handleAddToCart}
+          className="ml-auto flex rounded border-0 bg-indigo-500 px-6 py-2 text-white hover:bg-indigo-600 focus:outline-none"
+        >
           Add to cart
         </button>
         <button className="group flex items-center rounded bg-gray-500 px-2 py-1 text-base text-white hover:bg-red-500">
