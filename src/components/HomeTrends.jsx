@@ -6,7 +6,7 @@ function HomeTrends() {
     threshold: 0,
     rootMargin: "-20px",
   });
-  console.log(isVisible);
+
   return (
     <section ref={ref} className="mb-40 mt-16 ">
       <div className="container mx-auto flex flex-col items-center gap-5 px-2 py-4">

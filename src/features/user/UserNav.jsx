@@ -1,15 +1,17 @@
-import { FaUser } from "react-icons/fa";
-import { IoMdCart } from "react-icons/io";
+import { FaHeart } from "react-icons/fa";
+import UserNavMenu from "./UserNavMenu";
+
+import NavCart from "../cart/NavCart";
 
 function UserNav() {
   return (
-    <ul className="ml-auto flex items-center gap-5 md:ml-0">
-      <li className="cursor-pointer text-2xl text-gray-800 hover:text-[var(--color-brand-500)]">
-        <FaUser />
-      </li>
-      <li className="cursor-pointer  text-3xl text-gray-800 hover:text-[var(--color-brand-500)]">
-        <IoMdCart />
-      </li>
+    <ul className="ml-auto flex items-center justify-between  md:ml-0">
+      {/* <li className="items-ceenter cursor-pointer text-2xl text-gray-800 hover:text-red-500">
+        <FaHeart />
+      </li> */}
+      <UserNavMenu />
+      <NavCart />
+
       <li></li>
     </ul>
   );

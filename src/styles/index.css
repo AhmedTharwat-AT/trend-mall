@@ -22,7 +22,7 @@ ul li .active {
     align-items: flex-start;
     overflow: hidden;
     padding-left: 2rem;
-    gap: 2px;
+    gap: 4px;
     text-align: start;
   }
 }
@@ -66,7 +66,7 @@ ul li .active {
   ::-webkit-scrollbar-thumb {
     background-color: var(--color-grey-500);
     border-radius: 15px;
-    border: 4px solid var(--color-grey-50);
+    border: 4px solid #fff;
   }
 
   :root {

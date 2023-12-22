@@ -9,7 +9,6 @@ export default function useOutsideClicks(handle) {
   useEffect(() => {
     function handleClose(e) {
       if (ref.current && !ref.current.contains(e.target)) {
-        console.log("clicked outside");
         handle();
       }
     }
@@ -17,5 +16,5 @@ export default function useOutsideClicks(handle) {
     return () => document.removeEventListener("click", handleClose, true);
   }, [handle]);
 
-  return ref;
+  return { ref };
 }

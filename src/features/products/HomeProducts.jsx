@@ -11,7 +11,7 @@ function HomeProducts() {
   );
   const { ref, isVisible } = useObserverState({
     threshold: 0,
-    rootMargin: "35px",
+    rootMargin: "-100px",
   });
 
   return (
