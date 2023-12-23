@@ -16,10 +16,10 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
 
       <SideProductMenu className="group-hover:right-3" />
 
-      <div className="relative h-60 w-full">
+      <div className="relative h-80 w-full sm:h-60">
         <Link onClick={() => window.scrollTo(0, 0)} to={`/shop/${product.id}`}>
           <img
-            className="h-full w-full object-cover transition-all duration-500 group-hover:grayscale"
+            className=" h-full w-full object-cover transition-all duration-500 group-hover:grayscale"
             src={product.images[0]}
             alt={product.title}
           />
@@ -37,8 +37,8 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
           className="absolute -z-50 -translate-y-4 font-medium text-[var(--color-brand-500)] opacity-0 transition-all duration-300 group-hover:z-10  group-hover:-translate-y-1 group-hover:opacity-100 "
           to={`/shop/${product.id}`}
         >
-          Add to chart{" "}
-          <span className="animate-pulse text-lg font-bold">&rarr;</span>{" "}
+          <span className="animate-pulse text-lg font-bold">+</span> Add to
+          chart{" "}
         </Link>
 
         <h3 className="truncate text-sm capitalize group-hover:opacity-0">

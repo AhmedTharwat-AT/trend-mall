@@ -31,7 +31,7 @@ function ShopProductsList() {
         <div className="relative grid grid-cols-1 gap-5  sm:grid-cols-2 lg:grid-cols-3    ">
           {products.map((pro) => (
             <Product
-              responsive="w-full xl:w-60 lg:w-52 md:w-[330px] sm:w-60"
+              responsive="w-full lg:w-56 xl:w-60 md:w-[330px] sm:w-62"
               product={pro}
               key={pro.id}
             />
