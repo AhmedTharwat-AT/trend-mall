@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-function PageHeading({ head, sup }) {
+function PageHeading({ path = [], current }) {
   const navigate = useNavigate();
 
   return (
@@ -8,7 +8,7 @@ function PageHeading({ head, sup }) {
       <div className="container mx-auto  px-7 ">
         <div className="mb-3 flex items-center justify-between">
           <h1 className="text-2xl font-bold capitalize tracking-wider">
-            {sup}
+            {current}
           </h1>
           <button
             onClick={() => navigate(-1)}
@@ -18,11 +18,17 @@ function PageHeading({ head, sup }) {
           </button>
         </div>
         <div className="space-x-2 capitalize">
-          <Link to={`/${head}`}>
-            <span>{head}</span>
-          </Link>
-          <span>&gt;</span>
-          <span className="opacity-50">{sup}</span>
+          {path.map((el, i) => (
+            <span className="space-x-2" key={i}>
+              <Link to={`/${el}`}>
+                <span>{el}</span>
+              </Link>
+              <span>&gt;</span>
+              {path.length - 1 === i && (
+                <span className="opacity-50">{current}</span>
+              )}
+            </span>
+          ))}
         </div>
       </div>
     </section>

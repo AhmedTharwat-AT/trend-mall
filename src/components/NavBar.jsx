@@ -4,10 +4,12 @@ import { useState } from "react";
 import useNavBarPosition from "../hooks/useNavBarPosition";
 import MenuBtn from "./MenuBtn";
 import UserNav from "../features/user/UserNav";
+import useOutsideClicks from "../hooks/useOutsideClicks";
 
 function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
   const { ref } = useNavBarPosition();
+  const { ref: refPhone } = useOutsideClicks(() => setShowMenu(false));
 
   function handleLinkClick(e) {
     if (e.target.closest("a")) {
@@ -26,6 +28,7 @@ function NavBar() {
         <Logo />
 
         <ul
+          ref={refPhone}
           className={`${
             showMenu ? "max-h-44 py-12" : "max-md:max-h-0 "
           } max-md:drop-menu text-lg font-medium capitalize tracking-wider transition-all duration-500 md:flex md:animate-none md:space-x-4 lg:gap-x-8  `}

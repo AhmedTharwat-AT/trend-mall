@@ -58,6 +58,11 @@ export default {
         about:
           'url("https://preview.colorlib.com/theme/malefashion/img/about/testimonial-pic.jpg.webp")',
       },
+      gridTemplateColumns: {
+        // Complex site-specific column configuration
+        cart: "repeat(4,minmax(80px, 180px)) 40px",
+        miniCart: "repeat(3,minmax(70px, 180px)) 40px",
+      },
     },
   },
   plugins: [],

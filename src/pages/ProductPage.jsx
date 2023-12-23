@@ -6,7 +6,7 @@ import Newsletter from "../components/Newsletter";
 function ProductPage() {
   return (
     <>
-      <PageHeading head="home" sup="product details" />
+      <PageHeading path={["home", "shop"]} current="product details" />
       <section className="mt-8">
         <ProductDetails />
       </section>

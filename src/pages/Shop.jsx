@@ -5,7 +5,7 @@ import ShopProducts from "../features/products/ShopProducts";
 function Shop() {
   return (
     <>
-      <PageHeading head="home" sup="shop" />
+      <PageHeading path={["home"]} current="shop" />
       <ShopProducts />
       <Newsletter />
     </>

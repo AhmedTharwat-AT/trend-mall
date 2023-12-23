@@ -16,7 +16,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
 
       <SideProductMenu className="group-hover:right-3" />
 
-      <div className="group relative h-60 w-full">
+      <div className="relative h-60 w-full">
         <Link onClick={() => window.scrollTo(0, 0)} to={`/shop/${product.id}`}>
           <img
             className="h-full w-full object-cover transition-all duration-500 group-hover:grayscale"

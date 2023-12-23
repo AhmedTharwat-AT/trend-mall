@@ -4,7 +4,7 @@ import PageHeading from "../components/PageHeading";
 function Contact() {
   return (
     <>
-      <PageHeading head="home" sup="contact" />
+      <PageHeading path={["home"]} current="contact" />
       <ContactContent />
     </>
   );

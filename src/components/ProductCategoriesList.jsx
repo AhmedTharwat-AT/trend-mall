@@ -58,8 +58,8 @@ function ProductCategoriesList() {
   return (
     <div className="mt-10 [&>div]:border-b-2 [&>div]:pb-2">
       <Select.Head onClick={handleReset}>
-        <h1 className="mb-6 cursor-pointer text-lg font-medium tracking-wide transition-all hover:opacity-80">
-          All Products
+        <h1 className="mb-6 w-fit cursor-pointer border-b border-transparent text-lg font-medium capitalize tracking-wide transition-all hover:border-gray-600 hover:opacity-80">
+          show All Products
         </h1>
       </Select.Head>
       <div>

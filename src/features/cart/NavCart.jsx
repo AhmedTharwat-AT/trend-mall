@@ -6,7 +6,6 @@ import { useState } from "react";
 function NavCart() {
   const [showMenu, setShowMenu] = useState(false);
   const { count, items, totalPrice } = useSelector((state) => state.cart);
-  console.log(count);
 
   return (
     <>
@@ -18,14 +17,13 @@ function NavCart() {
           </p>
         )}
       </li>
-      {count > 0 && (
-        <NavCartMenu
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          items={items}
-          totalPrice={totalPrice}
-        />
-      )}
+
+      <NavCartMenu
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+        items={items}
+        totalPrice={totalPrice}
+      />
     </>
   );
 }
