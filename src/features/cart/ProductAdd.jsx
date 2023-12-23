@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { formatCurrency } from "../../utils/helpers";
-import { FaHeart } from "react-icons/fa";
+import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { addItem } from "./cartSlice";
 
 import Quantity from "../../components/Quantity";
-import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
-import { addItem } from "./cartSlice";
+import { FaHeart } from "react-icons/fa";
 
 function ProductAdd({ product }) {
   const [quantity, setQuantity] = useState(1);

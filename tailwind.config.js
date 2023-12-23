@@ -23,7 +23,7 @@ export default {
         slideLeft: "slideLeft 0.5s 0.8s ease-out both ",
         slideBottom: "slideBottom 0.5s 0.1s ease-out both",
         slideTop: "slideTop 0.5s  ease-out both",
-        textRepeat: " textRepeat 6s  linear infinite  ",
+        textRepeat: " textRepeat 12s  linear infinite  ",
       },
       keyframes: {
         slideRight: {
@@ -61,7 +61,7 @@ export default {
       gridTemplateColumns: {
         // Complex site-specific column configuration
         cart: "repeat(4,minmax(80px, 180px)) 40px",
-        miniCart: "repeat(3,minmax(70px, 180px)) 40px",
+        miniCart: "repeat(2,minmax(70px, 180px)) 50px 40px",
       },
     },
   },

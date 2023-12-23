@@ -39,6 +39,7 @@ const cartSlice = createSlice({
     },
     decreaseQuantity(state, action) {
       //payload = item id
+      if (action.payload.quantity == 1) return;
       const index = state.items.findIndex(
         (el) => el.id === action.payload.itemID,
       );
@@ -73,6 +74,7 @@ const cartSlice = createSlice({
       state.subTotal -= priceBeforeDiscount * state.items[index].quantity;
 
       state.items.splice(index, 1);
+      state.count -= 1;
     },
     checkoutCart(state, action) {
       state = action.payload;

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 import { decreaseQuantity, deleteItem, increaseQuantity } from "./cartSlice";
+import { toast } from "react-hot-toast";
 
 function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -14,9 +15,10 @@ function CartItem({ item }) {
   }
   function deleteProducts() {
     dispatch(deleteItem({ itemID: item.id }));
+    toast.success("Item removed !");
   }
   return (
-    <div className="sm:grid-cols-cart grid-cols-miniCart grid items-center gap-2 px-0 py-2 lg:gap-0">
+    <div className="sm:grid-cols-cart grid-cols-miniCart grid items-center gap-6 px-0 py-2 lg:gap-0">
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
         <img
           className="aspect-square w-16 rounded-sm object-cover sm:w-20"
@@ -26,7 +28,7 @@ function CartItem({ item }) {
           <p className=" max-w-[100px] truncate whitespace-nowrap text-sm capitalize text-gray-700 md:max-w-[180px]">
             {item.title}
           </p>
-          <h2 className="text-lg font-medium text-gray-800">
+          <h2 className="text-base font-medium text-gray-900 sm:text-lg">
             {formatCurrency(item.price)}
           </h2>
         </div>
@@ -36,23 +38,23 @@ function CartItem({ item }) {
         <button
           disabled={item.quantity === 1}
           onClick={decrease}
-          className="cursor-pointer  p-2 pl-0"
+          className="cursor-pointer p-2 pl-0 text-xl"
         >
           &lt;
         </button>
-        <p>{item.quantity}</p>
-        <button onClick={increase} className="cursor-pointer p-2">
+        <p className="font-semibold">{item.quantity}</p>
+        <button onClick={increase} className="cursor-pointer p-2 text-xl">
           &gt;
         </button>
       </div>
 
-      <h2 className="text-lg font-medium text-gray-800">
-        {formatCurrency(item.quantity * item.price)}
+      <h2 className="mx-auto w-fit text-lg font-medium text-gray-900">
+        {formatCurrency(item.quantity * item.price).split(".")[0]}
       </h2>
 
       <button
         onClick={deleteProducts}
-        className="aspect-square w-8 cursor-pointer rounded-full bg-gray-200 text-2xl font-medium"
+        className="aspect-square w-8 cursor-pointer rounded-full bg-gray-200 text-2xl font-medium hover:bg-red-500 hover:text-white"
       >
         &times;
       </button>

@@ -11,12 +11,14 @@ function ShopProductsList() {
   if (!isLoading && !products.length)
     return (
       <div className="flex w-full flex-col px-5 lg:min-h-[848px]  lg:w-3/4">
-        <p className="col-span-3">There are no products</p>
+        <p className="col-span-3 text-xl font-medium uppercase">
+          There are no products
+        </p>
       </div>
     );
 
   return (
-    <div className="flex min-h-[800px] w-full  flex-col px-5 lg:min-h-[848px]  lg:w-3/4">
+    <div className="flex min-h-[800px] w-full  flex-col px-5 lg:min-h-[890px]  lg:w-3/4">
       <div className="flex flex-wrap items-center justify-between gap-5 px-0 pb-10  ">
         <div className="flex w-full items-center sm:w-auto">
           <Pagination css="gap-4 pr-4 text-3xl mr-auto sm:mr-0" />
@@ -28,10 +30,10 @@ function ShopProductsList() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className="relative grid grid-cols-1 gap-5  sm:grid-cols-2 lg:grid-cols-3    ">
+        <div className="relative  grid grid-cols-1 gap-5  sm:grid-cols-2 lg:grid-cols-3">
           {products.map((pro) => (
             <Product
-              responsive="w-full lg:w-56 xl:w-60 md:w-[330px] sm:w-62"
+              responsive="w-full lg:w-[235px] xl:w-60 md:w-[330px] sm:w-62"
               product={pro}
               key={pro.id}
             />

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { formatCurrency } from "../../utils/helpers";
 import StarRating from "../../components/StarRating";
-import SideProductMenu from "../../components/SideProductMenu";
+import SideProductMenu from "../cart/SideProductMenu";
 
 function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
   return (
     <div
-      className={`group relative mx-auto flex flex-col gap-5 overflow-hidden  rounded-md border border-gray-100 p-2 transition-all hover:shadow-lg  ${responsive}`}
+      className={`group relative mx-auto flex flex-col gap-5 overflow-hidden  rounded-md border border-gray-200 bg-white p-2 transition-all hover:shadow-lg  ${responsive}`}
     >
       {product.discountPercentage > 15 && (
         <span className="absolute left-0 top-5 z-10 bg-black px-3 text-sm font-medium uppercase tracking-widest text-white">
@@ -14,7 +14,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
         </span>
       )}
 
-      <SideProductMenu className="group-hover:right-3" />
+      <SideProductMenu product={product} className="group-hover:right-3" />
 
       <div className="relative h-80 w-full sm:h-60">
         <Link onClick={() => window.scrollTo(0, 0)} to={`/shop/${product.id}`}>
@@ -41,7 +41,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
           chart{" "}
         </Link>
 
-        <h3 className="truncate text-sm capitalize group-hover:opacity-0">
+        <h3 className="truncate text-base capitalize group-hover:opacity-0 sm:text-sm">
           {product.title}
         </h3>
 

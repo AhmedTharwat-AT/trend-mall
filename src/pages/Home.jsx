@@ -12,7 +12,7 @@ function Home() {
       <Header />
       <HomeProducts />
       <HeadingSeprator text="Products overview" />
-      <section className=" my-12 py-12">
+      <section className="my-12 bg-white py-12">
         <OverviewProducts />
       </section>
       <HomeSales />
