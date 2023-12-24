@@ -18,7 +18,7 @@ function CartItem({ item }) {
     toast.success("Item removed !");
   }
   return (
-    <div className="sm:grid-cols-cart grid-cols-miniCart grid items-center gap-6 px-0 py-2 lg:gap-0">
+    <div className="grid grid-cols-miniCart items-center gap-6 px-0 py-2 sm:grid-cols-cart lg:gap-0">
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
         <img
           className="aspect-square w-16 rounded-sm object-cover sm:w-20"
@@ -48,7 +48,7 @@ function CartItem({ item }) {
         </button>
       </div>
 
-      <h2 className="mx-auto w-fit text-lg font-medium text-gray-900">
+      <h2 className=" w-fit text-lg font-medium text-gray-900 ">
         {formatCurrency(item.quantity * item.price).split(".")[0]}
       </h2>
 

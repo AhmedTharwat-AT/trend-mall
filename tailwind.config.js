@@ -38,7 +38,7 @@ export default {
         },
         slideBottom: {
           "0%": { transform: "translateY(-25%); opacity:0" },
-          "50%": { opacity: "0.1" },
+          "50%": { opacity: "0.5" },
           "100%": { transform: "translateX(0); opacity:1" },
         },
         slideTop: {

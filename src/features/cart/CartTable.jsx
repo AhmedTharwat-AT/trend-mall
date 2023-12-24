@@ -14,15 +14,15 @@ function CartTable() {
   if (count == 0) return <EmptyCart />;
 
   return (
-    <div className="flex w-full flex-wrap gap-4 py-4 lg:flex-nowrap lg:justify-between">
-      <div className="flex w-full flex-col lg:w-4/6 lg:pr-4">
-        <div className="sm:grid-cols-cart grid-cols-miniCart grid gap-6 border-b pb-5 pr-3 text-base font-medium uppercase tracking-wide text-gray-800  lg:gap-0">
+    <div className="flex w-full flex-wrap justify-center gap-4 py-4 lg:flex-nowrap lg:justify-between">
+      <div className="mx-auto flex w-full flex-col lg:w-4/6 lg:pr-4">
+        <div className="-mr-2 grid grid-cols-miniCart gap-6 border-b pb-5 pr-3 text-base font-medium uppercase tracking-wide text-gray-800 sm:grid-cols-cart  lg:gap-0">
           <h1 className="sm:col-span-2">product</h1>
           <h1>quantity</h1>
           <h1 className="col-span-2">total</h1>
         </div>
 
-        <div className="max-h-[700px] space-y-6 overflow-y-scroll border-b py-6 sm:max-h-[510px]">
+        <div className="-mr-3 max-h-[700px] space-y-6 overflow-y-scroll border-b py-6 sm:max-h-[510px]">
           {items.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}

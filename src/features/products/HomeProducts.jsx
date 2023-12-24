@@ -11,7 +11,7 @@ function HomeProducts() {
   );
   const { ref, isVisible } = useObserverState({
     threshold: 0,
-    rootMargin: "-300px",
+    rootMargin: "-180px",
   });
 
   return (
@@ -31,15 +31,19 @@ function HomeProducts() {
         <div className="container mx-auto grid  max-w-5xl grid-cols-1 md:grid-cols-2">
           <HomeProduct
             className={`${
-              isVisible ? "animate-slideRight " : ""
-            } animate-none self-center text-center md:row-span-2 md:-mt-28 md:text-start`}
+              isVisible
+                ? "animate-[slideRight_0.8s_0.6s_both] "
+                : "animate-none"
+            }  self-center text-center md:row-span-2 md:-mt-28 md:text-start`}
             product={products.filter((el) => el.category == "mens-shoes")[2]}
             key={products[0].id}
           />
           <HomeProduct
             className={`${
-              isVisible ? "animate-slideBottom" : ""
-            }  animate-none  md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
+              isVisible
+                ? "animate-[slideBottom_1s_1s_ease-in-out_both] "
+                : "animate-none"
+            }    md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
             textStyle="md:absolute text-center md:text-start md:top-16 md:right-52 w-full"
             product={products.filter((el) => el.category == "mens-shirts")[4]}
             key={products[1].id}

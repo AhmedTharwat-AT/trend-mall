@@ -6,8 +6,8 @@ function EmptyCartMenu({ setShowMenu }) {
     <div className="mt-40 flex  flex-col items-center justify-start gap-6  ">
       <BsCartPlus className="text-9xl text-gray-400" />
 
-      <h1 className="text-5xl font-semibold uppercase text-gray-700">
-        Empty cart
+      <h1 className="text-3xl font-semibold capitalize text-gray-700">
+        your cart is Empty
       </h1>
       <Link
         onClick={() => setShowMenu(false)}

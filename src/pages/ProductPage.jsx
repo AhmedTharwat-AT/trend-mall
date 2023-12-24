@@ -10,7 +10,7 @@ function ProductPage() {
       <section className="mt-8">
         <ProductDetails />
       </section>
-      <section className="mt-5 border bg-gray-50 py-10">
+      <section className="mt-5 border bg-gray-50 pb-24 pt-10">
         <div className="container">
           <h1 className="my-7 text-center text-3xl font-semibold uppercase text-gray-600 lg:text-left">
             you might also like
