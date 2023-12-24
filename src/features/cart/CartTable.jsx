@@ -71,9 +71,12 @@ function CartTable() {
               </p>
             </div>
           </div>
-          <button className="mt-2 w-full bg-gray-900 px-7 py-3 font-medium uppercase tracking-wider text-white hover:bg-gray-800">
+          <Link
+            to={`/order/checkout`}
+            className="mt-2 w-full bg-gray-900 px-7 py-3 font-medium uppercase tracking-wider text-white hover:bg-gray-800"
+          >
             proceed to checkout
-          </button>
+          </Link>
         </div>
       </div>
     </div>

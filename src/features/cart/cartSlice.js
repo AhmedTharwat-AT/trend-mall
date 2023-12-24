@@ -16,8 +16,7 @@ const initialState = {
   checkedOut: false,
   count: 0,
 };
-// const discount = price * (discountPercentage / 100);
-// const originalPrice = price + discount;
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -39,10 +38,11 @@ const cartSlice = createSlice({
     },
     decreaseQuantity(state, action) {
       //payload = item id
-      if (action.payload.quantity == 1) return;
       const index = state.items.findIndex(
         (el) => el.id === action.payload.itemID,
       );
+      if (state.items[index].quantity == 1) return;
+
       state.items[index].quantity -= 1;
       state.totalQuantity -= 1;
       state.totalPrice -= state.items[index].price;
@@ -76,9 +76,6 @@ const cartSlice = createSlice({
       state.items.splice(index, 1);
       state.count -= 1;
     },
-    checkoutCart(state, action) {
-      state = action.payload;
-    },
     clearCart(state) {
       state = initialState;
     },
@@ -92,5 +89,4 @@ export const {
   increaseQuantity,
   deleteItem,
   clearCart,
-  checkoutCart,
 } = cartSlice.actions;

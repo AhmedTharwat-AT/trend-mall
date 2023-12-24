@@ -4,8 +4,10 @@ const initialState = {
   id: null,
   name: "",
   password: "",
+  payments: [],
   cart: [],
   favourites: [],
+  order: null,
   checkedOut: false,
 };
 

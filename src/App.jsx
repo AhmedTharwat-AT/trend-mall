@@ -7,14 +7,17 @@ import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import store from "./store";
 
-import Home from "./pages/Home";
 import AppLayout from "./components/AppLayout";
+import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 import Shop from "./pages/Shop";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import PageNotFound from "./components/PageNotFound";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/home" />,
+        element: <Navigate to="/home" replace />,
       },
       {
         path: "home",
@@ -48,6 +51,18 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "order/checkout",
+        element: <Checkout />,
       },
     ],
   },
