@@ -1,5 +1,11 @@
+import SignupForm from "../components/SignupForm";
+
 function Signup() {
-  return <div>sign up</div>;
+  return (
+    <section>
+      <SignupForm />
+    </section>
+  );
 }
 
 export default Signup;

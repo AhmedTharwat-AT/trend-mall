@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 import useOutsideClicks from "../../hooks/useOutsideClicks";
+import { Link } from "react-router-dom";
 
 function UserNavMenu() {
   const [showMenu, setShowMenu] = useState(false);
@@ -25,11 +26,21 @@ function UserNavMenu() {
           <li className="border-b border-gray-400 p-2 pl-3 text-lg font-medium">
             Welcome
           </li>
-          <li className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white">
-            Login
+          <li>
+            <Link
+              className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+              to="/login"
+            >
+              Login
+            </Link>
           </li>
-          <li className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white">
-            Sign up
+          <li>
+            <Link
+              className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+              to="/signup"
+            >
+              Sign up
+            </Link>
           </li>
         </ul>
       )}

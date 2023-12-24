@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   id: null,
-  name: "",
+  email: "",
   password: "",
   payments: [],
   cart: [],
   favourites: [],
-  order: null,
+  orders: [],
   checkedOut: false,
 };
 

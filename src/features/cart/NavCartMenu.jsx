@@ -66,6 +66,7 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
                 view cart
               </Link>
               <Link
+                to="/order/checkout"
                 onClick={() => setShowMenu(false)}
                 className="w-1/2 bg-gray-800 py-3 uppercase text-white hover:bg-gray-700"
               >

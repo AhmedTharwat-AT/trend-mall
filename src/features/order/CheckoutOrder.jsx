@@ -2,14 +2,18 @@ import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 
 function CheckoutOrder() {
+  const user = useSelector((state) => state.user);
   const { items, totalPrice, subTotal } = useSelector((state) => state.cart);
+
+  function handleCheckout() {}
+
   return (
-    <div className="w-1/3 divide-y-2 divide-gray-300 border border-gray-200 bg-gray-100 p-7">
-      <h1 className="text-2xl font-medium uppercase tracking-wide">
+    <div className="w-1/3 divide-y divide-gray-300 border border-gray-200 bg-gray-100 p-7">
+      <h1 className="text-2xl font-medium uppercase tracking-wide text-gray-800">
         your order
       </h1>
-      <div className="mt-8 flex flex-col gap-2 py-7">
-        <div className="flex justify-between text-lg">
+      <div className="mt-8 flex flex-col gap-2 py-6">
+        <div className="flex justify-between text-lg tracking-wide">
           <h3 className="capitalize">product</h3>
           <h3 className="capitalize">total</h3>
         </div>
@@ -19,12 +23,12 @@ function CheckoutOrder() {
               <span>{`${i + 1}`.padStart(2, 0)}.</span>
               {item.title}
             </h3>
-            <p>{formatCurrency(item.price)}</p>
+            <p>{formatCurrency(item.price * item.quantity)}</p>
           </div>
         ))}
       </div>
       <div>
-        <div className="flex flex-col gap-1 py-7 text-lg">
+        <div className="flex flex-col  py-6 text-lg">
           <div className="flex items-center justify-between capitalize tracking-wide text-gray-800">
             <h3>subtotal</h3>
             <p className="font-medium ">{formatCurrency(subTotal)}</p>
@@ -36,7 +40,11 @@ function CheckoutOrder() {
         </div>
       </div>
       <div className="pt-7">
-        <button className="w-full bg-gray-900 px-6 py-3 text-base font-medium uppercase tracking-widest text-white hover:bg-gray-800">
+        <button
+          disabled={!user.id}
+          onClick={handleCheckout}
+          className="w-full bg-gray-900 px-6 py-3 text-base font-medium uppercase tracking-widest text-white hover:bg-gray-800 disabled:bg-gray-500"
+        >
           place order
         </button>
       </div>
