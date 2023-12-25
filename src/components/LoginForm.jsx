@@ -1,6 +1,30 @@
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "../features/user/userSlice";
 
 function LoginForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  function onSuccess(data) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find((el) => el.email == data.email);
+    if (!user) {
+      toast.error("Incorrect email or password ");
+      return;
+    }
+    dispatch(loginUser(user));
+    localStorage.setItem("user", user.id);
+    navigate("/home");
+  }
+
   return (
     <div className="mx-auto  flex flex-col items-center justify-center px-6 py-8 md:h-[calc(100vh-5rem)] lg:py-0">
       <div className="w-full rounded-lg bg-gray-200 shadow   sm:max-w-md md:mt-0 xl:p-0">
@@ -8,7 +32,7 @@ function LoginForm() {
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-800  md:text-2xl">
             Sign in to your account
           </h1>
-          <form className="space-y-4 md:space-y-6" action="#">
+          <form onSubmit={handleSubmit(onSuccess)} className="space-y-4 ">
             <div>
               <label
                 htmlFor="email"
@@ -18,12 +42,13 @@ function LoginForm() {
               </label>
               <input
                 type="email"
-                name="email"
-                id="email"
                 className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] "
                 placeholder="email@example.com"
-                required="asd"
+                {...register("email", { required: "This field is required !" })}
               />
+              <p className="p-1 text-sm tracking-wide text-red-600 sm:text-xs">
+                {errors.email ? errors.email.message : ""}
+              </p>
             </div>
             <div>
               <label
@@ -34,12 +59,15 @@ function LoginForm() {
               </label>
               <input
                 type="password"
-                name="password"
-                id="password"
                 placeholder="••••••••"
                 className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] "
-                required=""
+                {...register("password", {
+                  required: "This field is required !",
+                })}
               />
+              <p className="p-1 text-sm tracking-wide text-red-600 sm:text-xs">
+                {errors.password ? errors.password.message : ""}
+              </p>
             </div>
             <div className="flex items-center justify-end">
               <a

@@ -18,11 +18,16 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import PageNotFound from "./components/PageNotFound";
 import Checkout from "./pages/Checkout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,

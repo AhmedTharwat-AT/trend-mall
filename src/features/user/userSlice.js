@@ -5,16 +5,24 @@ const initialState = {
   email: "",
   password: "",
   payments: [],
-  cart: [],
+  cart: {},
   favourites: [],
   orders: [],
-  checkedOut: false,
+  isLogged: false,
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    loginUser(state, action) {
+      return { ...state, ...action.payload, isLogged: true };
+    },
+    logoutUser() {
+      return initialState;
+    },
+  },
 });
 
 export default userSlice.reducer;
+export const { loginUser, logoutUser } = userSlice.actions;

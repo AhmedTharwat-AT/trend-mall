@@ -3,10 +3,12 @@ import { FaUser } from "react-icons/fa";
 
 import useOutsideClicks from "../../hooks/useOutsideClicks";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function UserNavMenu() {
   const [showMenu, setShowMenu] = useState(false);
   const { ref } = useOutsideClicks(() => setShowMenu(false));
+  const user = useSelector((state) => state.user);
 
   return (
     <li
@@ -23,25 +25,51 @@ function UserNavMenu() {
           ref={ref}
           className="absolute right-0 top-8 w-48 rounded bg-gray-200 "
         >
-          <li className="border-b border-gray-400 p-2 pl-3 text-lg font-medium">
-            Welcome
-          </li>
-          <li>
-            <Link
-              className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
-              to="/login"
-            >
-              Login
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
-              to="/signup"
-            >
-              Sign up
-            </Link>
-          </li>
+          {user.isLogged ? (
+            <>
+              <li className="border-b border-gray-400 p-2 pl-3 text-lg font-medium">
+                Welcome ,{user.email.split("@")[0]}
+              </li>
+              <li>
+                <Link
+                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  to="/account"
+                >
+                  account
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  to="/home"
+                >
+                  logout
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="border-b border-gray-400 p-2 pl-3 text-lg font-medium">
+                Welcome
+              </li>
+              <li>
+                <Link
+                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  to="/signup"
+                >
+                  Sign up
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       )}
     </li>

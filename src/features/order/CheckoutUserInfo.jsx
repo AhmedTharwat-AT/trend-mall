@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function CheckoutUserInfo() {
   const user = useSelector((state) => state.user);
 
-  if (!user.id)
-    return (
-      <div className="flex  w-2/3 flex-col">
-        <div className="w-full bg-gray-100 p-3 text-xl font-semibold uppercase tracking-wider text-gray-800">
-          <h1>BILLING DETAILS</h1>
-        </div>
-        <div className="mt-3 flex h-full bg-gray-100 p-3">
+  return (
+    <div className="w-2/3">
+      <div className="w-full bg-gray-100 p-3 py-4 text-xl font-semibold uppercase tracking-wider text-gray-800">
+        <h1>BILLING DETAILS</h1>
+      </div>
+      <div className="mt-3 flex h-full bg-gray-100 p-3">
+        {!user.isLogged ? (
           <h1 className="text-base font-medium capitalize tracking-widest">
             please{" "}
             <Link
@@ -21,11 +21,12 @@ function CheckoutUserInfo() {
             </Link>{" "}
             first
           </h1>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
-    );
-
-  return <div className="w-2/3  ">user info</div>;
+    </div>
+  );
 }
 
 export default CheckoutUserInfo;
