@@ -9,8 +9,6 @@ function CartTable() {
     (state) => state.cart,
   );
 
-  console.log(count);
-
   if (count == 0) return <EmptyCart />;
 
   return (
@@ -48,7 +46,7 @@ function CartTable() {
               type="text"
               placeholder="Enter Code"
             />
-            <button className="h-full bg-gray-900 px-7 py-3 text-base font-medium uppercase text-white hover:bg-gray-800">
+            <button className="h-full bg-[var(--color-brand-500)] px-7 py-3 text-base font-medium uppercase text-white hover:bg-[var(--color-brand-600)]">
               apply
             </button>
           </div>
@@ -72,8 +70,9 @@ function CartTable() {
             </div>
           </div>
           <Link
+            onClick={() => window.scrollTo(0, 0)}
             to={`/order/checkout`}
-            className="mt-2 w-full bg-gray-900 px-7 py-3 font-medium uppercase tracking-wider text-white hover:bg-gray-800"
+            className="mt-2 w-full bg-[var(--color-brand-500)] px-7 py-3 text-center font-medium uppercase tracking-wider text-white hover:bg-[var(--color-brand-600)]"
           >
             proceed to checkout
           </Link>

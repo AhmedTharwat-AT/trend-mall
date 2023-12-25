@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../features/user/userSlice";
 
@@ -8,6 +8,7 @@ function ProtectedRoute({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
   const userID = localStorage.getItem("user");
+  const count = useSelector((state) => state.cart.count);
 
   useEffect(() => {
     if (!userID) return;
@@ -23,7 +24,10 @@ function ProtectedRoute({ children }) {
     ) {
       navigate("/home");
     }
-  }, [location, navigate, userID]);
+    if ((!userID || !count) && location.pathname == "/order/checkout") {
+      navigate("/home");
+    }
+  }, [location, navigate, userID, count]);
 
   return <>{children}</>;
 }

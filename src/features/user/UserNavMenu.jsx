@@ -3,12 +3,21 @@ import { FaUser } from "react-icons/fa";
 
 import useOutsideClicks from "../../hooks/useOutsideClicks";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "./userSlice";
+import { clearCart } from "../cart/cartSlice";
 
 function UserNavMenu() {
   const [showMenu, setShowMenu] = useState(false);
   const { ref } = useOutsideClicks(() => setShowMenu(false));
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  function handleLogout() {
+    dispatch(logoutUser());
+    dispatch(clearCart());
+    localStorage.removeItem("user");
+  }
 
   return (
     <li
@@ -38,7 +47,7 @@ function UserNavMenu() {
                   account
                 </Link>
               </li>
-              <li>
+              <li onClick={handleLogout}>
                 <Link
                   className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
                   to="/home"

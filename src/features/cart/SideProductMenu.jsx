@@ -15,7 +15,7 @@ function SideProductMenu({ product, className = "" }) {
 
   return (
     <div
-      className={`absolute -right-12 top-5 z-50 flex flex-col gap-4 text-2xl text-gray-900 transition-all delay-300  duration-500  ${className}`}
+      className={`absolute -right-12 top-5 z-40 flex flex-col gap-4 text-2xl text-gray-900 transition-all delay-300  duration-500  ${className}`}
     >
       <div
         title="Add to favourites"

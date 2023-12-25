@@ -1,19 +1,17 @@
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 
-function CheckoutOrder() {
+function CheckoutOrder({ handleSubmit, onSuccess }) {
   const user = useSelector((state) => state.user);
   const { items, totalPrice, subTotal } = useSelector((state) => state.cart);
 
-  function handleCheckout() {}
-
   return (
-    <div className="w-1/3 divide-y divide-gray-300 border border-gray-200 bg-gray-100 p-7">
+    <div className="h-fit w-full divide-y divide-gray-300 border border-gray-200 bg-gray-100 p-7 md:w-2/5 lg:w-1/3">
       <h1 className="text-2xl font-medium uppercase tracking-wide text-gray-800">
         your order
       </h1>
       <div className="mt-8 flex flex-col gap-2 py-6">
-        <div className="flex justify-between text-lg tracking-wide">
+        <div className="flex justify-between text-base font-medium tracking-wide">
           <h3 className="capitalize">product</h3>
           <h3 className="capitalize">total</h3>
         </div>
@@ -28,7 +26,7 @@ function CheckoutOrder() {
         ))}
       </div>
       <div>
-        <div className="flex flex-col  py-6 text-lg">
+        <div className="flex flex-col py-6 ">
           <div className="flex items-center justify-between capitalize tracking-wide text-gray-800">
             <h3>subtotal</h3>
             <p className="font-medium ">{formatCurrency(subTotal)}</p>
@@ -42,8 +40,8 @@ function CheckoutOrder() {
       <div className="pt-7">
         <button
           disabled={!user.id}
-          onClick={handleCheckout}
-          className="w-full bg-gray-900 px-6 py-3 text-base font-medium uppercase tracking-widest text-white hover:bg-gray-800 disabled:bg-gray-500"
+          onClick={handleSubmit(onSuccess)}
+          className="w-full bg-[var(--color-brand-500)] px-6 py-3 text-base font-medium uppercase tracking-widest text-white hover:bg-[var(--color-brand-600)] disabled:bg-gray-500"
         >
           place order
         </button>

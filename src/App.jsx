@@ -58,16 +58,16 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "order/checkout",
+        element: <Checkout />,
+      },
+      {
         path: "login",
         element: <Login />,
       },
       {
         path: "signup",
         element: <Signup />,
-      },
-      {
-        path: "order/checkout",
-        element: <Checkout />,
       },
     ],
   },

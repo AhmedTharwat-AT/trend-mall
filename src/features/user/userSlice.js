@@ -4,7 +4,6 @@ const initialState = {
   id: null,
   email: "",
   password: "",
-  payments: [],
   cart: {},
   favourites: [],
   orders: [],
@@ -21,8 +20,11 @@ const userSlice = createSlice({
     logoutUser() {
       return initialState;
     },
+    checkout(state, action) {
+      state.orders.push(action.payload);
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { loginUser, logoutUser } = userSlice.actions;
+export const { loginUser, logoutUser, checkout } = userSlice.actions;
