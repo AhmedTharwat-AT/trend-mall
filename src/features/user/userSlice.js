@@ -5,7 +5,7 @@ const initialState = {
   email: "",
   password: "",
   cart: {},
-  favourites: [],
+  Wishlist: [],
   orders: [],
   isLogged: false,
 };

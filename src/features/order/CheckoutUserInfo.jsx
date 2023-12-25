@@ -123,24 +123,24 @@ function CheckoutUserInfo({ register, errors }) {
                 </label>
                 <div className="ml-24 flex gap-3 py-1">
                   <input
-                    type="checkbox"
-                    disabled
+                    type="radio"
+                    value={true}
                     checked
-                    className=" rounded border  accent-gray-950 checked:disabled:!accent-red-400  "
+                    className=" rounded border  accent-[var(--color-brand-500)] checked:disabled:!accent-red-400  "
                   />
-                  <p className="text-sm text-gray-700">on delivery</p>
+                  <p className="text-sm text-gray-700">Cash on delivery</p>
                 </div>
                 <div className="ml-24 flex gap-3 py-1">
                   <input
-                    type="checkbox"
+                    type="radio"
                     disabled
                     checked
                     className=" rounded border px-3 py-1 accent-gray-950  "
                   />
-                  <p className="text-sm text-gray-700">
-                    credit card{" "}
-                    <span className="text-gray-400">(comming soon)</span>
-                  </p>
+                  <div className="flex gap-2 text-sm text-gray-700">
+                    <p className=" line-through">Credit card </p>
+                    <span className="text-gray-400 "> (comming soon)</span>
+                  </div>
                 </div>
               </div>
               <div className="flex  items-start gap-4 ">

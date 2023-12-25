@@ -19,6 +19,11 @@ import Cart from "./pages/Cart";
 import PageNotFound from "./components/PageNotFound";
 import Checkout from "./pages/Checkout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Account from "./pages/Account";
+import PersonalInfo from "./features/user/PersonalInfo";
+import Orders from "./features/user/Orders";
+import PaymentMethod from "./features/user/PaymentMethod";
+import Wishlist from "./features/user/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +73,33 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <Signup />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="personal" replace />,
+          },
+          {
+            index: true,
+            path: "personal",
+            element: <PersonalInfo />,
+          },
+          {
+            path: "orders",
+            element: <Orders />,
+          },
+          {
+            path: "wishlist",
+            element: <Wishlist />,
+          },
+          {
+            path: "payment",
+            element: <PaymentMethod />,
+          },
+        ],
       },
     ],
   },

@@ -4,7 +4,7 @@
 
 /* nav */
 
-ul li .active {
+nav ul li .active {
   color: var(--color-brand-500);
 }
 

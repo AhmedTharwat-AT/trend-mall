@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
+import { FaCheckDouble } from "react-icons/fa6";
 
 function CheckoutOrder({ handleSubmit, onSuccess }) {
   const user = useSelector((state) => state.user);
@@ -37,7 +38,11 @@ function CheckoutOrder({ handleSubmit, onSuccess }) {
           </div>
         </div>
       </div>
-      <div className="pt-7">
+      <div className="flex items-center gap-2 pt-4 capitalize">
+        <FaCheckDouble className="text-blue-900" />
+        <h1 className="font-medium text-blue-900">free shipping</h1>
+      </div>
+      <div className="border-none pt-3">
         <button
           disabled={!user.id}
           onClick={handleSubmit(onSuccess)}
