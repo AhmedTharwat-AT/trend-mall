@@ -1,5 +1,5 @@
-function OrderHeader({ num, statu }) {
-  const status = {
+function OrderHeader({ num, status }) {
+  const statusList = {
     preparing: "bg-[var(--color-brand-500)] text-white",
     "on-delivery": "bg-[var(--color-brand-500)] text-white",
     cancelled: "bg-red-700 font-medium text-white",
@@ -8,12 +8,12 @@ function OrderHeader({ num, statu }) {
 
   return (
     <div
-      className={` ${status[statu]} flex items-center justify-between p-3 uppercase tracking-wide `}
+      className={` ${statusList[status]} flex items-center justify-between p-3 uppercase tracking-wide `}
     >
       <h1 className="text-sm sm:text-base">
         <span>{(num + "").padStart(2, "0") + "."}</span> order details
       </h1>
-      <p className=" p-2 text-end text-xs sm:text-sm">{statu}</p>
+      <p className=" p-2 text-end text-xs sm:text-sm">{status}</p>
     </div>
   );
 }

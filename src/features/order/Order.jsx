@@ -49,7 +49,7 @@ function Order({ order, num }) {
 
   return (
     <div className="overflow-hidden rounded-md border">
-      <OrderHeader num={num} statu={order.status} />
+      <OrderHeader num={num} status={order.status} />
 
       <div className="space-y-2 bg-white px-3 py-5">
         <OrderOverview order={order} />
@@ -68,31 +68,25 @@ function Order({ order, num }) {
           </div>
         </div>
 
-        {order.status === "cancelled" ? null : (
+        {order.status !== "cancelled" && minutesPassed < 5 ? (
           <div className="flex items-center justify-end gap-3 ">
-            {minutesPassed >= 5 ? (
-              <Button>confirm delivery</Button>
-            ) : (
-              <>
-                <div className="flex gap-1 text-xs sm:text-sm">
-                  <p className="whitespace-nowrap text-gray-700">
-                    minutes left to cancel :
-                  </p>{" "}
-                  <span className="font-medium">({5 - minutesPassed})</span>
-                </div>
-                <Modal.Open modalName={`cancel-${num}`}>
-                  <Button variant="danger">cancel</Button>
-                </Modal.Open>
-              </>
-            )}
+            <div className="flex gap-1 text-xs sm:text-sm">
+              <p className="whitespace-nowrap text-gray-700">
+                minutes left to cancel :
+              </p>{" "}
+              <span className="font-medium">({5 - minutesPassed})</span>
+            </div>
+            <Modal.Open modalName={`cancel-${num}`}>
+              <Button variant="danger">cancel</Button>
+            </Modal.Open>
           </div>
-        )}
+        ) : null}
 
         <Modal.Window modalName={`cancel-${num}`}>
           <ConfirmCancel onCancel={handleCancel} />
         </Modal.Window>
 
-        <div className="flex gap-2 pt-2 text-xs sm:text-sm">
+        <div className="flex gap-2  text-xs sm:text-sm">
           <h2 className=" text-gray-600">created at </h2>
           <p className="text-gray-600">
             ({new Date(order.createdAt).toDateString()})
