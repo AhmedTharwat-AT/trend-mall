@@ -6,7 +6,7 @@ function CheckoutUserInfo({ register, errors }) {
 
   return (
     <div className="w-full grow md:w-3/5 lg:w-2/3">
-      <div className="w-full bg-gray-100 p-3 py-4 text-xl font-semibold uppercase tracking-wider text-gray-800">
+      <div className="w-full bg-[var(--color-indigo-100)]  p-3 py-4 text-xl font-semibold uppercase tracking-wider text-[var(--color-indigo-700)] ">
         <h1>BILLING DETAILS</h1>
       </div>
       <div className="mt-3 flex min-h-[85%] w-full flex-col bg-gray-100 p-3 pl-8">

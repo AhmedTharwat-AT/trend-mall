@@ -31,14 +31,14 @@ function Window({ modalName, children }) {
 
   return createPortal(
     <div className="fixed inset-0 z-[200] flex items-center justify-center">
-      <div className="absolute inset-0 -z-10 bg-gray-500 opacity-40 "></div>
+      <div className="absolute inset-0 z-[199] bg-gray-400 opacity-60 blur-sm backdrop-blur-xl"></div>
       <div
         ref={ref}
-        className="relative min-h-[100px]  cursor-pointer rounded-md bg-white px-7 pb-7 pt-14 sm:px-16"
+        className="relative z-[200] min-h-[100px]   rounded-md bg-white px-7 pb-7 pt-10 sm:px-16"
       >
         <span
           onClick={() => setOpen("")}
-          className="absolute left-3 top-1 text-4xl"
+          className="absolute left-3 top-1 cursor-pointer text-4xl"
         >
           &times;
         </span>

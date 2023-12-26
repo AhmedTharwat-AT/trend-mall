@@ -26,6 +26,7 @@ function Footer() {
               Shop the Best Selection of Clothing and Accessories at Trend Mall
             </p>
             <NavLink
+              onClick={() => window.scrollTo(0, 0)}
               to="/shop"
               className="text-sm tracking-wider text-gray-300 transition-all hover:opacity-80 "
             >

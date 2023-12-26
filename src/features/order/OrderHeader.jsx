@@ -1,9 +1,11 @@
 function OrderHeader({ num, status }) {
   const statusList = {
     preparing: "bg-[var(--color-brand-500)] text-white",
-    "on-delivery": "bg-[var(--color-brand-500)] text-white",
-    cancelled: "bg-red-700 font-medium text-white",
-    confirmed: "bg-[var(--color-green-100)] text-[var(--colors-green-700)]",
+    "on-delivery":
+      "bg-[var(--color-indigo-100)] font-medium text-[var(--color-indigo-700)]",
+    cancelled:
+      "bg-[var(--color-red-100)] font-medium text-[var(--color-red-700)]",
+    delivered: "bg-[var(--color-green-100)] text-[var(--colors-green-700)]",
   };
 
   return (

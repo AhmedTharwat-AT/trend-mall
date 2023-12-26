@@ -1,51 +1,50 @@
+import { useEffect, useState } from "react";
+import { formatCurrency } from "../../utils/helpers";
+import useOrders from "./useOrders";
+
+import { CiDollar } from "react-icons/ci";
 import Button from "../../components/Button";
 import ConfirmCancel from "../../components/ConfirmCancel";
+import ConfirmDelete from "../../components/ConfirmDelete";
 import Modal from "../../components/Modal";
-import { formatCurrency } from "../../utils/helpers";
-import { CiDollar } from "react-icons/ci";
 import OrderOverview from "./OrderOverview";
 import OrderSummary from "./OrderSummary";
-import { useLocalStorageState } from "../../hooks/useLocalStorageState";
-import { useDispatch } from "react-redux";
-import { updateOrders } from "../user/userSlice";
 import OrderHeader from "./OrderHeader";
-import { useCallback, useEffect } from "react";
+import OrderTimeLeft from "./OrderTimeLeft";
+import { toast } from "react-hot-toast";
 
 function Order({ order, num }) {
-  const [users, setUsers] = useLocalStorageState([], "users");
-  const dispatch = useDispatch();
-
-  const minutesPassed = Math.floor(
-    +new Date(Date.now() - +new Date(order.createdAt)) / (1000 * 60),
-  );
-
-  const updateOrder = useCallback(
-    (state) => {
-      const userID = localStorage.getItem("user");
-      const userIndex = users.findIndex((el) => el.id == userID);
-      const orderIndex = users[userIndex].orders.findIndex(
-        (el) => el.orderId == order.orderId,
-      );
-      users[userIndex].orders[orderIndex].status = state;
-      setUsers(users);
-      dispatch(updateOrders(users[userIndex].orders));
-    },
-    [dispatch, order.orderId, setUsers, users],
+  const { updateOrder, deleteOrder } = useOrders(order);
+  const [isCancable, setIsCancable] = useState(order.status != "cancelled");
+  const secondsPassed = Math.floor(
+    +new Date(Date.now() - +new Date(order.createdAt)) / 1000,
   );
 
   function handleCancel() {
     updateOrder("cancelled");
+    toast.success("Order cancelled successfully!");
+  }
+
+  function handleShowCancel() {
+    setIsCancable(false);
+  }
+
+  function handleDelete() {
+    if (order.status != "cancelled" && order.status != "delivered") return;
+    deleteOrder();
+    toast.success("Order deleted successfully!");
   }
 
   useEffect(() => {
     if (
-      minutesPassed > 5 &&
+      !isCancable &&
       order.status != "on-delivery" &&
       order.status != "cancelled"
     ) {
       updateOrder("on-delivery");
+      setIsCancable(false);
     }
-  }, [order.status, minutesPassed, updateOrder]);
+  }, [order.status, isCancable, updateOrder]);
 
   return (
     <div className="overflow-hidden rounded-md border">
@@ -68,22 +67,31 @@ function Order({ order, num }) {
           </div>
         </div>
 
-        {order.status !== "cancelled" && minutesPassed < 5 ? (
+        {order.status !== "cancelled" && isCancable ? (
           <div className="flex items-center justify-end gap-3 ">
-            <div className="flex gap-1 text-xs sm:text-sm">
-              <p className="whitespace-nowrap text-gray-700">
-                minutes left to cancel :
-              </p>{" "}
-              <span className="font-medium">({5 - minutesPassed})</span>
-            </div>
+            <OrderTimeLeft
+              secondsPassed={secondsPassed}
+              handleShowCancel={handleShowCancel}
+            />
             <Modal.Open modalName={`cancel-${num}`}>
-              <Button variant="danger">cancel</Button>
+              <Button variant="warning">cancel</Button>
+            </Modal.Open>
+          </div>
+        ) : null}
+
+        {order.status == "cancelled" || order.status == "delivered" ? (
+          <div className="flex items-center justify-end gap-3 ">
+            <Modal.Open modalName={`delete-${num}`}>
+              <Button variant="danger">delete</Button>
             </Modal.Open>
           </div>
         ) : null}
 
         <Modal.Window modalName={`cancel-${num}`}>
           <ConfirmCancel onCancel={handleCancel} />
+        </Modal.Window>
+        <Modal.Window modalName={`delete-${num}`}>
+          <ConfirmDelete onCancel={handleDelete} />
         </Modal.Window>
 
         <div className="flex gap-2  text-xs sm:text-sm">

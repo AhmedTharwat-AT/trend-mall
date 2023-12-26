@@ -3,7 +3,8 @@ function Button({ children, variant = "primary", onClick }) {
     primary:
       "bg-[var(--color-brand-500)] border-[var(--color-brand-500)] hover:bg-[var(--color-brand-600)] text-white",
     secondary: " border-gray-700 hover:bg-gray-800 hover:text-white",
-    danger: "bg-red-600 border-red-600 hover:bg-red-500 text-white",
+    danger: "bg-red-500 border-red-500 hover:bg-red-600 text-white",
+    warning: "hover:bg-orange-400 border-orange-500  bg-orange-500 text-white",
   };
 
   return (

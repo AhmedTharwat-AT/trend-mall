@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
     <header className=" flex  h-[calc(100vh-80px)] animate-slideTop items-center justify-center bg-[url('/src/assets/carousel/img-2.jpg')] bg-cover bg-right-top text-gray-600">
@@ -12,9 +14,13 @@ function Header() {
             come to life
           </p>
           <div className="flex justify-center ">
-            <button className="inline-flex  border-0 bg-[var(--color-grey-900)] px-6 py-2 text-lg font-medium uppercase tracking-wider  text-white hover:bg-[var(--color-grey-50)] hover:text-[var(--color-grey-900)] ">
+            <Link
+              onClick={() => window.scrollTo(0, 0)}
+              to="/shop"
+              className="inline-flex  border-0 bg-[var(--color-grey-900)] px-6 py-2 text-lg font-medium uppercase tracking-wider  text-white hover:bg-[var(--color-grey-50)] hover:text-[var(--color-grey-900)] "
+            >
               start shopping
-            </button>
+            </Link>
           </div>
         </div>
       </div>

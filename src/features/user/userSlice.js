@@ -17,11 +17,11 @@ const userSlice = createSlice({
     loginUser(state, action) {
       return { ...state, ...action.payload, isLogged: true };
     },
-    updateOrders(state, action) {
-      state.orders = action.payload;
-    },
     logoutUser() {
       return initialState;
+    },
+    updateOrders(state, action) {
+      state.orders = action.payload;
     },
     checkout(state, action) {
       state.orders.push(action.payload);
