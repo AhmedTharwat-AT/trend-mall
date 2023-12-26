@@ -1,8 +1,8 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Account() {
   return (
-    <section className="mt-10 py-7">
+    <section className="my-10 py-7">
       <div className="container px-6">
         <div className="flex flex-wrap justify-center gap-5 md:flex-nowrap">
           <div className="h-fit w-full overflow-hidden rounded-md bg-gray-200 md:w-60 ">
@@ -33,7 +33,7 @@ function Account() {
               </li>
             </ul>
           </div>
-          <div className="min-h-[300px] grow rounded-md bg-gray-200 p-7">
+          <div className="min-h-[300px] grow rounded-md bg-gray-100 p-7">
             <Outlet />
           </div>
         </div>
