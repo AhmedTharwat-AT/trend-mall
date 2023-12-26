@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 function Checkout() {
+  const userID = localStorage.getItem("user");
   const {
     register,
     formState: { errors },
@@ -20,21 +21,24 @@ function Checkout() {
 
   function onSuccess(data) {
     const order = {
+      orderId: crypto.randomUUID(),
       city: data.city,
       address: data.address,
       phone: data.phone,
       notes: data.notes,
       cart,
+      status: "preparing",
+      createdAt: new Date().toISOString(),
     };
     dispatch(checkout(order));
     dispatch(clearCart());
-    const userID = localStorage.getItem("user");
     const users = JSON.parse(localStorage.getItem("users"));
     const userIndex = users.findIndex((el) => el.id == userID);
     users[userIndex].orders.push(order);
     localStorage.setItem("users", JSON.stringify(users));
     navigate("/home");
     toast.success("Order checked out successfully !");
+    window.scrollTo(0, 0);
   }
 
   return (

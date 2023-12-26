@@ -11,8 +11,10 @@ function ProtectedRoute({ children }) {
   const count = useSelector((state) => state.cart.count);
 
   useEffect(() => {
+    const usersStored = localStorage.getItem("users");
     if (!userID) return;
-    const users = JSON.parse(localStorage.getItem("users"));
+    if (usersStored == "undefined") return;
+    const users = JSON.parse(usersStored);
     const user = users.find((el) => el.id === userID);
     dispatch(loginUser(user));
   }, [dispatch, userID]);
@@ -24,7 +26,10 @@ function ProtectedRoute({ children }) {
     ) {
       navigate("/home");
     }
-    if ((!userID || !count) && location.pathname == "/order/checkout") {
+    if (!count && location.pathname.includes("/order/")) {
+      navigate("/home");
+    }
+    if (!userID && location.pathname.includes("/account")) {
       navigate("/home");
     }
   }, [location, navigate, userID, count]);

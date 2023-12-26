@@ -1,5 +1,5 @@
 function PaymentMethod() {
-  return <div>method</div>;
+  return <div className="text-gray-700">(comming soon)</div>;
 }
 
 export default PaymentMethod;

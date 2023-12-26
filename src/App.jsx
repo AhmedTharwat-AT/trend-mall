@@ -21,7 +21,7 @@ import Checkout from "./pages/Checkout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Account from "./pages/Account";
 import PersonalInfo from "./features/user/PersonalInfo";
-import Orders from "./features/user/Orders";
+import Orders from "./features/order/Orders";
 import PaymentMethod from "./features/user/PaymentMethod";
 import Wishlist from "./features/user/Wishlist";
 

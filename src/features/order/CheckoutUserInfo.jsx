@@ -125,7 +125,7 @@ function CheckoutUserInfo({ register, errors }) {
                   <input
                     type="radio"
                     value={true}
-                    checked
+                    defaultChecked
                     className=" rounded border  accent-[var(--color-brand-500)] checked:disabled:!accent-red-400  "
                   />
                   <p className="text-sm text-gray-700">Cash on delivery</p>

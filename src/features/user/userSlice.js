@@ -17,6 +17,9 @@ const userSlice = createSlice({
     loginUser(state, action) {
       return { ...state, ...action.payload, isLogged: true };
     },
+    updateOrders(state, action) {
+      state.orders = action.payload;
+    },
     logoutUser() {
       return initialState;
     },
@@ -27,4 +30,5 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
-export const { loginUser, logoutUser, checkout } = userSlice.actions;
+export const { loginUser, logoutUser, checkout, updateOrders } =
+  userSlice.actions;

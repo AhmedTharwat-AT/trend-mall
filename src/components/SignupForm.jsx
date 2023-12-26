@@ -32,6 +32,7 @@ function SignupForm() {
     localStorage.setItem("users", JSON.stringify(users));
     toast.success("Account created successfully !");
     navigate("/login");
+    window.scrollTo(0, 0);
   }
 
   return (
@@ -148,7 +149,7 @@ function SignupForm() {
                 {errors.confirm ? errors.confirm.message : ""}
               </p>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center py-2">
               <input
                 aria-describedby="terms"
                 type="checkbox"

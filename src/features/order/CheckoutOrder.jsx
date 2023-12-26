@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { formatCurrency } from "../../utils/helpers";
 import { FaCheckDouble } from "react-icons/fa6";
+import OrderSummary from "./OrderSummary";
 
 function CheckoutOrder({ handleSubmit, onSuccess }) {
   const user = useSelector((state) => state.user);
@@ -11,21 +12,11 @@ function CheckoutOrder({ handleSubmit, onSuccess }) {
       <h1 className="text-2xl font-medium uppercase tracking-wide text-gray-800">
         your order
       </h1>
+
       <div className="mt-8 flex flex-col gap-2 py-6">
-        <div className="flex justify-between text-base font-medium tracking-wide">
-          <h3 className="capitalize">product</h3>
-          <h3 className="capitalize">total</h3>
-        </div>
-        {items.map((item, i) => (
-          <div key={item.id} className="flex justify-between text-gray-700">
-            <h3 className="max-w-[50%] truncate capitalize">
-              <span>{`${i + 1}`.padStart(2, 0)}.</span>
-              {item.title}
-            </h3>
-            <p>{formatCurrency(item.price * item.quantity)}</p>
-          </div>
-        ))}
+        <OrderSummary items={items} />
       </div>
+
       <div>
         <div className="flex flex-col py-6 ">
           <div className="flex items-center justify-between capitalize tracking-wide text-gray-800">
@@ -38,10 +29,12 @@ function CheckoutOrder({ handleSubmit, onSuccess }) {
           </div>
         </div>
       </div>
+
       <div className="flex items-center gap-2 pt-4 capitalize">
         <FaCheckDouble className="text-blue-900" />
         <h1 className="font-medium text-blue-900">free shipping</h1>
       </div>
+
       <div className="border-none pt-3">
         <button
           disabled={!user.id}
