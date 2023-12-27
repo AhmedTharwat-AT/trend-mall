@@ -28,7 +28,7 @@ function SignupForm() {
       lastName: data.lastname,
       orders: [],
       cart: {},
-      wishlist: {},
+      wishlist: [],
     };
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));

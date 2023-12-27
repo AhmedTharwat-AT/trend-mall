@@ -11,6 +11,15 @@ export const validateEmail = (email) => {
     );
 };
 
+export function updateLocalStorageUser(newCart, property) {
+  const users = JSON.parse(localStorage.getItem("users"));
+  const user = localStorage.getItem("user");
+  if (!users || !user) return;
+  const index = users.findIndex((el) => el.id === user);
+  users[index][property] = newCart;
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 export function sortArray(array, sort, value) {
   let sortedProducts = [...array];
   if (sort == "asc") {

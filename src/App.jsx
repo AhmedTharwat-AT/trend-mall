@@ -82,11 +82,11 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to="personal" replace />,
+            element: <Navigate to="profile" replace />,
           },
           {
             index: true,
-            path: "personal",
+            path: "profile",
             element: <PersonalInfo />,
           },
           {

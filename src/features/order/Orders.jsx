@@ -1,16 +1,13 @@
 import { useSelector } from "react-redux";
 import Order from "./Order";
 import Modal from "../../components/Modal";
+import EmptyList from "../../components/EmptyList";
 
 function Orders() {
-  const { orders } = useSelector((state) => state.user);
+  const orders = useSelector((state) => state.user.orders);
 
   if (orders.length == 0)
-    return (
-      <div>
-        <h1>there are no orders</h1>
-      </div>
-    );
+    return <EmptyList message="there are no orders to display" />;
 
   return (
     <div className="w-full space-y-6">

@@ -21,7 +21,7 @@ function OrderTimeLeft({ secondsPassed, handleShowCancel }) {
   return (
     <div className="flex gap-1 text-xs sm:text-sm">
       <p className="whitespace-nowrap text-gray-700">
-        minutes left to cancel :
+        time left to cancel the order :
       </p>{" "}
       <span className="font-medium">
         ({minutesTime.padStart(2, 0) + " : " + secondsTime.padStart(2, 0)})

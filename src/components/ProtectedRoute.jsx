@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../features/user/userSlice";
 import { setUserCart } from "../features/user/userSlice";
-import {
-  linkToUser,
-  updateCart,
-  updateLocalStorageUserCart,
-} from "../features/cart/cartSlice";
+import { linkToUser, updateCart } from "../features/cart/cartSlice";
+
+import { updateLocalStorageUser } from "../utils/helpers";
 
 function ProtectedRoute({ children }) {
   const dispatch = useDispatch();
@@ -37,7 +35,7 @@ function ProtectedRoute({ children }) {
     if (cart?.totalQuantity > 0) {
       dispatch(setUserCart({ ...cart, cartID: userID }));
       dispatch(linkToUser(userID));
-      updateLocalStorageUserCart(cart);
+      updateLocalStorageUser(cart, "cart");
       return;
     }
     if (user?.cart?.count > 0) {

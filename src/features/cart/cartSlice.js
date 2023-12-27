@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { updateLocalStorageUser } from "../../utils/helpers";
 
 function subTotalPrice(item) {
   //calc subtotal price
@@ -42,15 +43,6 @@ function getValues(getState, itemID) {
   return { cart, items, index };
 }
 
-export function updateLocalStorageUserCart(newCart) {
-  const users = JSON.parse(localStorage.getItem("users"));
-  const user = localStorage.getItem("user");
-  if (!users || !user) return;
-  const index = users.findIndex((el) => el.id === user);
-  users[index].cart = newCart;
-  localStorage.setItem("users", JSON.stringify(users));
-}
-
 function updateStates(dispatch, data) {
   dispatch({ type: "cart/updateCart", payload: data });
   const user = localStorage.getItem("user");
@@ -58,7 +50,7 @@ function updateStates(dispatch, data) {
   if (isLogged) {
     dispatch({ type: "user/setUserCart", payload: { ...data, cartID: user } });
   }
-  updateLocalStorageUserCart({ ...data, cartID: user });
+  updateLocalStorageUser({ ...data, cartID: user }, "cart");
 }
 
 export function addItem(action) {
@@ -135,7 +127,7 @@ export function deleteItem(info) {
 
 export function deleteCart() {
   return (dispatch) => {
-    updateLocalStorageUserCart({});
+    updateLocalStorageUser({}, "cart");
     dispatch({ type: "cart/clearCart" });
     dispatch({ type: "user/setUserCart", payload: {} });
   };

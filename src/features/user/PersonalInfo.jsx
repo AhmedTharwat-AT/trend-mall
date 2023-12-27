@@ -41,7 +41,7 @@ function PersonalInfo() {
     localStorage.setItem("users", JSON.stringify(users));
     dispatch(loginUser(users[userIndex]));
     setEditForm(false);
-    toast.success("Update successfully !");
+    toast.success("Updated successfully !");
   }
 
   return (
@@ -54,7 +54,7 @@ function PersonalInfo() {
             </p>
             <input
               disabled={!editForm}
-              className="w-full border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:opacity-70"
+              className="w-full rounded border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 disabled:opacity-70"
               {...register("firstname", {
                 required: "This field is required",
                 maxLength: {
@@ -71,7 +71,7 @@ function PersonalInfo() {
             <p className="mb-1 text-sm tracking-wide text-gray-900">Lastname</p>
             <input
               disabled={!editForm}
-              className="w-full border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:opacity-70"
+              className="w-full rounded border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 disabled:opacity-70"
               {...register("lastname", {
                 required: "This field is required",
                 maxLength: {
@@ -89,7 +89,7 @@ function PersonalInfo() {
           <p className="mb-1 text-sm tracking-wide text-gray-900">Email</p>
           <input
             disabled={!editForm}
-            className="w-full border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:opacity-70"
+            className="w-full rounded border border-gray-300 bg-white p-2 text-sm focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 disabled:opacity-70"
             {...register("email", {
               required: "This field is required",
               validate: (value) =>
@@ -106,7 +106,7 @@ function PersonalInfo() {
             disabled
             type="password"
             defaultValue={user.password}
-            className="w-full border border-gray-300 bg-white p-2 text-sm tracking-widest focus:outline-[var(--color-brand-500)] disabled:opacity-70"
+            className="w-full rounded border border-gray-300 bg-white p-2 text-sm tracking-widest focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 disabled:opacity-70"
           />
         </div>
         {editForm && (

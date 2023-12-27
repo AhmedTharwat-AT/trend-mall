@@ -17,6 +17,7 @@ function CartItem({ item }) {
     dispatch(deleteItem({ itemID: item.id }));
     toast.success("Item removed !");
   }
+
   return (
     <div className="grid grid-cols-miniCart items-center gap-6 px-0 py-2 sm:grid-cols-cart lg:gap-0">
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">

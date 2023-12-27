@@ -1,44 +1,22 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import ProfileSideMenu from "../features/user/ProfileSideMenu";
+import PageHeading from "../components/PageHeading";
 
 function Account() {
   return (
-    <section className="my-10 py-7">
-      <div className="container px-6">
-        <div className="flex flex-wrap justify-center gap-5 md:flex-nowrap">
-          <div className="mx-5 h-fit w-full overflow-hidden rounded-md border border-gray-300 bg-gray-100 md:mx-0 md:w-60 ">
-            <ul className="flex flex-col  divide-y divide-gray-300 text-base capitalize tracking-wider text-gray-800">
-              <li>
-                <NavLink
-                  className="block cursor-pointer p-4 hover:bg-gray-200 [&.active]:bg-[var(--color-brand-500)] [&.active]:text-gray-50"
-                  to="personal"
-                >
-                  personal info
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="block cursor-pointer p-4  hover:bg-gray-200 [&.active]:bg-[var(--color-brand-500)] [&.active]:text-gray-50"
-                  to="orders"
-                >
-                  orders
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="block cursor-pointer p-4 hover:bg-gray-200 [&.active]:bg-[var(--color-brand-500)] [&.active]:text-gray-50"
-                  to="payment"
-                >
-                  payment method
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <div className="min-h-[300px] grow rounded-md bg-gray-100 p-5 sm:p-7">
-            <Outlet />
+    <>
+      <PageHeading path={["home"]} current="my account" />
+      <section className="mb-10 mt-4 py-7 md:mt-0 lg:mt-8">
+        <div className="container px-6">
+          <div className="flex flex-wrap justify-center gap-5 lg:flex-nowrap">
+            <ProfileSideMenu />
+            <div className="min-h-[300px] grow rounded-md bg-gray-100 p-5 sm:p-7">
+              <Outlet />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

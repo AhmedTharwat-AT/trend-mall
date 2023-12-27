@@ -1,19 +1,30 @@
 import { useState } from "react";
 import { formatCurrency } from "../../utils/helpers";
 import { toast } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./cartSlice";
 
 import Quantity from "../../components/Quantity";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaHeartBroken } from "react-icons/fa";
+import { toggleWishlist } from "../user/userSlice";
 
-function ProductAdd({ product }) {
+function ProductAddtoCart({ product }) {
+  const isLogged = useSelector((state) => state.user.isLogged);
+  const wishlist = useSelector((state) => state.user.wishlist);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   function handleAddToCart() {
     dispatch(addItem({ ...product, quantity }));
     toast.success("Added item successfully");
+  }
+
+  function addToWishlist() {
+    if (!isLogged) {
+      toast.error("Please login first!");
+      return;
+    }
+    dispatch(toggleWishlist({ ...product }));
   }
 
   return (
@@ -38,12 +49,19 @@ function ProductAdd({ product }) {
         >
           Add to cart
         </button>
-        <button className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all hover:text-2xl hover:text-red-600">
-          <FaHeart />
+        <button
+          onClick={addToWishlist}
+          className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all hover:text-2xl hover:text-red-600"
+        >
+          {wishlist.map((el) => el.id === product.id).includes(true) ? (
+            <FaHeartBroken className="text-2xl" />
+          ) : (
+            <FaHeart />
+          )}
         </button>
       </div>
     </div>
   );
 }
 
-export default ProductAdd;
+export default ProductAddtoCart;

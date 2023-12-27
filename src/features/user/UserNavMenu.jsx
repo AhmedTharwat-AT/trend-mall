@@ -3,14 +3,13 @@ import { FaUser } from "react-icons/fa";
 
 import useOutsideClicks from "../../hooks/useOutsideClicks";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logoutUser } from "./userSlice";
 import { clearCart } from "../cart/cartSlice";
 
-function UserNavMenu() {
+function UserNavMenu({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const { ref } = useOutsideClicks(() => setShowMenu(false));
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   function handleLogout() {
@@ -22,7 +21,7 @@ function UserNavMenu() {
   return (
     <li
       onClick={() => setShowMenu((s) => !s)}
-      className="items-ceenter relative  mr-4 cursor-pointer text-2xl text-gray-800 "
+      className="items-ceenter relative  mr-3 cursor-pointer text-2xl text-gray-800 "
     >
       <FaUser
         className={`hover:text-[var(--color-brand-500)] ${

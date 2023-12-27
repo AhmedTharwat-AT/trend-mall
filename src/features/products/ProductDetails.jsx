@@ -5,7 +5,7 @@ import ProductImages from "../../components/ProductImages";
 import Spinner from "../../components/Spinner";
 import { formatCurrency } from "../../utils/helpers";
 import StarRating from "../../components/StarRating";
-import ProductAdd from "../cart/ProductAdd";
+import ProductAddtoCart from "../cart/ProductAddtoCart";
 
 function ProductDetails() {
   const { productID } = useParams();
@@ -91,7 +91,7 @@ function ProductDetails() {
               </div>
             </div>
 
-            <ProductAdd product={product} />
+            <ProductAddtoCart product={product} />
           </div>
         </div>
       </div>
