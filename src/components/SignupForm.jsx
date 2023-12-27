@@ -27,6 +27,8 @@ function SignupForm() {
       firstName: data.firstname,
       lastName: data.lastname,
       orders: [],
+      cart: {},
+      wishlist: {},
     };
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
@@ -149,22 +151,25 @@ function SignupForm() {
                 {errors.confirm ? errors.confirm.message : ""}
               </p>
             </div>
-            <div className="flex items-center py-2">
-              <input
-                aria-describedby="terms"
-                type="checkbox"
-                className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 accent-[var(--color-brand-500)] hover:accent-[var(--color-brand-500)] "
-                {...register("terms", {
-                  required: "This field is required",
-                })}
-              />
-              <label className="ml-3 block text-sm font-light text-gray-500 ">
-                I accept the{" "}
-                <a className="cursor-pointer font-medium hover:underline">
-                  Terms and Conditions
-                </a>
-              </label>
-              <p className="pl-1 text-sm tracking-wide text-red-600 sm:text-xs">
+            <div className="flex flex-col   py-2">
+              <div className="flex items-center ">
+                <input
+                  aria-describedby="terms"
+                  type="checkbox"
+                  className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 accent-[var(--color-brand-500)] hover:accent-[var(--color-brand-500)] "
+                  {...register("terms", {
+                    required: "This field is required",
+                  })}
+                />
+                <label className="ml-3 block text-sm font-light text-gray-500 ">
+                  I accept the{" "}
+                  <a className="cursor-pointer font-medium hover:underline">
+                    Terms and Conditions
+                  </a>
+                </label>
+              </div>
+
+              <p className="pl-7 pt-2 text-sm tracking-wide text-red-600 sm:text-xs">
                 {errors.terms ? errors.terms.message : ""}
               </p>
             </div>

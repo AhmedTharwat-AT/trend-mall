@@ -26,9 +26,12 @@ const userSlice = createSlice({
     checkout(state, action) {
       state.orders.push(action.payload);
     },
+    setUserCart(state, action) {
+      state.cart = action.payload;
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { loginUser, logoutUser, checkout, updateOrders } =
+export const { loginUser, logoutUser, checkout, updateOrders, setUserCart } =
   userSlice.actions;

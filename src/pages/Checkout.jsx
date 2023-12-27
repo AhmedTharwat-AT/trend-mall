@@ -4,7 +4,7 @@ import CheckoutOrder from "../features/order/CheckoutOrder";
 import CheckoutUserInfo from "../features/order/CheckoutUserInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { checkout } from "../features/user/userSlice";
-import { clearCart } from "../features/cart/cartSlice";
+import { deleteCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -31,7 +31,7 @@ function Checkout() {
       createdAt: new Date().toISOString(),
     };
     dispatch(checkout(order));
-    dispatch(clearCart());
+    dispatch(deleteCart());
     const users = JSON.parse(localStorage.getItem("users"));
     const userIndex = users.findIndex((el) => el.id == userID);
     users[userIndex].orders.push(order);

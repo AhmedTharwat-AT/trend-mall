@@ -36,8 +36,8 @@ function UserNavMenu() {
         >
           {user.isLogged ? (
             <>
-              <li className="border-b border-gray-400 p-2 pl-3 text-lg font-medium">
-                Welcome ,{user.email.split("@")[0]}
+              <li className="truncate border-b border-gray-400 p-2 pl-3 text-lg font-medium">
+                Welcome , {user.firstName}
               </li>
               <li>
                 <Link
