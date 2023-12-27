@@ -11,12 +11,12 @@ function UserNav() {
   return (
     <ul className="ml-auto flex items-center justify-between  md:ml-0">
       {user.isLogged && (
-        <li>
+        <li className="text-end">
           <Link
             to="/account/wishlist"
-            className="items-ceenter relative mr-4  block cursor-pointer text-2xl text-red-500 "
+            className="relative mr-3  block cursor-pointer  items-center p-1  "
           >
-            <FaHeart className="cursor-pointer  hover:text-red-600" />
+            <FaHeart className="block cursor-pointer text-2xl text-red-500 hover:text-red-600" />
           </Link>
         </li>
       )}

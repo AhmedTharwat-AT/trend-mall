@@ -51,10 +51,10 @@ function ProductAddtoCart({ product }) {
         </button>
         <button
           onClick={addToWishlist}
-          className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all hover:text-2xl hover:text-red-600"
+          className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all duration-75 hover:text-2xl hover:text-red-600"
         >
           {wishlist.map((el) => el.id === product.id).includes(true) ? (
-            <FaHeartBroken className="text-2xl" />
+            <FaHeartBroken className="text-2xl " />
           ) : (
             <FaHeart />
           )}

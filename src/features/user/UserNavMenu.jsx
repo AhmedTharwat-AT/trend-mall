@@ -21,7 +21,7 @@ function UserNavMenu({ user }) {
   return (
     <li
       onClick={() => setShowMenu((s) => !s)}
-      className="items-ceenter relative  mr-3 cursor-pointer text-2xl text-gray-800 "
+      className="items-ceenter relative mr-3  cursor-pointer p-1 text-2xl text-gray-800 "
     >
       <FaUser
         className={`hover:text-[var(--color-brand-500)] ${

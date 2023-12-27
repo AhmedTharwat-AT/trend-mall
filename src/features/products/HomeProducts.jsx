@@ -19,9 +19,9 @@ function HomeProducts() {
       ref={ref}
       className="relative w-full bg-gray-100 py-20 md:pb-56 md:pt-16"
     >
-      <h1 className="relative mx-auto my-5 mb-16 w-fit border-b-2 border-gray-400 pb-2 text-4xl font-semibold tracking-widest text-gray-800 md:mb-20">
+      <h1 className="relative mx-auto my-5 mb-16 w-fit border-b-2 border-gray-400 pb-2 text-3xl font-semibold tracking-widest text-gray-800 sm:text-4xl md:mb-20">
         Trending Products
-        <span className="absolute -top-4 left-1/2 hidden -translate-x-1/2 whitespace-nowrap text-5xl opacity-20 sm:block ">
+        <span className="absolute -top-4 left-1/2  -translate-x-1/2 whitespace-nowrap text-4xl opacity-20 sm:text-5xl ">
           Trending Products
         </span>
       </h1>

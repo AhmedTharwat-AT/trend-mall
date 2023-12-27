@@ -9,8 +9,11 @@ function NavCart() {
 
   return (
     <>
-      <li className="relative mr-4 cursor-pointer text-[2rem]  text-gray-800 hover:text-[var(--color-brand-500)] md:mr-0">
-        <IoMdCart onClick={() => setShowMenu((s) => !s)} />
+      <li
+        onClick={() => setShowMenu((s) => !s)}
+        className="relative mr-4 cursor-pointer text-[2rem]  text-gray-800 hover:text-[var(--color-brand-500)] md:mr-0"
+      >
+        <IoMdCart />
         {count > 0 && (
           <p className="absolute -right-1 -top-2 z-40 flex aspect-square h-[18px] w-[18px] items-center justify-center rounded-full bg-red-700 text-center text-xs font-medium text-white">
             {count}

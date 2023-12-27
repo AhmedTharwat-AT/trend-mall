@@ -9,7 +9,7 @@ function EmptyList({ message }) {
         </h1>
         <Link
           to="/shop"
-          className="mx-auto mt-6 block w-fit rounded bg-[var(--color-brand-500)] px-3 py-2 text-xl font-medium capitalize tracking-wide text-white"
+          className="mx-auto mt-6 block w-fit rounded bg-[var(--color-brand-500)] px-3 py-2 text-lg capitalize tracking-wide text-white"
         >
           start shopping
         </Link>

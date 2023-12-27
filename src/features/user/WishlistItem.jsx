@@ -17,9 +17,9 @@ function WishlistItem({ item }) {
     dispatch(toggleWishlist(item));
   }
   return (
-    <div className="mb-1 grid grid-cols-[50px_repeat(5,_1fr)] items-center gap-2">
+    <div className="grid grid-cols-[50px_repeat(5,_1fr)] items-center gap-2 p-2 px-3 hover:bg-gray-100">
       <div onClick={deleteWishitem} className="py-2">
-        <span className="flex aspect-square h-6 cursor-pointer items-center  justify-center rounded-full bg-red-500 text-2xl text-white hover:bg-red-600">
+        <span className="flex aspect-square h-6 cursor-pointer items-center justify-center rounded-full bg-gray-300 text-2xl font-medium text-gray-800 hover:bg-red-600 hover:text-white">
           <span>&times;</span>
         </span>
       </div>

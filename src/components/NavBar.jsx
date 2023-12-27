@@ -24,7 +24,7 @@ function NavBar() {
       className="absolute left-0 top-0 z-50 w-full min-w-[375px] bg-gray-200 bg-opacity-40 bg-none"
       onClick={handleLinkClick}
     >
-      <div className="container mx-auto flex h-20 w-full   items-center justify-between  px-6 py-3 md:gap-4">
+      <div className="container mx-auto flex h-20 w-full   items-center justify-between  py-3 sm:px-6 md:gap-4">
         <Logo />
 
         <ul
