@@ -41,6 +41,7 @@ function Footer() {
             <nav className="mb-10 list-none space-y-2 pl-1 capitalize tracking-widest sm:pl-0">
               <li>
                 <NavLink
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/home"
                   className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
                 >
@@ -49,7 +50,8 @@ function Footer() {
               </li>
               <li>
                 <NavLink
-                  to="/products"
+                  onClick={() => window.scrollTo(0, 0)}
+                  to="/shop"
                   className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
                 >
                   shop
@@ -57,6 +59,7 @@ function Footer() {
               </li>
               <li>
                 <NavLink
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/about"
                   className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
                 >
@@ -65,6 +68,7 @@ function Footer() {
               </li>
               <li>
                 <NavLink
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/contact"
                   className="cursor-pointer text-sm  text-gray-300 hover:text-gray-400"
                 >
