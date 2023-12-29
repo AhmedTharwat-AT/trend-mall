@@ -47,7 +47,9 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     if (
       userID &&
-      (location.pathname == "/login" || location.pathname == "/signup")
+      (location.pathname == "/login" ||
+        location.pathname == "/signup" ||
+        location.pathname.includes("password"))
     ) {
       navigate("/home");
     }

@@ -26,6 +26,8 @@ import PersonalInfo from "./features/user/PersonalInfo";
 import Orders from "./features/order/Orders";
 import PaymentMethod from "./features/user/PaymentMethod";
 import Wishlist from "./features/user/Wishlist";
+import ResetPassword from "./pages/ResetPassword";
+import NewPassword from "./pages/NewPassword";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "reset-password",
+        element: <ResetPassword />,
+      },
+      {
+        path: "new-password",
+        element: <NewPassword />,
       },
       {
         path: "signup",
