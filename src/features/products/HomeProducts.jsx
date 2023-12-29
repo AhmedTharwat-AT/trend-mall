@@ -17,7 +17,7 @@ function HomeProducts() {
   return (
     <section
       ref={ref}
-      className="relative w-full bg-gray-100 py-20 md:pb-56 md:pt-16"
+      className="relative min-h-fit w-full bg-gray-100 py-20 md:pb-56 md:pt-16"
     >
       <div className="text-center">
         <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">

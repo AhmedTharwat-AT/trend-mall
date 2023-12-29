@@ -12,8 +12,8 @@ function About() {
       <PageHeading path={["home"]} current="about us" />
       <BgSeperator src="./src/assets/carousel/img-1.jpg" alt="trend mall" />
       <AboutHead />
-      <AboutTestimonal />
       <Statistics />
+      <AboutTestimonal />
       <TeamSection />
       <Newsletter />
     </>

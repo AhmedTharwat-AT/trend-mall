@@ -20,12 +20,23 @@ function ResetForm() {
       toast.error("Email was not found ! ");
       return;
     }
+
+    let apiKey;
+    if (import.meta.env.NETLIFY === "true") {
+      apiKey = process.env.VITE_BREVO_KEY;
+    } else {
+      apiKey = import.meta.env.VITE_BREVO_KEY;
+    }
+
     const random = crypto.randomUUID();
+
     const userInfo = {
       email: data.email,
       auth: random,
     };
+
     const url = window.location.origin;
+
     const options = {
       sender: {
         name: "TREND MALL",
@@ -33,18 +44,18 @@ function ResetForm() {
       },
       to: [
         {
-          email: "tebeci9031@ubinert.com",
+          email: data.email,
         },
       ],
       subject: "reset password",
       htmlContent: `<html><head></head><body><h4>Hello,${data.email}</h4>Click this link to reset your password</p><a target="_blank" href="${url}/new-password?email=${data.email}&auth=${random}">click here</a></body></html>`,
     };
+
     fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
         accept: "application/json",
-        "api-key":
-          "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",
+        "api-key": apiKey,
         "content-type": "application/json",
       },
       body: JSON.stringify(options),
@@ -54,6 +65,7 @@ function ResetForm() {
         setMsgSent(true);
       } else {
         toast.error("Error happened sending email ! ");
+        localStorage.removeItem("temp");
         navigate("/home");
       }
     });

@@ -1,40 +1,42 @@
+import { useEffect, useState } from "react";
+import useObserverState from "../hooks/useObserverState";
+
 import { IoBagHandleOutline, IoShirtOutline } from "react-icons/io5";
 import { GoPeople } from "react-icons/go";
-import { CiShoppingTag } from "react-icons/ci";
-import useObserverState from "../hooks/useObserverState";
-import { useEffect, useState } from "react";
+import { LiaAwardSolid } from "react-icons/lia";
 
 function Statistics() {
   const { ref, isVisible } = useObserverState();
-  console.log(isVisible);
 
   return (
-    <section className=" bg-gray-50 py-24">
-      <div className="container flex flex-wrap items-center justify-between gap-20 sm:gap-10 sm:px-6 lg:flex-nowrap">
+    <section className=" bg-gray-100 py-20 shadow-md">
+      <div className="container flex flex-col flex-wrap items-center justify-between gap-14 sm:gap-10 sm:px-6 lg:flex-nowrap">
         <>
-          <h1 className="w-full text-center text-3xl text-gray-800 sm:w-fit sm:text-start ">
+          <h1 className="w-full text-center text-4xl tracking-wider text-gray-800 sm:w-fit sm:text-start ">
             Doing the{" "}
-            <span className="font-medium text-red-500">right thing</span>, at
-            the right time.
+            <span className="font-medium capitalize text-indigo-500">
+              right thing
+            </span>
+            , at the right time.
           </h1>
           <div
             ref={ref}
-            className="ml-auto flex w-full flex-wrap justify-evenly gap-y-8 sm:gap-16 lg:w-3/5 lg:justify-end"
+            className="flex w-full flex-wrap justify-evenly gap-y-8 sm:gap-16 lg:w-3/5 "
           >
             <Status target={isVisible ? 658 : 0} name="customers">
-              <GoPeople className="mx-auto text-6xl text-indigo-500" />
+              <GoPeople className="mx-auto text-6xl text-gray-500" />
             </Status>
 
             <Status target={isVisible ? 132 : 0} name="brands">
-              <CiShoppingTag className="mx-auto text-6xl text-indigo-500" />
+              <LiaAwardSolid className="mx-auto text-6xl text-gray-500" />
             </Status>
 
             <Status target={isVisible ? 22 : 0} name="stores">
-              <IoBagHandleOutline className="mx-auto text-6xl text-indigo-500" />
+              <IoBagHandleOutline className="mx-auto text-6xl text-gray-500" />
             </Status>
 
             <Status target={isVisible ? 712 : 0} name="products">
-              <IoShirtOutline className="mx-auto text-6xl text-indigo-500" />
+              <IoShirtOutline className="mx-auto text-6xl text-gray-500" />
             </Status>
           </div>
         </>
@@ -63,8 +65,8 @@ function Status({ target = 0, children, name }) {
     <div className="flex w-1/2 flex-col gap-4 text-center sm:w-auto">
       {children}
       <div>
-        <h1 className="text-4xl font-medium text-gray-700">{count}</h1>
-        <h2 className="text-sm font-medium uppercase text-gray-500">{name}</h2>
+        <h1 className="text-4xl font-medium text-indigo-500">{count}</h1>
+        <h2 className="text-sm font-medium uppercase text-gray-400">{name}</h2>
       </div>
     </div>
   );
