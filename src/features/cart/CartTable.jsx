@@ -42,11 +42,11 @@ function CartTable() {
           </h1>
           <div className="mt-5 flex h-12 w-full items-center  ">
             <input
-              className="h-full w-full border-2 pl-3 outline-none focus:border-gray-400 lg:w-2/3"
+              className="h-full w-full border-2 border-r-0 pl-3 outline-none focus:border-gray-700 lg:w-2/3"
               type="text"
               placeholder="Enter Code"
             />
-            <button className="h-full bg-[var(--color-brand-500)] px-7 py-3 text-base font-medium uppercase text-white hover:bg-[var(--color-brand-600)]">
+            <button className="-800 h-full bg-gray-800 px-7 py-2 text-base font-medium uppercase text-white hover:bg-gray-700">
               apply
             </button>
           </div>

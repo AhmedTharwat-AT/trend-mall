@@ -3,6 +3,8 @@ import AboutTestimonal from "../components/AboutTestimonal";
 import BgSeperator from "../components/BgSeperator";
 import Newsletter from "../components/Newsletter";
 import PageHeading from "../components/PageHeading";
+import Statistics from "../components/Statistics";
+import TeamSection from "../components/TeamSection";
 
 function About() {
   return (
@@ -11,6 +13,8 @@ function About() {
       <BgSeperator src="./src/assets/carousel/img-1.jpg" alt="trend mall" />
       <AboutHead />
       <AboutTestimonal />
+      <Statistics />
+      <TeamSection />
       <Newsletter />
     </>
   );

@@ -2,7 +2,7 @@ import { FaQuoteRight } from "react-icons/fa";
 
 function AboutTestimonal() {
   return (
-    <div className="my-24 w-full text-gray-600">
+    <div className=" w-full text-gray-600">
       <div className=" flex w-full flex-col gap-5 bg-[var(--color-head-100)]  lg:flex-row">
         <div className="mx-auto flex w-full flex-col items-center justify-center px-5 py-20 text-center lg:w-1/2">
           <FaQuoteRight className="mb-8 inline-block h-8 w-8 text-[var(--color-brand-500)] " />
@@ -25,7 +25,7 @@ function AboutTestimonal() {
             </div>
           </div>
         </div>
-        <div className="bg-about h-[600px] w-full bg-cover bg-center lg:w-1/2"></div>
+        <div className="h-96 w-full bg-about bg-cover bg-center lg:h-[550px] lg:w-1/2"></div>
       </div>
     </div>
   );

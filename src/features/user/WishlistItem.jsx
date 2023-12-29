@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../cart/cartSlice";
 import { toast } from "react-hot-toast";
 import { toggleWishlist } from "./userSlice";
+import { Link } from "react-router-dom";
 
 function WishlistItem({ item }) {
   const dispatch = useDispatch();
@@ -24,10 +25,12 @@ function WishlistItem({ item }) {
         </span>
       </div>
       <div className="col-span-2 flex items-center gap-2">
-        <img className="h-12 w-12 object-cover" src={item.images[0]} />
-        <h1 className="max-w-[15ch] truncate text-sm capitalize">
-          {item.title}
-        </h1>
+        <Link className=" flex items-center gap-2" to={`/shop/${item.id}`}>
+          <img className="h-12 w-12 object-cover" src={item.images[0]} />
+          <h1 className="max-w-[15ch] truncate text-sm capitalize">
+            {item.title}
+          </h1>
+        </Link>
       </div>
       <h1>{item.stock > 0 ? "in-stock" : "out-of-stock"}</h1>
       <h1 className="text-sm">{formatCurrency(item.price)}</h1>

@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* nav */
-
-nav ul li .active {
-  color: var(--color-brand-500);
-}
-
 @layer components {
   .drop-menu {
     position: absolute;

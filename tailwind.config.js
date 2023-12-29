@@ -43,7 +43,7 @@ export default {
         },
         slideTop: {
           "0%": { transform: "translateY(20%); opacity:0" },
-          "50%": { opacity: "0.1" },
+          "50%": { opacity: "0.4" },
           "100%": { transform: "translateX(0); opacity:1" },
         },
         textRepeat: {

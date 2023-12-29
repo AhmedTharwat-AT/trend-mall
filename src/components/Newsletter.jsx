@@ -1,12 +1,12 @@
 function Newsletter() {
   return (
-    <section className="bg-gray-100 px-10 py-20 ">
+    <section className="bg-gray-100 px-5 py-20 sm:px-10 ">
       <div className="containe flex flex-col items-center justify-center text-center">
         <div>
-          <h1 className="mb-2 text-4xl font-semibold  tracking-wider text-gray-600">
+          <h1 className="mb-2 text-3xl font-semibold tracking-wider  text-gray-600 sm:text-4xl">
             Sign up for Newsletter
           </h1>
-          <p className="text-base font-normal text-gray-500">
+          <p className="text-sm font-normal text-gray-500 sm:text-base">
             Wants to get latest updates! sign up for Free
           </p>
         </div>

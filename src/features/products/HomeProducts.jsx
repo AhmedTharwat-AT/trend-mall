@@ -19,16 +19,21 @@ function HomeProducts() {
       ref={ref}
       className="relative w-full bg-gray-100 py-20 md:pb-56 md:pt-16"
     >
-      <h1 className="relative mx-auto my-5 mb-16 w-fit border-b-2 border-gray-400 pb-2 text-3xl font-semibold tracking-widest text-gray-800 sm:text-4xl md:mb-20">
-        Trending Products
-        <span className="absolute -top-4 left-1/2  -translate-x-1/2 whitespace-nowrap text-4xl opacity-20 sm:text-5xl ">
-          Trending Products
-        </span>
-      </h1>
+      <div className="text-center">
+        <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
+          new trends
+        </h3>
+        <h1 className="relative my-5 text-3xl font-medium capitalize tracking-widest  md:text-4xl">
+          trending fashion products
+          <span className="absolute -top-4 left-1/2 w-full -translate-x-1/2 text-4xl capitalize opacity-20  md:text-5xl ">
+            trending fashion products
+          </span>
+        </h1>
+      </div>
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className="container mx-auto grid  max-w-5xl grid-cols-1 md:grid-cols-2">
+        <div className="container mx-auto mt-20 grid max-w-5xl grid-cols-1 md:grid-cols-2">
           <HomeProduct
             className={`${
               isVisible

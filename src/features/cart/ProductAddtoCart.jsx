@@ -9,9 +9,10 @@ import { FaHeart, FaHeartBroken } from "react-icons/fa";
 import { toggleWishlist } from "../user/userSlice";
 
 function ProductAddtoCart({ product }) {
+  const [quantity, setQuantity] = useState(1);
   const isLogged = useSelector((state) => state.user.isLogged);
   const wishlist = useSelector((state) => state.user.wishlist);
-  const [quantity, setQuantity] = useState(1);
+  const isInList = wishlist.map((el) => el.id === product.id).includes(true);
   const dispatch = useDispatch();
 
   function handleAddToCart() {
@@ -51,13 +52,11 @@ function ProductAddtoCart({ product }) {
         </button>
         <button
           onClick={addToWishlist}
-          className="ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all duration-75 hover:text-2xl hover:text-red-600"
+          className={`${
+            isInList ? "text-red-600 " : ""
+          } ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 bg-gray-300 text-lg transition-all duration-75 hover:text-2xl hover:text-red-600`}
         >
-          {wishlist.map((el) => el.id === product.id).includes(true) ? (
-            <FaHeartBroken className="text-2xl " />
-          ) : (
-            <FaHeart />
-          )}
+          <FaHeart />
         </button>
       </div>
     </div>

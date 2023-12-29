@@ -15,7 +15,7 @@ function Footer() {
   }
 
   return (
-    <footer className="mt-auto bg-gray-950 text-gray-100 ">
+    <footer className="mt-auto  bg-gray-950 text-gray-100 ">
       <div className="container  mx-auto pb-24 pt-16 sm:px-5 sm:pb-14">
         <div className="order-first flex flex-wrap gap-y-4 text-left">
           <div className="group mb-12 w-full px-4  sm:w-1/2 lg:w-[22%]">
