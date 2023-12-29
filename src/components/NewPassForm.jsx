@@ -38,7 +38,6 @@ function NewPassForm() {
   function onSuccess(data) {
     const users = JSON.parse(localStorage.getItem("users"));
     const userIndex = users.findIndex((el) => el.email == emailQuery);
-    console.log(data);
     users[userIndex].password = data.password;
 
     toast.success("Password update successfully !");
