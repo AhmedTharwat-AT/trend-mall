@@ -6,7 +6,7 @@ import SideProductMenu from "../cart/SideProductMenu";
 function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
   return (
     <div
-      className={`group relative mx-auto flex max-w-[400px] flex-col gap-5  overflow-hidden rounded-md border border-gray-200 bg-white p-2 transition-all hover:shadow-lg  ${responsive}`}
+      className={`group relative mx-auto flex min-w-[260px] max-w-[400px] flex-col gap-5  overflow-hidden rounded-md border border-gray-200 bg-white p-2 transition-all hover:shadow-lg  ${responsive}`}
     >
       {product.discountPercentage > 15 && (
         <span className="absolute left-0 top-5 z-10 bg-black px-3 text-sm font-medium uppercase tracking-widest text-white">
@@ -16,7 +16,7 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
 
       <SideProductMenu product={product} className="group-hover:right-3" />
 
-      <div className="relative h-80 w-full sm:h-60">
+      <div className="relative h-80 w-full sm:h-56">
         <Link onClick={() => window.scrollTo(0, 0)} to={`/shop/${product.id}`}>
           <img
             className=" h-full w-full object-cover transition-all duration-500 group-hover:grayscale"

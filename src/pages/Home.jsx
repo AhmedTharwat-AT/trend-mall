@@ -12,7 +12,11 @@ function Home() {
       <Header />
       <HomeProducts />
       <HomeOverview>
-        <SimpleSlider controles={false} />
+        <SimpleSlider
+          parentStyles="[&_.slick-dots_button:before]:text-gray-100 [&_.slick-dots_button:before]:pt-5 [&_.slick-dots_.slick-active_button:before]:text-white "
+          showArrows={false}
+          controles={false}
+        />
       </HomeOverview>
       <HomeSales />
       <HomeTrends />

@@ -4,8 +4,12 @@ import { validateEmail } from "../utils/helpers";
 
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { toast } from "react-hot-toast";
+import SmallSpinner from "./SmallSpinner";
+import { useState } from "react";
 
 function ContactContent() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -37,6 +41,9 @@ function ContactContent() {
       message: data.message,
     };
 
+    const toastId = toast.loading("Sending email...");
+    setIsLoading(true);
+
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
       .then(
@@ -49,6 +56,8 @@ function ContactContent() {
       )
       .finally(() => {
         reset();
+        toast.dismiss(toastId);
+        setIsLoading(false);
       });
   }
   return (
@@ -161,10 +170,11 @@ function ContactContent() {
             </p>
           </div>
           <button
+            disabled={isLoading}
             onClick={handleSubmit(onSubmit)}
-            className="border-0 bg-indigo-500  px-6 py-2 text-lg uppercase tracking-wider text-white hover:bg-indigo-600 focus:outline-none"
+            className="border-0 bg-indigo-500 px-6 py-2 text-base font-medium uppercase tracking-wider text-white hover:bg-indigo-600 focus:outline-none disabled:bg-gray-600"
           >
-            Send message
+            {isLoading ? <SmallSpinner /> : "Send message"}
           </button>
         </div>
       </div>

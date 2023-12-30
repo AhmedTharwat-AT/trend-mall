@@ -5,7 +5,11 @@ import Slider from "react-slick";
 import Product from "../features/products/Product";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-export default function SimpleSlider({ controles = true, parentStyles = {} }) {
+export default function SimpleSlider({
+  controles = true,
+  parentStyles = {},
+  showArrows = true,
+}) {
   const { data: products, isLoading } = useQuery(
     ["menProducts"],
     getMenProducts,
@@ -27,10 +31,11 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
 
     responsive: [
       {
-        breakpoint: 1104,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 2,
+          dots: true,
         },
       },
       {
@@ -38,7 +43,7 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          arrows: false,
+          dots: true,
         },
       },
       {
@@ -46,6 +51,8 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: showArrows,
+          dots: true,
         },
       },
       {
@@ -53,8 +60,9 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
-          arrows: false,
+          dots: true,
+
+          arrows: showArrows,
         },
       },
       {
@@ -62,8 +70,7 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: false,
-          arrows: false,
+          arrows: showArrows,
         },
       },
     ],
@@ -71,7 +78,7 @@ export default function SimpleSlider({ controles = true, parentStyles = {} }) {
   return (
     <div className="container mx-auto">
       <Slider className={parentStyles} {...settings}>
-        {products.slice(0, 20).map((pro) => (
+        {products.slice(0, 10).map((pro) => (
           <Product product={pro} key={pro.id} />
         ))}
       </Slider>

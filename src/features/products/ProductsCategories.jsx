@@ -16,7 +16,7 @@ function ProductsCategories() {
   }
 
   return (
-    <div className="mb-16 w-full px-7 sm:px-20  lg:mb-0 lg:w-1/4 lg:px-6">
+    <div className="mb-16 w-full px-7 pl-0  sm:px-20 lg:mb-0 lg:w-1/4 lg:px-5">
       <Select>
         <Search onSearch={handleSearch} />
         <ProductCategoriesList />

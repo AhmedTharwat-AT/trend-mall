@@ -30,10 +30,10 @@ function ShopProductsList() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className="relative  grid grid-cols-1 gap-5  sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative  grid grid-cols-1 gap-5  sm:grid-cols-2 xl:grid-cols-3">
           {products.map((pro) => (
             <Product
-              responsive="w-full lg:w-[235px] xl:w-60 md:w-[330px] sm:w-62"
+              responsive="w-full xl:w-[260px] xl:w-60 md:w-[330px] sm:w-62"
               product={pro}
               key={pro.id}
             />
