@@ -2,14 +2,14 @@ import useObserverState from "../hooks/useObserverState";
 import { GRID_IMAGES } from "../services/constants";
 
 function ImagesGrid({ imgs = [] }) {
-  const { isVisible, ref } = useObserverState({ threshold: 0.3 });
+  const { isVisible, ref } = useObserverState({ threshold: 0.7 });
 
   const images = imgs.length == 0 ? GRID_IMAGES : imgs;
   return (
     <div
       ref={ref}
       className={`${
-        isVisible ? "visible animate-slideLeft " : "invisible "
+        isVisible ? "visible animate-slideTop " : "invisible "
       } grid w-full  sm:grid-cols-3 sm:grid-rows-3 sm:gap-1  `}
     >
       {images.slice(0, 5).map((el, i) => (

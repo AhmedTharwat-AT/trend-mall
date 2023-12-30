@@ -24,7 +24,7 @@ function TeamSection() {
               ? "visible animate-[slideTop_0.8s_0.5s_ease-out_both]"
               : "invisible"
           } min-h-[190px] w-full max-w-5xl rounded-lg object-cover object-top shadow-lg grayscale-[60%] lg:h-96`}
-          src="http://wahabali.com/work/empor/images/video.jpg"
+          src="/assets/about-head.jpg"
         />
       </div>
       <div className="container mt-20">
