@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function AppLayout() {
   return (
@@ -8,6 +9,7 @@ function AppLayout() {
       <NavBar />
       <main className="mt-20 ">
         <Outlet />
+        <SpeedInsights />
       </main>
       <Footer />
     </div>

@@ -6,7 +6,6 @@ import {
 import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import store from "./store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -134,7 +133,6 @@ function App() {
     <Provider store={store}>
       <RouterProvider router={router} />;
       <Toaster position="top-center" />
-      <SpeedInsights />
     </Provider>
   );
 }
