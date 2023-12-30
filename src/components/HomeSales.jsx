@@ -26,10 +26,7 @@ function HomeSales() {
               Limited time
             </span>
           </p>
-          <img
-            className="mx-auto rounded-3xl"
-            src="./src/assets/thumbnail.jpg"
-          />
+          <img className="mx-auto rounded-3xl" src="/assets/thumbnail.jpg" />
         </div>
 
         <div className="mx-auto space-y-10 lg:w-2/5 lg:pl-5 ">
