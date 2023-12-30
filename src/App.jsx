@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
+import { ErrorBoundary } from "react-error-boundary";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import store from "./store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,7 +30,6 @@ import PaymentMethod from "./features/user/PaymentMethod";
 import Wishlist from "./features/user/Wishlist";
 import ResetPassword from "./pages/ResetPassword";
 import NewPassword from "./pages/NewPassword";
-import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./components/ErrorFallback";
 
 const router = createBrowserRouter([
@@ -133,6 +134,7 @@ function App() {
     <Provider store={store}>
       <RouterProvider router={router} />;
       <Toaster position="top-center" />
+      <SpeedInsights />
     </Provider>
   );
 }
