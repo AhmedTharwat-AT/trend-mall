@@ -10,8 +10,7 @@ function HomeProducts() {
     getMenProducts,
   );
   const { ref, isVisible } = useObserverState({
-    threshold: 0,
-    rootMargin: "-180px",
+    threshold: 0.25,
   });
 
   return (
@@ -37,8 +36,8 @@ function HomeProducts() {
           <HomeProduct
             className={`${
               isVisible
-                ? "animate-[slideRight_0.8s_0.6s_both] "
-                : "animate-none"
+                ? "visible animate-[slideRight_0.8s_0.7s_both] "
+                : "invisible "
             }  self-center text-center md:row-span-2 md:-mt-28 md:text-start`}
             product={products.filter((el) => el.category == "mens-shoes")[2]}
             key={products[0].id}
@@ -46,17 +45,17 @@ function HomeProducts() {
           <HomeProduct
             className={`${
               isVisible
-                ? "animate-[slideBottom_1s_1s_ease-in-out_both] "
-                : "animate-none"
-            }    md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
+                ? "visible animate-[slideBottom_1s_0.1s_ease-in-out_both] "
+                : "invisible "
+            } md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
             textStyle="md:absolute text-center md:text-start md:top-16 md:right-52 w-full"
             product={products.filter((el) => el.category == "mens-shirts")[4]}
             key={products[1].id}
           />
           <HomeProduct
             className={`${
-              isVisible ? "animate-slideLeft" : ""
-            }  animate-none  md:mt-11`}
+              isVisible ? "visible animate-slideLeft" : "invisible "
+            }  md:mt-11`}
             textStyle="md:absolute text-center md:text-start md:right-28 w-full"
             product={products.filter((el) => el.category == "mens-watches")[2]}
             key={products[2].id}

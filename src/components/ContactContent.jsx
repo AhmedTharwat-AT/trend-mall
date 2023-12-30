@@ -61,7 +61,7 @@ function ContactContent() {
         src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
         style={{ filter: "grayscale(90%) " }}
       ></iframe>
-      <div className="container mx-auto flex flex-wrap px-7 py-28  lg:flex-nowrap">
+      <div className="container mx-auto flex flex-wrap px-7 py-24  lg:flex-nowrap">
         <div className="mb-12 flex flex-col pr-6 md:mb-0 md:w-1/2">
           <div>
             <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gray-700">

@@ -62,12 +62,3 @@ export {
   GRID_IMAGES,
   MEMBERS,
 };
-
-// const PRICES_RANGE = [
-//   { from: 0, to: 50 },
-//   { from: 50, to: 100 },
-//   { from: 100, to: 150 },
-//   { from: 150, to: 200 },
-//   { from: 200, to: 250 },
-//   { from: 250, to: null },
-// ];

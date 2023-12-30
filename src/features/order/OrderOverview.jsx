@@ -5,7 +5,9 @@ function OrderOverview({ order }) {
         <h2 className="flex min-w-[60px] whitespace-nowrap capitalize  text-gray-900">
           Order id <span className="ml-auto">:</span>
         </h2>
-        <p className="text-gray-600">{order.orderId}</p>
+        <p className="max-w-[250px] overflow-hidden text-ellipsis text-gray-600 sm:max-w-[500px]">
+          {order.orderId}
+        </p>
       </div>
       <div className=" flex gap-4 text-xs sm:text-sm">
         <h2 className="flex min-w-[60px] whitespace-nowrap capitalize  text-gray-900">

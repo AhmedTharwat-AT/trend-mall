@@ -2,7 +2,7 @@ import useObserverState from "../hooks/useObserverState";
 import { GRID_IMAGES } from "../services/constants";
 
 function ImagesGrid({ imgs = [] }) {
-  const { isVisible, ref } = useObserverState({ rootMargin: "-50px" });
+  const { isVisible, ref } = useObserverState({ threshold: 0.3 });
 
   const images = imgs.length == 0 ? GRID_IMAGES : imgs;
   return (

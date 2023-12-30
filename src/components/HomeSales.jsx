@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import CountDownTimer from "./CountDownTimer";
+import useObserverState from "../hooks/useObserverState";
 
 function HomeSales() {
+  const { ref, isVisible } = useObserverState({ threshold: 1 });
   return (
     <section className="overflow-hidden bg-[var(--color-brand-50)]">
       <div className="group container mx-auto flex  flex-wrap items-center space-y-8  px-5 py-36 sm:px-5 lg:py-24 ">
@@ -12,7 +14,12 @@ function HomeSales() {
           <p className="z relative z-10">Men-Watchs</p>
         </div>
 
-        <div className="relative mx-auto w-full sm:px-10  lg:w-2/5">
+        <div
+          ref={ref}
+          className={`${
+            isVisible ? "visible animate-slideTop " : "invisible "
+          } relative mx-auto w-full sm:px-10  lg:w-2/5`}
+        >
           <p className="absolute -top-5 right-0 flex h-32 w-32 scale-50 flex-col items-center justify-center rounded-full bg-black text-xl font-semibold tracking-widest text-gray-50 opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100 sm:right-10 sm:h-36 sm:w-36 md:right-28 lg:right-0 lg:h-28  lg:w-28">
             %SALE
             <span className="text-xs font-normal tracking-wider opacity-80">

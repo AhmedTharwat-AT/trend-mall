@@ -2,11 +2,11 @@ import useObserverState from "../hooks/useObserverState";
 import ImagesGrid from "./ImagesGrid";
 
 function AboutHead() {
-  const { isVisible, ref } = useObserverState({ rootMargin: "-100px" });
+  const { isVisible, ref } = useObserverState({ threshold: 0.4 });
 
   return (
     <section className="py-24 ">
-      <div className=" container mx-auto flex flex-wrap items-center gap-14 px-5 ">
+      <div className=" container mx-auto flex flex-wrap items-center gap-14 px-7  ">
         <div
           ref={ref}
           className={`${

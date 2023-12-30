@@ -28,14 +28,21 @@ import PaymentMethod from "./features/user/PaymentMethod";
 import Wishlist from "./features/user/Wishlist";
 import ResetPassword from "./pages/ResetPassword";
 import NewPassword from "./pages/NewPassword";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "./components/ErrorFallback";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
-        <AppLayout />
-      </ProtectedRoute>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => window.location.replace("/")}
+      >
+        <ProtectedRoute>
+          <AppLayout />
+        </ProtectedRoute>
+      </ErrorBoundary>
     ),
     children: [
       {

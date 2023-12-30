@@ -5,7 +5,7 @@ function Button({ children, variant = "primary", onClick, size = "base" }) {
     secondary: " border-gray-700 hover:bg-gray-800 hover:text-white ",
     danger: " bg-red-500 border-red-500 hover:bg-red-600 text-white ",
     warning:
-      " hover:bg-orange-400 border-orange-500  bg-orange-500 text-white ",
+      " hover:bg-orange-500 border-orange-600  bg-orange-600 text-white ",
   };
 
   const sizes = {
