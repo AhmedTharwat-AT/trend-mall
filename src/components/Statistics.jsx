@@ -6,7 +6,7 @@ import { GoPeople } from "react-icons/go";
 import { LiaAwardSolid } from "react-icons/lia";
 
 function Statistics() {
-  const { ref, isVisible } = useObserverState();
+  const { ref, isVisible } = useObserverState({ threshold: 1 });
 
   return (
     <section className=" bg-gray-100 py-20 shadow-md">

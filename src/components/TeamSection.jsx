@@ -5,7 +5,7 @@ import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 function TeamSection() {
   const { ref, isVisible } = useObserverState({ rootMargin: "-100px" });
   return (
-    <section className="pb-20">
+    <section className="pb-28">
       <div
         ref={ref}
         className="relative z-10 flex flex-col items-center justify-center gap-10 bg-gray-950 px-4 pt-20 text-center text-gray-300 after:absolute after:bottom-0 after:z-[-1] after:h-32 after:w-full after:bg-white after:content-[''] sm:px-8 lg:after:h-60"

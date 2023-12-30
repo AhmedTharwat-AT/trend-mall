@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import Product from "../features/products/Product";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
-export default function SimpleSlider() {
+export default function SimpleSlider({ controles = true, parentStyles = {} }) {
   const { data: products, isLoading } = useQuery(
     ["menProducts"],
     getMenProducts,
@@ -22,15 +22,23 @@ export default function SimpleSlider() {
     swipeToSlide: true,
     pauseOnFocus: true,
     pauseOnHover: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: controles ? <SampleNextArrow /> : null,
+    prevArrow: controles ? <SamplePrevArrow /> : null,
 
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1104,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false,
         },
       },
       {
@@ -45,8 +53,8 @@ export default function SimpleSlider() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: true,
           dots: false,
+          arrows: false,
         },
       },
       {
@@ -55,13 +63,14 @@ export default function SimpleSlider() {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false,
+          arrows: false,
         },
       },
     ],
   };
   return (
     <div className="container mx-auto">
-      <Slider {...settings}>
+      <Slider className={parentStyles} {...settings}>
         {products.slice(0, 20).map((pro) => (
           <Product product={pro} key={pro.id} />
         ))}
@@ -84,7 +93,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
   return (
     <IoIosArrowDropleft
       className={`absolute -top-16 right-20 h-10 w-10 -translate-y-1 cursor-pointer bg-transparent text-gray-700 hover:text-gray-500`}

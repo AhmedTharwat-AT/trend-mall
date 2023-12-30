@@ -62,12 +62,15 @@ function ContactContent() {
         style={{ filter: "grayscale(90%) " }}
       ></iframe>
       <div className="container mx-auto flex flex-wrap px-7 py-24  lg:flex-nowrap">
-        <div className="mb-12 flex flex-col pr-6 md:mb-0 md:w-1/2">
+        <div className="mb-12 flex flex-col md:mb-0 md:w-1/2 md:pr-6">
           <div>
-            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gray-700">
-              information
-            </p>
-            <h1 className=" text-5xl font-medium tracking-wide text-indigo-500">
+            <div className="mb-2 flex items-center justify-start gap-3">
+              <span className="block h-[2px] w-14 bg-indigo-500"></span>
+              <p className=" text-base font-medium capitalize tracking-widest text-indigo-600">
+                information
+              </p>
+            </div>
+            <h1 className=" text-5xl font-medium tracking-wide text-gray-600">
               Contact Me
             </h1>
             <p className="mt-4 text-sm leading-7 tracking-wide text-gray-500">
@@ -85,7 +88,7 @@ function ContactContent() {
             </div>
           </div>
           <div className=" md:mt-12">
-            <div className="mt-4 flex items-center justify-start gap-3 text-xl text-gray-400 sm:ml-auto ">
+            <div className="mt-4 flex items-center justify-start gap-3 text-xl text-gray-500 sm:ml-auto ">
               <a
                 className="hover:text-[var(--color-brand-500)]"
                 href="https://www.linkedin.com/in/ahmed-tharwat-at/"
