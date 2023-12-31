@@ -4,12 +4,12 @@ function Header() {
   return (
     <header className=" flex h-[calc(100vh-80px)] animate-slideTop items-center justify-center overflow-hidden bg-[url('/assets/carousel/img-2.jpg')] bg-cover bg-right-top text-gray-600">
       <div className=" container mx-auto px-5 py-24 ">
-        <div className="flex w-2/3 min-w-[300px] animate-slideRight flex-col items-start md:mb-0 md:pr-16 lg:flex-grow lg:pr-24">
-          <h1 className="mb-4 bg-clip-text text-8xl font-semibold uppercase text-[var(--color-grey-900)] lg:text-9xl ">
+        <div className="flex min-w-[300px] animate-slideRight flex-col items-start md:mb-0 md:w-2/3 md:pr-16 lg:flex-grow lg:pr-24">
+          <h1 className="mb-4 bg-clip-text text-6xl font-semibold uppercase text-[var(--color-grey-900)] lg:text-7xl ">
             Trend Mall
           </h1>
 
-          <p className="mb-8 text-4xl font-bold uppercase leading-relaxed text-gray-100 lg:text-6xl">
+          <p className="mb-8 text-3xl font-bold uppercase leading-relaxed text-gray-100 lg:text-4xl">
             where <span className=" font-semibold text-gray-900 ">trends</span>{" "}
             come to life
           </p>

@@ -19,7 +19,7 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
       >
         <div
           onClick={() => setShowMenu(false)}
-          className="mb-4 mt-3 w-fit cursor-pointer px-5 text-5xl text-gray-700"
+          className=" mb-4 mt-3 w-fit cursor-pointer px-5 text-5xl text-gray-700"
         >
           &times;
         </div>

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function ProfileSideMenu() {
   return (
-    <div className="mx-5 h-fit w-full overflow-hidden rounded-md border border-gray-200 bg-gray-100 shadow-md md:mx-0 md:w-fit lg:w-60 ">
+    <div className="mx-5 h-fit w-full overflow-hidden rounded-md border border-gray-200 bg-gray-100 shadow-md md:mx-0 md:mt-8 md:w-fit lg:mt-0 lg:w-60 ">
       <ul className="flex flex-col divide-y divide-gray-300 text-base capitalize tracking-wider text-gray-800 md:flex-row lg:flex-col">
         <li>
           <NavLink
