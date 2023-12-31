@@ -38,14 +38,14 @@ function SignupForm() {
   }
 
   return (
-    <div className="mx-auto mt-8 flex flex-col items-center justify-center rounded-lg  border border-gray-300 bg-gray-200 px-2  py-6 sm:h-full sm:border-none sm:px-6 sm:py-0 md:mt-0 md:bg-gray-100 lg:py-0">
+    <div className="mx-auto flex flex-col items-center justify-center rounded-lg  border border-gray-300 bg-gray-100  px-2 py-6 sm:h-full sm:border-none sm:px-6 sm:py-0 lg:py-0">
       <div className="w-full rounded-lg sm:max-w-md md:mt-0 xl:p-0">
         <div className="space-y-4 p-3 sm:p-8 ">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-800  md:text-2xl">
             Create new account
           </h1>
           <form onSubmit={handleSubmit(onSuccess)} className="space-y-2">
-            <div className="flex gap-10">
+            <div className="flex gap-10 max-[350px]:flex-col max-[350px]:gap-2">
               <div className="flex flex-col">
                 <label className="mb-2 block text-sm font-medium text-gray-900 ">
                   First name

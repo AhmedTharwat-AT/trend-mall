@@ -8,6 +8,7 @@ function EmptyList({ message }) {
           {message}
         </h1>
         <Link
+          onClick={() => window.scrollTo(0, 0)}
           to="/shop"
           className="mx-auto mt-6 block w-fit rounded bg-[var(--color-brand-500)] px-3 py-2 text-lg capitalize tracking-wide text-white"
         >

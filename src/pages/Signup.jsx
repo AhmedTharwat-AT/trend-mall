@@ -2,12 +2,12 @@ import SignupForm from "../components/SignupForm";
 
 function Signup() {
   return (
-    <section className="flex h-[calc(100vh-200px)] min-h-[700px] items-center justify-center  lg:px-16">
-      <div className="flex h-[600px] animate-slideRight items-center overflow-hidden lg:max-w-[1170px]  ">
-        <div className="h-full w-full min-w-[350px]  border-r-0 lg:w-1/2 lg:rounded-bl-3xl lg:rounded-tl-3xl lg:border">
+    <section className="flex items-center justify-center py-16 lg:px-16  lg:py-20">
+      <div className="container  flex h-full animate-slideRight items-center overflow-hidden ">
+        <div className="mx-auto h-full w-fit border-r-0  lg:mx-0 lg:w-1/2 lg:rounded-bl-3xl lg:rounded-tl-3xl lg:border">
           <SignupForm />
         </div>
-        <div className="hidden h-full w-1/2 min-w-[350px] overflow-hidden grayscale lg:block lg:rounded-br-3xl lg:rounded-tr-3xl">
+        <div className="hidden h-auto w-1/2 grow self-stretch overflow-hidden grayscale lg:block lg:rounded-br-3xl lg:rounded-tr-3xl">
           <img
             className="h-full object-cover "
             src="assets/carousel/img-1.jpg"
