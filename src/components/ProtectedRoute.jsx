@@ -53,7 +53,7 @@ function ProtectedRoute({ children }) {
     ) {
       navigate("/home");
     }
-    if (!cart.count && location.pathname.includes("/order/")) {
+    if (!userID && location.pathname.includes("/order/")) {
       navigate("/home");
     }
     if (!userID && location.pathname.includes("/account")) {

@@ -2,8 +2,13 @@ import { createPortal } from "react-dom";
 import { formatCurrency } from "../../utils/helpers";
 import { Link } from "react-router-dom";
 import EmptyCartMenu from "../../components/EmptyCartMenu";
+import { MdOutlineDoNotDisturb } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { deleteCart } from "./cartSlice";
 
 function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
+  const dispatch = useDispatch();
+
   return createPortal(
     <>
       <div
@@ -12,24 +17,43 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
           showMenu ? "fixed " : "hidden "
         }right-0 top-0 z-[100] h-full w-full bg-gray-600 opacity-40 backdrop-blur-sm backdrop-filter transition-all`}
       ></div>
+
       <div
         className={`${
           showMenu ? "visible right-0 z-[101]" : "invisible -right-full -z-40"
         } fixed top-0 flex h-full w-[90%] max-w-[370px] flex-col bg-white transition-all duration-300 md:w-2/3`}
       >
-        <div
-          onClick={() => setShowMenu(false)}
-          className=" mb-4 mt-3 w-fit cursor-pointer px-5 text-5xl text-gray-700"
-        >
-          &times;
+        <div className=" flex justify-between p-2 text-gray-700">
+          <span
+            onClick={() => setShowMenu(false)}
+            className=" w-fit cursor-pointer px-5 text-5xl "
+          >
+            &times;
+          </span>
+          {items.length > 0 && (
+            <div
+              onClick={() => {
+                dispatch(deleteCart());
+              }}
+              className="mb-4 mt-3 flex cursor-pointer items-center gap-2 px-2"
+            >
+              <p className="text-sm uppercase">clear cart</p>
+              <MdOutlineDoNotDisturb className="  text-3xl" />
+            </div>
+          )}
         </div>
+
         {items.length <= 0 ? (
           <EmptyCartMenu setShowMenu={setShowMenu} />
         ) : (
           <>
-            <ul className="divide-y-2 overflow-y-scroll py-3 pl-4">
+            <ul className="divide-y-2 overflow-y-scroll py-3 pl-2">
               {items.map((item) => (
-                <li key={item.id} onClick={() => setShowMenu(false)}>
+                <li
+                  className="px-2"
+                  key={item.id}
+                  onClick={() => setShowMenu(false)}
+                >
                   <Link
                     to={`/shop/${item.id}`}
                     className="flex items-center gap-2 p-2 hover:bg-gray-200"
@@ -37,7 +61,7 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
                     <img className="h-16 w-16" src={item.images[0]} />
                     <div className="flex flex-1 items-end justify-between">
                       <div>
-                        <h2 className="max-w-[180px] truncate capitalize">
+                        <h2 className="max-w-[170px] truncate capitalize">
                           {item.title}
                         </h2>
                         <h2 className="font-semibold">

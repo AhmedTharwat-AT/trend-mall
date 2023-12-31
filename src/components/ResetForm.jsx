@@ -85,10 +85,10 @@ function ResetForm() {
         <div className="w-full rounded-xl border bg-gray-100 pb-12 pt-8 shadow sm:max-w-md md:mt-0">
           <CiCircleCheck className="block w-full animate-slideBottom text-center text-9xl text-green-700" />
           <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-800  md:text-2xl">
-            Email sent successfully!
+            Email was sent successfully!
           </h1>
           <p className="text-center text-xl  leading-tight tracking-tight text-gray-600  md:text-2xl">
-            check your email
+            check your mail
           </p>
         </div>
       </div>
@@ -110,8 +110,9 @@ function ResetForm() {
                 Your email
               </label>
               <input
+                disabled={isLoading}
                 type="email"
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 placeholder="email@example.com"
                 {...register("email", { required: "This field is required !" })}
               />

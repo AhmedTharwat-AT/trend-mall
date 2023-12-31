@@ -2,8 +2,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { validateEmail } from "../utils/helpers";
 import { toast } from "react-hot-toast";
+import { useState } from "react";
+import SmallSpinner from "./SmallSpinner";
 
 function SignupForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const {
     register,
@@ -30,11 +33,17 @@ function SignupForm() {
       cart: {},
       wishlist: [],
     };
-    users.push(user);
-    localStorage.setItem("users", JSON.stringify(users));
-    toast.success("Account created successfully !");
-    navigate("/login");
-    window.scrollTo(0, 0);
+
+    setIsLoading(true);
+
+    setTimeout(() => {
+      setIsLoading(false);
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+      toast.success("Account created successfully !");
+      navigate("/login");
+      window.scrollTo(0, 0);
+    }, 1500);
   }
 
   return (
@@ -51,7 +60,9 @@ function SignupForm() {
                   First name
                 </label>
                 <input
-                  className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                  type="text"
+                  disabled={isLoading}
+                  className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                   {...register("firstname", {
                     required: "This field is required",
                     maxLength: {
@@ -69,7 +80,9 @@ function SignupForm() {
                   Last name
                 </label>
                 <input
-                  className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                  type="text"
+                  disabled={isLoading}
+                  className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                   {...register("lastname", {
                     required: "This field is required",
                     maxLength: {
@@ -91,7 +104,9 @@ function SignupForm() {
                 Your email
               </label>
               <input
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                type="email"
+                disabled={isLoading}
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 placeholder="email@example.com"
                 {...register("email", {
                   required: "This field is required",
@@ -111,9 +126,10 @@ function SignupForm() {
                 Password
               </label>
               <input
+                disabled={isLoading}
                 type="password"
                 placeholder="••••••••"
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 {...register("password", {
                   required: "This field is required",
                   minLength: {
@@ -138,9 +154,10 @@ function SignupForm() {
                 Confirm password
               </label>
               <input
+                disabled={isLoading}
                 type="password"
                 placeholder="••••••••"
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 {...register("confirm", {
                   required: "This field is required",
                   validate: (value, formValues) =>
@@ -154,9 +171,10 @@ function SignupForm() {
             <div className="flex flex-col   py-2">
               <div className="flex items-center ">
                 <input
+                  disabled={isLoading}
                   aria-describedby="terms"
                   type="checkbox"
-                  className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 accent-[var(--color-brand-500)] hover:accent-[var(--color-brand-500)] "
+                  className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 accent-[var(--color-brand-500)] hover:accent-[var(--color-brand-500)] disabled:bg-gray-300"
                   {...register("terms", {
                     required: "This field is required",
                   })}
@@ -174,10 +192,11 @@ function SignupForm() {
               </p>
             </div>
             <button
+              disabled={isLoading}
               type="submit"
-              className=" w-full rounded-lg bg-[var(--color-brand-500)] px-5 py-2 text-center text-sm font-medium text-white hover:bg-[var(--color-brand-600)] focus:outline-none focus:ring-4"
+              className=" w-full rounded-lg bg-[var(--color-brand-500)] px-5 py-2 text-center text-sm font-medium text-white hover:bg-[var(--color-brand-600)] focus:outline-none focus:ring-4 disabled:bg-gray-600"
             >
-              Create an account
+              {isLoading ? <SmallSpinner /> : "Create an account"}
             </button>
             <p className="text-sm font-light text-gray-600 ">
               Already have an account?{" "}

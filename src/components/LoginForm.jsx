@@ -3,8 +3,11 @@ import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../features/user/userSlice";
+import { useState } from "react";
+import SmallSpinner from "./SmallSpinner";
 
 function LoginForm() {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const {
@@ -20,10 +23,16 @@ function LoginForm() {
       toast.error("Incorrect email or password ");
       return;
     }
-    dispatch(loginUser(user));
-    localStorage.setItem("user", user.id);
-    navigate("/home");
-    window.scrollTo(0, 0);
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      toast.success("Welcome , " + user.firstName);
+      dispatch(loginUser(user));
+      localStorage.setItem("user", user.id);
+      navigate("/home");
+      window.scrollTo(0, 0);
+    }, 700);
   }
 
   return (
@@ -43,7 +52,8 @@ function LoginForm() {
               </label>
               <input
                 type="email"
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                disabled={isLoading}
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 placeholder="email@example.com"
                 {...register("email", { required: "This field is required !" })}
               />
@@ -59,9 +69,10 @@ function LoginForm() {
                 Password
               </label>
               <input
+                disabled={isLoading}
                 type="password"
                 placeholder="••••••••"
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] "
+                className="w-full rounded-lg  border border-gray-300 bg-gray-50 p-2.5 text-gray-800 focus:outline-[var(--color-brand-500)] disabled:bg-gray-300 "
                 {...register("password", {
                   required: "This field is required !",
                 })}
@@ -79,10 +90,11 @@ function LoginForm() {
               </Link>
             </div>
             <button
+              disabled={isLoading}
               type="submit"
-              className=" w-full rounded-lg bg-[var(--color-brand-500)] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[var(--color-brand-600)] focus:outline-none focus:ring-4"
+              className=" w-full rounded-lg bg-[var(--color-brand-500)] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[var(--color-brand-600)] focus:outline-none focus:ring-4 disabled:bg-gray-600"
             >
-              Sign in
+              {isLoading ? <SmallSpinner /> : "Sign in"}
             </button>
             <p className="text-sm font-light text-gray-600 ">
               Don’t have an account yet?{" "}

@@ -127,8 +127,9 @@ function ContactContent() {
             </label>
             <input
               type="text"
+              disabled={isLoading}
               id="name"
-              className="w-full  border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out  focus:ring-1 focus:ring-indigo-500"
+              className="w-full  border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out  focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-300"
               {...register("name", { required: "This field is required" })}
             />
             <p className="p-1 text-sm tracking-wide text-red-600 sm:text-xs">
@@ -141,8 +142,9 @@ function ContactContent() {
             </label>
             <input
               type="email"
+              disabled={isLoading}
               id="email"
-              className="w-full  border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out  focus:ring-1 focus:ring-indigo-500"
+              className="w-full  border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out  focus:ring-1 focus:ring-indigo-500 disabled:bg-gray-300"
               {...register("email", {
                 required: "This field is required",
                 validate: (value) =>
@@ -161,8 +163,9 @@ function ContactContent() {
               Message
             </label>
             <textarea
+              disabled={isLoading}
               id="message"
-              className="h-32 w-full resize-none  border border-gray-300 bg-white px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out  focus:ring-1 focus:ring-indigo-500"
+              className="h-32 w-full resize-none border  border-gray-300 bg-white px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:ring-1  focus:ring-indigo-500 disabled:bg-gray-300"
               {...register("message", { required: "This field is required" })}
             ></textarea>
             <p className="p-1 text-sm tracking-wide text-red-600 sm:text-xs">

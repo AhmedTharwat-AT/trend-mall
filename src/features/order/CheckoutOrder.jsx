@@ -3,7 +3,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { FaCheckDouble } from "react-icons/fa6";
 import OrderSummary from "./OrderSummary";
 
-function CheckoutOrder({ handleSubmit, onSuccess }) {
+function CheckoutOrder({ handleSubmit, onSuccess, isChecked }) {
   const user = useSelector((state) => state.user);
   const { items, totalPrice, subTotal } = useSelector((state) => state.cart);
 
@@ -37,11 +37,11 @@ function CheckoutOrder({ handleSubmit, onSuccess }) {
 
       <div className="border-none pt-3">
         <button
-          disabled={!user.id}
+          disabled={!user.id || isChecked}
           onClick={handleSubmit(onSuccess)}
           className="w-full bg-[var(--color-brand-500)] px-6 py-3 text-base font-medium uppercase tracking-widest text-white hover:bg-[var(--color-brand-600)] disabled:bg-gray-500"
         >
-          place order
+          {isChecked ? "CHECKED-OUT" : "place order"}
         </button>
       </div>
     </div>

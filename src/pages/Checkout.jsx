@@ -1,23 +1,34 @@
 import { useForm } from "react-hook-form";
-import PageHeading from "../components/PageHeading";
-import CheckoutOrder from "../features/order/CheckoutOrder";
-import CheckoutUserInfo from "../features/order/CheckoutUserInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { checkout } from "../features/user/userSlice";
 import { deleteCart } from "../features/cart/cartSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
+
+import PageHeading from "../components/PageHeading";
+import CheckoutOrder from "../features/order/CheckoutOrder";
+import CheckoutUserInfo from "../features/order/CheckoutUserInfo";
+import Button from "../components/Button";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 function Checkout() {
+  const [isChecked, setIsChecked] = useState(false);
   const userID = localStorage.getItem("user");
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isChecked && cart.items.length <= 0) {
+      navigate("/home");
+    }
+  }, [isChecked, navigate, cart.items.length]);
 
   function onSuccess(data) {
     const order = {
@@ -30,15 +41,16 @@ function Checkout() {
       status: "preparing",
       createdAt: new Date().toISOString(),
     };
+
     dispatch(checkout(order));
     dispatch(deleteCart());
     const users = JSON.parse(localStorage.getItem("users"));
     const userIndex = users.findIndex((el) => el.id == userID);
     users[userIndex].orders.push(order);
     localStorage.setItem("users", JSON.stringify(users));
-    navigate("/home");
-    toast.success("Order checked out successfully !");
     window.scrollTo(0, 0);
+    toast.success("Order was checked out successfully !");
+    setIsChecked(true);
   }
 
   return (
@@ -46,8 +58,29 @@ function Checkout() {
       <PageHeading path={["home", "shop"]} current="Checkout" />
       <section className="md:my-8">
         <div className="container flex flex-wrap  gap-8 px-4 py-16 sm:px-7 md:flex-nowrap md:gap-5">
-          <CheckoutUserInfo register={register} errors={errors} />
-          <CheckoutOrder handleSubmit={handleSubmit} onSuccess={onSuccess} />
+          {isChecked ? (
+            <div className="flex w-full grow items-center justify-center border border-gray-200 bg-gray-100 p-4 py-14 md:w-3/5 lg:w-2/3">
+              <div className="flex flex-col items-center gap-2 text-center ">
+                <IoIosCheckmarkCircleOutline className=" text-7xl text-green-700" />
+                <h1 className="mb-4 text-2xl text-gray-700">
+                  Your order checked out successfully !
+                </h1>
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  to="/account/orders"
+                >
+                  <Button>track your order</Button>
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <CheckoutUserInfo register={register} errors={errors} />
+          )}
+          <CheckoutOrder
+            isChecked={isChecked}
+            handleSubmit={handleSubmit}
+            onSuccess={onSuccess}
+          />
         </div>
       </section>
     </>

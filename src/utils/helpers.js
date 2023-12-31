@@ -11,12 +11,12 @@ export const validateEmail = (email) => {
     );
 };
 
-export function updateLocalStorageUser(newCart, property) {
+export function updateLocalStorageUser(value, property) {
   const users = JSON.parse(localStorage.getItem("users"));
   const user = localStorage.getItem("user");
   if (!users || !user) return;
   const index = users.findIndex((el) => el.id === user);
-  users[index][property] = newCart;
+  users[index][property] = value;
   localStorage.setItem("users", JSON.stringify(users));
 }
 
