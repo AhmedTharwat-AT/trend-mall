@@ -30,7 +30,7 @@ function Window({ modalName, children }) {
   if (open != modalName) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[200] flex items-center justify-center">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
       <div className="absolute inset-0 z-[199] bg-gray-400 opacity-60 blur-sm backdrop-blur-xl"></div>
       <div
         ref={ref}

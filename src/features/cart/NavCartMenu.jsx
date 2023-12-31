@@ -14,8 +14,8 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
       ></div>
       <div
         className={`${
-          showMenu ? "right-0 " : "-right-full "
-        } fixed top-0 z-[101] flex h-full w-2/3 min-w-[330px] max-w-[420px] flex-col bg-white transition-all duration-300`}
+          showMenu ? "visible right-0 z-[101]" : "invisible -right-full -z-40"
+        } fixed top-0 flex h-full w-[90%] max-w-[370px] flex-col bg-white transition-all duration-300 md:w-2/3`}
       >
         <div
           onClick={() => setShowMenu(false)}

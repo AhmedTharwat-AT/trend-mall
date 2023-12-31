@@ -4,7 +4,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 function ConfirmDelete({ onCloseModal, onCancel }) {
   return (
     <div className="flex flex-col items-center">
-      <RiDeleteBin5Line className="mb-2 text-9xl text-red-700" />
+      <RiDeleteBin5Line className="mb-2 text-7xl text-red-700 sm:text-8xl" />
       <h1 className="text-center">
         Are you sure you want to delete your order
       </h1>
