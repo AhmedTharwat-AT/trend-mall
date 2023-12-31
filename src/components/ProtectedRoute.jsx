@@ -53,9 +53,9 @@ function ProtectedRoute({ children }) {
     ) {
       navigate("/home");
     }
-    if (!userID && location.pathname.includes("/order/")) {
-      navigate("/home");
-    }
+    // if (!userID && location.pathname.includes("/order/")) {
+    //   navigate("/home");
+    // }
     if (!userID && location.pathname.includes("/account")) {
       navigate("/home");
     }
