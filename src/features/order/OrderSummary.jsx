@@ -4,7 +4,7 @@ function OrderSummary({ items, padding }) {
   const size = padding && "px-2";
   return (
     <>
-      <div className="flex justify-between text-base font-medium capitalize tracking-wide">
+      <div className="flex  justify-between text-base font-medium capitalize tracking-wide">
         <h3>product</h3>
         <h3>total</h3>
       </div>

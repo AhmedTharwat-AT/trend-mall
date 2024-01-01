@@ -10,7 +10,7 @@ function Account() {
         <div className="container px-0 sm:px-6">
           <div className="flex flex-wrap justify-center gap-5 lg:flex-nowrap">
             <ProfileSideMenu />
-            <div className="min-h-[300px] grow rounded-md bg-gray-100 p-5 shadow-md sm:p-7">
+            <div className="min-h-[300px] grow rounded-md border border-gray-200 bg-gray-100 p-5 shadow-md sm:p-7">
               <Outlet />
             </div>
           </div>

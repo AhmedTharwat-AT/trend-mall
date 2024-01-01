@@ -52,7 +52,7 @@ function Order({ order, num }) {
 
       <div className="space-y-2 bg-white px-3 py-5">
         <OrderOverview order={order} />
-        <div className="mt-8 flex flex-col gap-2  py-6">
+        <div className="mt-8 flex max-w-[90vw] flex-col  gap-2 py-6">
           <OrderSummary items={order.cart.items} padding />
           <div>
             <div className="flex items-center justify-between bg-[var(--color-green-100)] p-2 pt-2  tracking-wide text-[var(--color-green-700)]">
