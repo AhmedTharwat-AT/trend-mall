@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 function MenuBtn({ setShowMenu, showMenu }) {
   return (
     <span
-      className="cursor-pointer text-4xl transition-all hover:text-[var(--color-brand-500)] md:hidden"
+      className="cursor-pointer text-3xl transition-all hover:text-[var(--color-brand-500)] sm:text-4xl md:hidden"
       onClick={() => setShowMenu((s) => !s)}
     >
       {showMenu ? (

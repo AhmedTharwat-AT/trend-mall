@@ -7,7 +7,7 @@ function AppLayout() {
   return (
     <div className="flex min-h-screen flex-col overflow-hidden ">
       <NavBar />
-      <main className="max-nav:mt-24 mt-20 ">
+      <main className="mt-16 max-nav:mt-20 sm:mt-20 ">
         <Outlet />
         <SpeedInsights />
       </main>

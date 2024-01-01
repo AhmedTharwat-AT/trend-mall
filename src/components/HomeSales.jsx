@@ -3,7 +3,7 @@ import CountDownTimer from "./CountDownTimer";
 import useObserverState from "../hooks/useObserverState";
 
 function HomeSales() {
-  const { ref, isVisible } = useObserverState({ threshold: 1 });
+  const { ref, isVisible } = useObserverState({ threshold: 0.8 });
   return (
     <section className="overflow-hidden bg-[var(--color-brand-50)]">
       <div className="group container mx-auto flex  flex-wrap items-center space-y-8  px-5 py-36 sm:px-5 lg:py-24 ">

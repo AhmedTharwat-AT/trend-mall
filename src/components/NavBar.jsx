@@ -21,10 +21,10 @@ function NavBar() {
   return (
     <nav
       ref={ref}
-      className="max-nav:h-24 absolute left-0 top-0 z-50 flex h-20 w-full items-center justify-center bg-gray-200 "
+      className="absolute left-0 top-0 z-50 flex h-16 w-full items-center justify-center bg-gray-200 max-nav:h-20 sm:h-20 "
       onClick={handleLinkClick}
     >
-      <div className="max-nav:flex-wrap container mx-auto  flex h-full w-full items-center justify-between  py-3 sm:px-6 md:gap-4">
+      <div className="container mx-auto flex  h-full w-full items-center justify-between py-3  max-nav:flex-wrap sm:px-6 md:gap-4">
         <Logo />
 
         <ul
@@ -33,7 +33,7 @@ function NavBar() {
             showMenu ? "max-h-44 py-12" : "max-md:max-h-0 "
           } max-md:drop-menu text-lg font-medium capitalize tracking-wider transition-all duration-500 md:flex md:animate-none md:space-x-4 lg:gap-x-8  `}
         >
-          <li>
+          <li className="w-full">
             <NavLink
               to="/home"
               className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
@@ -42,7 +42,7 @@ function NavBar() {
             </NavLink>
           </li>
 
-          <li>
+          <li className="w-full">
             <NavLink
               to="/shop"
               className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
@@ -51,7 +51,7 @@ function NavBar() {
             </NavLink>
           </li>
 
-          <li>
+          <li className="w-full">
             <NavLink
               to="/about"
               className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
@@ -59,7 +59,7 @@ function NavBar() {
               About
             </NavLink>
           </li>
-          <li>
+          <li className="w-full">
             <NavLink
               to="/contact"
               className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"

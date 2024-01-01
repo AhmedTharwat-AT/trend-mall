@@ -24,6 +24,7 @@ function Checkout() {
     handleSubmit,
   } = useForm();
 
+  //protected route
   useEffect(() => {
     if (!isChecked && cart.items.length <= 0) {
       navigate("/home");

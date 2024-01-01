@@ -11,7 +11,7 @@ function NavCart() {
     <>
       <li
         onClick={() => setShowMenu((s) => !s)}
-        className="relative mr-4 cursor-pointer text-[2rem]  text-gray-800 hover:text-[var(--color-brand-500)] md:mr-0"
+        className="relative cursor-pointer text-[1.7rem] text-gray-800  hover:text-[var(--color-brand-500)] sm:text-[2rem] md:mr-0"
       >
         <IoMdCart />
         {count > 0 && (

@@ -16,6 +16,7 @@ export default function SimpleSlider({
   );
 
   if (isLoading) return null;
+
   var settings = {
     dots: true,
     autoplay: true,

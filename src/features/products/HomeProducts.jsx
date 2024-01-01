@@ -45,8 +45,8 @@ function HomeProducts() {
           <HomeProduct
             className={`${
               isVisible
-                ? "visible animate-[slideBottom_1s_0.1s_ease-in-out_both] "
-                : "invisible "
+                ? "visible md:animate-[slideBottom_1s_0.1s_ease-in-out_both] "
+                : "md:invisible "
             } md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
             textStyle="md:absolute text-center md:text-start md:top-16 md:right-52 w-full"
             product={products.filter((el) => el.category == "mens-shirts")[4]}
@@ -54,7 +54,7 @@ function HomeProducts() {
           />
           <HomeProduct
             className={`${
-              isVisible ? "visible animate-slideLeft" : "invisible "
+              isVisible ? "visible md:animate-slideLeft" : "md:invisible "
             }  md:mt-11`}
             textStyle="md:absolute text-center md:text-start md:right-28 w-full"
             product={products.filter((el) => el.category == "mens-watches")[2]}

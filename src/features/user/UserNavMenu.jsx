@@ -19,7 +19,7 @@ function UserNavMenu({ user }) {
   }
 
   return (
-    <li className="items-ceenter relative mr-3  cursor-pointer p-1 text-2xl text-gray-800 ">
+    <li className="items-ceenter relative cursor-pointer p-1 text-xl text-gray-800 sm:text-2xl ">
       <FaUser
         onClick={(e) => {
           e.stopPropagation();
@@ -42,7 +42,7 @@ function UserNavMenu({ user }) {
               <li>
                 <Link
                   onClick={() => setShowMenu(false)}
-                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  className="ml-2 flex w-full items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
                   to="/account"
                 >
                   account

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="max-nav:h-[calc(100vh-96px)] relative flex h-[calc(100vh-80px)] animate-slideTop items-center justify-center overflow-hidden  text-gray-600">
+    <header className="relative flex h-[calc(100vh-64px)] animate-slideTop items-center justify-center overflow-hidden text-gray-600 max-nav:h-[calc(100vh-80px)]  sm:h-[calc(100vh-80px)]">
       <div className="absolute inset-0  -z-[100] bg-[url('/assets/carousel/img-2.jpg')] bg-cover bg-right-top "></div>
 
       <div className=" container mx-auto  py-24 ">

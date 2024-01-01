@@ -16,7 +16,7 @@ export default {
     },
     extend: {
       screens: {
-        nav: "367px",
+        nav: "310px",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
