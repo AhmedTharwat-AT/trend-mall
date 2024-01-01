@@ -35,7 +35,7 @@ function Statistics() {
               <IoBagHandleOutline className="mx-auto text-6xl text-gray-500" />
             </Status>
 
-            <Status target={isVisible ? 712 : 0} name="products">
+            <Status target={isVisible ? 512 : 0} name="products">
               <IoShirtOutline className="mx-auto text-6xl text-gray-500" />
             </Status>
           </div>
@@ -47,7 +47,7 @@ function Statistics() {
 
 function Status({ target = 0, children, name }) {
   const [count, setCount] = useState(0);
-  const frameDuration = 2500 / target;
+  const frameDuration = 2800 / target;
 
   useEffect(() => {
     if (target == 0) return;

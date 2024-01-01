@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
+
 import Order from "./Order";
 import Modal from "../../components/Modal";
 import EmptyList from "../../components/EmptyList";
-import { useState } from "react";
 import OrdersFilter from "./OrdersFilter";
 
 function Orders() {
@@ -10,7 +11,7 @@ function Orders() {
   const [filteredOrders, setFilteredOrders] = useState([...orders]);
 
   if (orders.length == 0)
-    return <EmptyList message="there are no orders to display" />;
+    return <EmptyList message="there are no orders to display 🚨" />;
 
   return (
     <div className="w-full space-y-6">

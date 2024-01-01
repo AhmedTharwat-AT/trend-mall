@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { formatCurrency } from "../../utils/helpers";
 import useOrders from "./useOrders";
+import { toast } from "react-hot-toast";
 
 import { CiDollar } from "react-icons/ci";
 import Button from "../../components/Button";
@@ -11,7 +12,6 @@ import OrderOverview from "./OrderOverview";
 import OrderSummary from "./OrderSummary";
 import OrderHeader from "./OrderHeader";
 import OrderTimeLeft from "./OrderTimeLeft";
-import { toast } from "react-hot-toast";
 
 function Order({ order, num }) {
   const { updateOrder, deleteOrder } = useOrders(order);

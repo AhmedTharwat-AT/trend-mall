@@ -6,7 +6,7 @@ function Wishlist() {
   const wishlist = useSelector((state) => state.user.wishlist);
 
   if (wishlist.length == 0)
-    return <EmptyList message="there are no items added" />;
+    return <EmptyList message="there are no items added 🚨" />;
 
   return (
     <div className="w-[90vw] min-w-[350px] overflow-x-scroll rounded-md bg-white  shadow-sm sm:w-full">

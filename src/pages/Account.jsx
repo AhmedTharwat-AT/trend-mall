@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+
 import ProfileSideMenu from "../features/user/ProfileSideMenu";
 import PageHeading from "../components/PageHeading";
 

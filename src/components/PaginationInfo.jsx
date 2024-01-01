@@ -12,7 +12,7 @@ function PaginationInfo() {
 
   return (
     <div>
-      <p className="text-sm font-thin tracking-wider opacity-90">
+      <p className="font-thin tracking-wider opacity-90 max-[381px]:text-xs sm:text-sm">
         {isLoading
           ? "Loading ..."
           : `Showing ${from} \u2014 ${to} of ${count} results`}
