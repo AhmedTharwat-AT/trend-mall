@@ -46,18 +46,18 @@ function TeamMember({ member, num }) {
       ref={ref}
       className={`${
         isVisible ? "visible animate-slideRight" : "invisible"
-      } group flex w-full min-w-[330px] flex-col items-center gap-4  ${
+      } group flex w-full  flex-col items-center gap-4  ${
         num == 2 ? "md:col-span-2 lg:col-span-1" : ""
       }`}
     >
       <div className=" relative w-fit">
         <img
-          className="relative z-[4] mx-auto aspect-square w-56 rounded-full  object-cover grayscale-[50%] transition-all group-hover:scale-105 group-hover:shadow-lg group-hover:grayscale-0"
+          className="relative z-[4] mx-auto aspect-square w-52 rounded-full  object-cover grayscale-[50%] transition-all group-hover:scale-105 group-hover:shadow-lg group-hover:grayscale-0"
           src={img}
         />
-        <FaFacebookF className="absolute left-1/2 top-16 z-[2] cursor-pointer rounded-full border border-gray-200 bg-gray-200 p-2 text-5xl text-[#316FF6] shadow-md  transition-all hover:shadow-lg group-hover:-left-11 group-hover:top-2  " />
+        <FaFacebookF className="absolute left-1/2 top-16 z-[2] cursor-pointer rounded-full border border-gray-200 bg-gray-200 p-2 text-5xl text-[#316FF6] shadow-md  transition-all hover:shadow-lg group-hover:-left-11 group-hover:top-0  " />
         <FaInstagram className="absolute left-1/2 top-16 z-[2] cursor-pointer rounded-full border border-gray-200 bg-gray-200 p-2 text-5xl text-[#d62976] shadow-md transition-all delay-100 hover:shadow-lg group-hover:-left-16 group-hover:top-1/2  group-hover:-translate-y-1/2" />
-        <FaTwitter className="absolute left-1/2 top-16 z-[2] cursor-pointer rounded-full border border-gray-200 bg-gray-200 p-2 text-5xl text-[#1DA1F2] shadow-md transition-all delay-200  hover:shadow-lg group-hover:-left-11 group-hover:top-[167px] " />
+        <FaTwitter className="absolute left-1/2 top-16 z-[2] cursor-pointer rounded-full border border-gray-200 bg-gray-200 p-2 text-5xl text-[#1DA1F2] shadow-md transition-all delay-200  hover:shadow-lg group-hover:-left-11 group-hover:top-[160px] " />
       </div>
       <div className="text-center">
         <h1 className="font-semibold tracking-wider text-gray-900">{name}</h1>
