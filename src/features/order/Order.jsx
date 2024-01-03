@@ -35,6 +35,7 @@ function Order({ order, num }) {
     toast.success("Order deleted successfully!");
   }
 
+  //update order status when timer left to cancel order finishes
   useEffect(() => {
     if (
       !isCancable &&

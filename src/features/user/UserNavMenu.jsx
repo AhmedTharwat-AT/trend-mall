@@ -32,7 +32,7 @@ function UserNavMenu({ user }) {
       {showMenu && (
         <ul
           ref={ref}
-          className="absolute right-0 top-8 w-48 rounded bg-gray-200 bg-opacity-90 "
+          className="absolute right-0 top-8 w-48 overflow-hidden rounded bg-gray-200 bg-opacity-90"
         >
           {user.isLogged ? (
             <>
@@ -42,7 +42,7 @@ function UserNavMenu({ user }) {
               <li>
                 <Link
                   onClick={() => setShowMenu(false)}
-                  className="ml-2 flex w-full items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
+                  className="ml-2 flex items-center gap-3 px-5 py-2 pl-4 text-sm uppercase hover:bg-gray-700 hover:text-white"
                   to="/account"
                 >
                   account

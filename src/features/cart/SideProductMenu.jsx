@@ -43,9 +43,9 @@ function SideProductMenu({ product, className = "" }) {
       <div
         onClick={() => addToCart()}
         title="Add to cart"
-        className="group/btn duration-50 flex aspect-square w-14 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-gray-50 text-[2.2rem] transition-all hover:text-[var(--color-brand-500)] sm:w-12  sm:text-2xl"
+        className="group/btn duration-50 flex aspect-square w-14 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-gray-50 text-[2.2rem] transition-all hover:text-[var(--color-brand-500)] sm:w-12  sm:text-[1.7rem]"
       >
-        <BsCartPlus className="transition-all group-hover/btn:text-[2.5rem] sm:group-hover/btn:text-3xl" />
+        <BsCartPlus className="transition-all group-hover/btn:text-[2.5rem] sm:group-hover/btn:text-[2rem]" />
       </div>
     </div>
   );

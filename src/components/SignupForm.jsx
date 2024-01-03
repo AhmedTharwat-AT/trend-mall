@@ -29,8 +29,8 @@ function SignupForm() {
       password: data.password,
       firstName: data.firstname,
       lastName: data.lastname,
-      orders: [],
       cart: {},
+      orders: [],
       wishlist: [],
     };
 

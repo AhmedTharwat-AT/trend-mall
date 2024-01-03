@@ -3,11 +3,13 @@ import { updateLocalStorageUser } from "../../utils/helpers";
 
 const initialState = {
   id: null,
+  firstName: "",
+  lastName: "",
   email: "",
   password: "",
   cart: {},
-  wishlist: [],
   orders: [],
+  wishlist: [],
   isLogged: false,
 };
 

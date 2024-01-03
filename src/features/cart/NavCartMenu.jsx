@@ -21,7 +21,7 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
       <div
         className={`${
           showMenu ? "visible right-0 z-[101]" : "invisible -right-full -z-40"
-        } fixed top-0 flex h-full w-[90%] max-w-[370px] flex-col bg-white transition-all duration-300 md:w-2/3`}
+        } fixed top-0 flex h-full w-[90%] max-w-[380px] flex-col bg-white transition-all duration-300 md:w-2/3`}
       >
         <div className=" flex justify-between p-2 text-gray-700">
           <span
@@ -47,7 +47,7 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
           <EmptyCartMenu setShowMenu={setShowMenu} />
         ) : (
           <>
-            <ul className="divide-y-2 overflow-y-scroll py-3 pl-2">
+            <ul className="mb-10 mt-8 divide-y-2 overflow-y-auto overscroll-contain py-3 pl-2">
               {items.map((item) => (
                 <li
                   className="px-2"

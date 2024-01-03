@@ -19,8 +19,9 @@ function Orders() {
         <OrdersFilter orders={orders} setFilteredOrders={setFilteredOrders} />
       </div>
       {filteredOrders.length <= 0 ? (
-        <p className="text-lg capitalize tracking-wide text-gray-700">
-          there are no orders with this state 🚨
+        <p className="flex items-center  gap-1 text-base tracking-wide text-gray-700 sm:text-lg">
+          <span className="text-sm">🔴</span> There are no orders with this
+          state
         </p>
       ) : (
         <Modal>
