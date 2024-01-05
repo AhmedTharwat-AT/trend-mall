@@ -1,6 +1,6 @@
 function OrderOverview({ order }) {
   return (
-    <div className="w-full max-w-[90vw] space-y-2 sm:max-w-[500px]">
+    <div className="w-full max-w-[90vw] space-y-2 pt-4 sm:max-w-[500px]">
       <div className=" flex gap-4 text-xs sm:text-sm">
         <h2 className="flex min-w-[60px] whitespace-nowrap capitalize  text-gray-900">
           Order id <span className="ml-auto">:</span>

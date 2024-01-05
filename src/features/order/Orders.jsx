@@ -1,14 +1,38 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Order from "./Order";
 import Modal from "../../components/Modal";
 import EmptyList from "../../components/EmptyList";
 import OrdersFilter from "./OrdersFilter";
+import { useSearchParams } from "react-router-dom";
 
 function Orders() {
   const orders = useSelector((state) => state.user.orders);
+  const [searchParams] = useSearchParams();
   const [filteredOrders, setFilteredOrders] = useState([...orders]);
+
+  useEffect(() => {
+    const filter = searchParams.get("filter") || "all";
+    let filtered = [];
+    switch (filter) {
+      case "all":
+        filtered = [...orders];
+        break;
+      case "prepare":
+        filtered = orders.filter((order) => order.status == "preparing");
+        break;
+      case "delivery":
+        filtered = orders.filter((order) => order.status == "on-delivery");
+        break;
+      case "cancel":
+        filtered = orders.filter((order) => order.status == "cancelled");
+        break;
+      default:
+        filtered = [...orders];
+    }
+    setFilteredOrders(filtered);
+  }, [orders, searchParams]);
 
   if (orders.length == 0)
     return <EmptyList message="there are no orders to display 🚨" />;
@@ -25,8 +49,8 @@ function Orders() {
         </p>
       ) : (
         <Modal>
-          {filteredOrders.map((order, i) => (
-            <Order order={order} num={i + 1} key={order.orderId} />
+          {filteredOrders.reverse().map((order, i, arr) => (
+            <Order order={order} num={arr.length - i} key={order.orderId} />
           ))}
         </Modal>
       )}

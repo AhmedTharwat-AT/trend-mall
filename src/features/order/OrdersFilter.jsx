@@ -1,35 +1,17 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function OrdersFilter({ orders, setFilteredOrders }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filter, setFilter] = useState("all");
-
-  function handleFilter(value) {
-    let filteredOrders = [];
-    switch (value) {
-      case "all":
-        filteredOrders = [...orders];
-        break;
-      case "prepare":
-        filteredOrders = orders.filter((order) => order.status == "preparing");
-        break;
-      case "delivery":
-        filteredOrders = orders.filter(
-          (order) => order.status == "on-delivery",
-        );
-        break;
-      case "cancel":
-        filteredOrders = orders.filter((order) => order.status == "cancelled");
-        break;
-      default:
-        filteredOrders = [...orders];
-    }
-    setFilteredOrders(filteredOrders);
-  }
 
   function handleClick(value) {
     setFilter(value);
-    handleFilter(value);
+    let filterValue = value ? value : "all";
+    searchParams.set("filter", filterValue);
+    setSearchParams(searchParams);
   }
+
   return (
     <ul className=" flex w-fit divide-x-2 overflow-hidden whitespace-nowrap rounded-lg border border-gray-300 max-[320px]:flex-wrap max-[320px]:justify-center">
       <li

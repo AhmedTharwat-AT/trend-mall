@@ -1,4 +1,6 @@
-function OrderHeader({ num, status }) {
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+
+function OrderHeader({ num, status, showOrder, handleShowOrder }) {
   const statusList = {
     preparing: "bg-[var(--color-brand-500)] text-white",
     "on-delivery":
@@ -15,7 +17,12 @@ function OrderHeader({ num, status }) {
       <h1 className="text-sm sm:text-base">
         <span>{(num + "").padStart(2, "0") + "."}</span> order details
       </h1>
-      <p className=" p-2 text-end text-xs sm:text-sm">{status}</p>
+      <div className="flex items-center">
+        <p className=" p-2 text-end text-xs sm:text-sm">{status}</p>
+        <button onClick={handleShowOrder}>
+          {showOrder ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        </button>
+      </div>
     </div>
   );
 }
