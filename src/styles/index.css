@@ -4,20 +4,16 @@
 
 @layer components {
   .drop-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    text-align: center;
-    background-color: var(--color-grey-200);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    overflow: hidden;
-    padding-left: 2rem;
-    gap: 4px;
-    text-align: start;
+    @apply absolute
+    right-0 top-full
+    flex w-full
+    flex-col items-start
+    gap-1 overflow-hidden
+    bg-gray-200 pl-8 text-start;
+  }
+
+  .navlink {
+    @apply block p-1 text-gray-900 transition-all max-md:text-gray-200 max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)] max-md:[&.active]:text-indigo-300;
   }
 }
 
@@ -25,13 +21,11 @@
   *,
   *::before,
   *::after {
-    /* Creating animations for dark mode */
     box-sizing: inherit;
     transition:
       color 0.1s,
       background-color 0.3s,
       border 0.3s;
-    /* min-width: 0px !important; */
   }
 
   html {
@@ -42,10 +36,10 @@
     scroll-behavior: smooth;
   }
 
-  body {
+  /* body {
     height: 100%;
     width: 100%;
-  }
+  } */
 
   button {
     cursor: pointer;
@@ -117,44 +111,6 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
     --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
-
-    &.dark-mode {
-      --color-grey-0: #18212f;
-      --color-grey-50: #111827;
-      --color-grey-100: #1f2937;
-      --color-grey-200: #374151;
-      --color-grey-300: #4b5563;
-      --color-grey-400: #6b7280;
-      --color-grey-500: #9ca3af;
-      --color-grey-600: #d1d5db;
-      --color-grey-700: #e5e7eb;
-      --color-grey-800: #f3f4f6;
-      --color-grey-900: #f9fafb;
-
-      --color-blue-100: #075985;
-      --color-blue-700: #e0f2fe;
-      --color-green-100: #166534;
-      --color-green-700: #dcfce7;
-      --color-yellow-100: #854d0e;
-      --color-yellow-700: #fef9c3;
-      --color-silver-100: #374151;
-      --color-silver-700: #f3f4f6;
-      --color-indigo-100: #3730a3;
-      --color-indigo-700: #e0e7ff;
-
-      --color-red-100: #fee2e2;
-      --color-red-700: #b91c1c;
-      --color-red-800: #991b1b;
-
-      --backdrop-color: rgba(0, 0, 0, 0.3);
-
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
-
-      --image-grayscale: 10%;
-      --image-opacity: 90%;
-    }
 
     --border-radius-tiny: 3px;
     --border-radius-sm: 5px;

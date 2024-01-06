@@ -30,40 +30,28 @@ function NavBar() {
         <ul
           ref={refPhone}
           className={`${
-            showMenu ? "max-h-44 py-12" : "max-md:max-h-0 "
-          } max-md:drop-menu text-lg font-medium capitalize tracking-wider transition-all duration-500 md:flex md:animate-none md:space-x-4 lg:gap-x-8  `}
+            showMenu ? "max-h-44 py-4" : "max-md:max-h-0 "
+          } max-md:drop-menu text-lg font-medium capitalize tracking-wider transition-all duration-500 max-md:bg-gray-700 max-md:text-base md:flex md:animate-none md:space-x-4 lg:gap-x-8  `}
         >
           <li className="w-full">
-            <NavLink
-              to="/home"
-              className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
-            >
+            <NavLink to="/home" className="navlink">
               Home
             </NavLink>
           </li>
 
           <li className="w-full">
-            <NavLink
-              to="/shop"
-              className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
-            >
+            <NavLink to="/shop" className="navlink">
               Shop
             </NavLink>
           </li>
 
           <li className="w-full">
-            <NavLink
-              to="/about"
-              className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
-            >
+            <NavLink to="/about" className="navlink">
               About
             </NavLink>
           </li>
           <li className="w-full">
-            <NavLink
-              to="/contact"
-              className="block p-1 text-[var(--color-grey-900)]  transition-all max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)]"
-            >
+            <NavLink to="/contact" className="navlink">
               Contact
             </NavLink>
           </li>

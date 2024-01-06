@@ -28,14 +28,14 @@ function ProfileSideMenu() {
             wishlist
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             className="block cursor-pointer p-4 hover:bg-gray-200 md:py-2 lg:p-4 [&.active]:bg-[var(--color-brand-500)] [&.active]:text-gray-50"
             to="payment"
           >
             payment method
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

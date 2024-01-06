@@ -9,27 +9,33 @@ import { ErrorBoundary } from "react-error-boundary";
 import store from "./store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Suspense, lazy } from "react";
 
 import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
-import ProductPage from "./pages/ProductPage";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
+
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import PageNotFound from "./components/PageNotFound";
 import Checkout from "./pages/Checkout";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 import Account from "./pages/Account";
 import PersonalInfo from "./features/user/PersonalInfo";
 import Orders from "./features/order/Orders";
-import PaymentMethod from "./features/user/PaymentMethod";
 import Wishlist from "./features/user/Wishlist";
+// import PaymentMethod from "./features/user/PaymentMethod";
+
 import ResetPassword from "./pages/ResetPassword";
 import NewPassword from "./pages/NewPassword";
 import ErrorFallback from "./components/ErrorFallback";
+import Spinner from "./components/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -67,11 +73,31 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <About />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "contact",
-        element: <Contact />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "order/checkout",
@@ -115,8 +141,8 @@ const router = createBrowserRouter([
             element: <Wishlist />,
           },
           {
-            path: "payment",
-            element: <PaymentMethod />,
+            path: "*",
+            element: <Navigate to="profile" replace />,
           },
         ],
       },
