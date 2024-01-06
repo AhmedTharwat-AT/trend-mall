@@ -15,27 +15,26 @@ import OrderTimeLeft from "./OrderTimeLeft";
 
 function Order({ order, num }) {
   const { updateOrder, deleteOrder } = useOrders(order);
-  const [isCancable, setIsCancable] = useState(order.status != "cancelled");
   const [showOrder, setShowOrder] = useState(false);
   const ref = useRef();
   const height = useRef();
   const secondsPassed = Math.floor(
     +new Date(Date.now() - +new Date(order.createdAt)) / 1000,
   );
+  const isCancelable = order.status == "preparing";
 
   function handleCancel() {
     updateOrder("cancelled");
     toast.success("Order cancelled successfully!");
   }
 
-  function handleShowCancel() {
-    setIsCancable(false);
-  }
-
   function handleDelete() {
-    if (order.status != "cancelled" && order.status != "delivered") return;
     deleteOrder();
     toast.success("Order deleted successfully!");
+  }
+
+  function handleTimeEnd() {
+    updateOrder("on-delivery");
   }
 
   function handleShowOrder() {
@@ -47,18 +46,6 @@ function Order({ order, num }) {
     setShowOrder((s) => !s);
   }
 
-  //update order status when timer left to cancel order finishes
-  useEffect(() => {
-    if (
-      !isCancable &&
-      order.status != "on-delivery" &&
-      order.status != "cancelled"
-    ) {
-      updateOrder("on-delivery");
-      setIsCancable(false);
-    }
-  }, [order.status, isCancable, updateOrder]);
-
   //to get element height before removing it
   useEffect(() => {
     if (!ref.current) return;
@@ -66,9 +53,7 @@ function Order({ order, num }) {
     ref.current.style.height = 0;
   }, []);
 
-  // `${
-  //   showOrder ? "h-auto scale-y-100 py-3 " : "h-0 scale-y-0 py-0"
-  // }  origin-top space-y-2 bg-white px-3 transition-all duration-300`;
+  if (!order) return null;
 
   return (
     <div className="overflow-hidden rounded-md border">
@@ -96,11 +81,11 @@ function Order({ order, num }) {
           </div>
         </div>
 
-        {isCancable ? (
+        {isCancelable ? (
           <div className="flex items-center justify-end gap-3 ">
             <OrderTimeLeft
               secondsPassed={secondsPassed}
-              handleShowCancel={handleShowCancel}
+              handleTimeEnd={handleTimeEnd}
             />
             <Modal.Open modalName={`cancel-${num}`}>
               <Button variant="warning">cancel</Button>

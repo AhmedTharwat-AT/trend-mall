@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-function OrderTimeLeft({ secondsPassed, handleShowCancel }) {
-  const [seconds, setSeconds] = useState(10 * 60 - secondsPassed);
+function OrderTimeLeft({ secondsPassed, handleTimeEnd }) {
+  const [seconds, setSeconds] = useState(0.1 * 60 - secondsPassed);
 
   const secondsTime = (seconds % 60) + "";
   const minutes = Math.floor(seconds / 60);
@@ -9,14 +9,16 @@ function OrderTimeLeft({ secondsPassed, handleShowCancel }) {
 
   useEffect(() => {
     if (minutes <= 0 && seconds <= 0) {
-      handleShowCancel();
+      handleTimeEnd();
+      return;
     }
     const timer = setInterval(() => {
+      console.log("timer :", seconds);
       setSeconds((s) => s - 1);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [seconds, handleShowCancel, minutes]);
+  }, [seconds, minutes, handleTimeEnd]);
 
   return (
     <div className="flex gap-1 text-xs sm:text-sm">

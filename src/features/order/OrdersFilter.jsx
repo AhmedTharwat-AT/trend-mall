@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-function OrdersFilter({ orders, setFilteredOrders }) {
+function OrdersFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filter, setFilter] = useState("all");
 
@@ -13,7 +13,7 @@ function OrdersFilter({ orders, setFilteredOrders }) {
   }
 
   return (
-    <ul className=" flex w-fit divide-x-2 overflow-hidden whitespace-nowrap rounded-lg border border-gray-300 max-[320px]:flex-wrap max-[320px]:justify-center">
+    <ul className=" flex w-fit divide-x-2 divide-y-2 overflow-hidden whitespace-nowrap rounded-lg border border-gray-300 max-[320px]:max-w-[70vw] max-[320px]:flex-wrap max-[320px]:justify-center">
       <li
         data-value="all"
         onClick={(e) => {
