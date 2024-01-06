@@ -1,34 +1,43 @@
-import { Link } from "react-router-dom";
+import SliderContainer from "./SliderContainer";
+import HeaderSlide from "./HeaderSlide";
+import ContactLinks from "./ContactLinks";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 function Header() {
   return (
-    <header className="relative flex h-[calc(100vh-64px)] animate-slideTop items-center justify-center overflow-hidden text-gray-600 max-nav:h-[calc(100vh-80px)]  sm:h-[calc(100vh-80px)]">
-      <div className="absolute inset-0  -z-[100] bg-[url('/assets/carousel/img-2.jpg')] bg-cover bg-right-top "></div>
-
-      <div className=" container mx-auto  py-24 ">
-        <div className="flex max-w-fit animate-slideRight flex-col items-start  sm:p-10 md:mb-0 md:w-2/3 lg:flex-grow">
-          <h1 className="mb-4 bg-clip-text text-4xl font-semibold uppercase tracking-wider text-gray-950 backdrop-blur-sm  lg:text-7xl">
-            Trend <span className="text-gray-200">Mall</span>
-          </h1>
-
-          <p className="mb-5 text-2xl font-medium capitalize leading-relaxed tracking-wide text-gray-100 lg:mb-8 lg:text-4xl">
-            where{" "}
-            <span className=" !font-bold uppercase text-gray-950 ">trends</span>{" "}
-            come to life
-          </p>
-
-          <div className="flex justify-center ">
-            <Link
-              onClick={() => window.scrollTo(0, 0)}
-              to="/shop"
-              className="inline-flex border-0  bg-gray-950 px-6 py-2 text-xs font-medium uppercase tracking-wider text-gray-200 hover:bg-[var(--color-grey-50)]  hover:text-black sm:text-sm lg:text-base "
-            >
-              start shopping
-            </Link>
-          </div>
-        </div>
+    <header className="relative  text-gray-600">
+      <SliderContainer
+        options={{ nextArrow: <NextArrow />, prevArrow: <PrevArrow /> }}
+      >
+        <HeaderSlide className="bg-[url('https://preview.colorlib.com/theme/malefashion/img/hero/hero-1.jpg.webp')]" />
+        <HeaderSlide className="bg-[url('https://preview.colorlib.com/theme/malefashion/img/hero/hero-2.jpg.webp')]" />
+      </SliderContainer>
+      <div className="absolute  bottom-5 z-10 w-full">
+        <ContactLinks className="container mx-auto mt-4 flex items-center justify-start gap-3 text-lg text-gray-500 sm:ml-auto sm:px-6 " />
       </div>
     </header>
+  );
+}
+
+function NextArrow({ onClick }) {
+  return (
+    <div
+      className="absolute left-40 top-12 z-10 cursor-pointer text-3xl sm:left-[calc(50%_+_100px)] "
+      onClick={onClick}
+    >
+      <FaArrowRightLong />
+    </div>
+  );
+}
+
+function PrevArrow({ onClick }) {
+  return (
+    <div
+      className="absolute left-4 top-12  z-10 cursor-pointer text-3xl sm:left-[calc(50%_-_100px)] "
+      onClick={onClick}
+    >
+      <FaArrowLeftLong />
+    </div>
   );
 }
 

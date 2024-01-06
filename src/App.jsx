@@ -1,3 +1,5 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,8 +9,6 @@ import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
 import store from "./store";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Suspense, lazy } from "react";
 
 import AppLayout from "./components/AppLayout";

@@ -9,7 +9,7 @@ function HomeTrends() {
 
   return (
     <section className="mb-40 mt-16 ">
-      <div className="container mx-auto flex flex-col items-center gap-5 px-2 py-4">
+      <div className="container mx-auto flex flex-col items-center gap-10 px-2 py-4">
         <div className="w-full text-center">
           <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
             LATEST NEWS

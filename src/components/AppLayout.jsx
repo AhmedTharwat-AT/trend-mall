@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import GoTopPage from "./GoTopPage";
 
 function AppLayout() {
   return (
@@ -10,6 +11,7 @@ function AppLayout() {
         <Outlet />
       </main>
       <Footer />
+      <GoTopPage />
     </div>
   );
 }

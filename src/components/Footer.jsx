@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { validateEmail } from "../utils/helpers";
+import ContactLinks from "./ContactLinks";
 
 function Footer() {
   const ref = useRef();
@@ -85,27 +86,7 @@ function Footer() {
               <p className="text-sm leading-6 tracking-wide text-gray-300 ">
                 you can reach for me with any of the following methods 🤙{" "}
               </p>
-              <div className="mt-4 flex items-center justify-start gap-3 text-xl sm:ml-auto ">
-                <a
-                  className="hover:text-[var(--color-brand-500)]"
-                  href="https://www.linkedin.com/in/ahmed-tharwat-at/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  className="hover:text-[var(--color-brand-500)]"
-                  href="https://github.com/AhmedTharwat-AT/AhmedTharwat-AT"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <FaGithub />
-                </a>
-                <span className="flex items-center gap-2 text-base hover:text-[var(--color-brand-500)]">
-                  <FaPhone /> <span className="text-sm">+201092977348</span>
-                </span>
-              </div>
+              <ContactLinks className="mt-4 flex items-center justify-start gap-3 text-xl sm:ml-auto " />
             </div>
           </div>
           <div className="w-full px-4 sm:w-1/2  lg:w-[34%] ">

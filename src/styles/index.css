@@ -15,6 +15,15 @@
   .navlink {
     @apply block p-1 text-gray-900 transition-all max-md:text-gray-200 max-md:hover:translate-x-2 md:hover:text-[var(--color-brand-500)] [&.active]:text-[var(--color-brand-500)] max-md:[&.active]:text-indigo-300;
   }
+
+  /* header slider */
+  .slider-dots {
+    @apply bottom-[88%]  right-3 !flex w-fit flex-col gap-2 sm:right-10 [&_button:before]:text-base;
+  }
+
+  .slick-active .slide-content {
+    @apply visible animate-slideTop opacity-100;
+  }
 }
 
 @layer base {

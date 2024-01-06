@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function OrderTimeLeft({ secondsPassed, handleTimeEnd }) {
-  const [seconds, setSeconds] = useState(0.1 * 60 - secondsPassed);
+  const [seconds, setSeconds] = useState(10 * 60 - secondsPassed);
 
   const secondsTime = (seconds % 60) + "";
   const minutes = Math.floor(seconds / 60);

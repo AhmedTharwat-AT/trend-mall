@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import SmallSpinner from "./SmallSpinner";
 import { useState } from "react";
+import ContactLinks from "./ContactLinks";
 
 function ContactContent() {
   const [isLoading, setIsLoading] = useState(false);
@@ -97,27 +98,7 @@ function ContactContent() {
             </div>
           </div>
           <div className=" md:mt-12">
-            <div className="mt-4 flex items-center justify-start gap-3 text-xl text-gray-500 sm:ml-auto ">
-              <a
-                className="hover:text-[var(--color-brand-500)]"
-                href="https://www.linkedin.com/in/ahmed-tharwat-at/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                className="hover:text-[var(--color-brand-500)]"
-                href="https://github.com/AhmedTharwat-AT/AhmedTharwat-AT"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub />
-              </a>
-              <span className="flex items-center gap-2 text-base hover:text-[var(--color-brand-500)]">
-                <FaPhone /> <span className="text-sm">+201092977348</span>
-              </span>
-            </div>
+            <ContactLinks className="mt-4 flex items-center justify-start gap-3 text-xl text-gray-500 sm:ml-auto " />
           </div>
         </div>
         <div className="flex w-full flex-col bg-white md:w-1/2 ">
