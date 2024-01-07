@@ -19,5 +19,17 @@ Below are the features and tools incorporated into the website:
 * react-router-dom / react query / redux toolkit / react hook form 
 * tailwind / react icons / react slick / react hot toast
 * emailjs / brevo SMTP api
+  
 
 > #### Live preview [Click here](https://trend-mall.vercel.app/home)
+
+## Screenshots
+
+<div>
+<img align="top"  src="https://github.com/AhmedTharwat-AT/trend-mall/assets/89677139/4882d2a6-1df8-4dc6-8d7d-fbefd3600622" width="45%"/>
+<img align="top" src="https://github.com/AhmedTharwat-AT/trend-mall/assets/89677139/bf102460-554c-4771-9c03-f483073024bb" width="45%"/>
+<img align="top"  src="https://github.com/AhmedTharwat-AT/trend-mall/assets/89677139/57b1d7c0-9821-41e9-bcdd-bb1bfd1a79c5" width="30%"/>
+<img align="top"  src="https://github.com/AhmedTharwat-AT/trend-mall/assets/89677139/077dd049-4d1d-4a14-bec2-93439abb3c7f" width="30%"/>
+<img align="top"  src="https://github.com/AhmedTharwat-AT/trend-mall/assets/89677139/e8b4dd52-325f-4355-8656-b80e8d49e91b" width="30%"/>
+</div>
+
