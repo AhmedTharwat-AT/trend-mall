@@ -3,7 +3,7 @@ import ShopProductsList from "./ShopProductsList";
 
 function ShopProducts() {
   return (
-    <section>
+    <section className="bg-white">
       <div className="container mx-auto flex flex-wrap py-20">
         <ProductsCategories />
         <ShopProductsList />

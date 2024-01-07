@@ -17,23 +17,23 @@ function Product({ product, responsive = " w-full sm:w-60 md:w-64 lg:w-60" }) {
       <SideProductMenu product={product} className="group-hover:right-3" />
 
       <div className="relative h-80 w-full sm:h-56">
-        <Link
+        <img
           draggable="false"
-          onClick={() => window.scrollTo(0, 0)}
-          to={`/shop/${product.id}`}
-        >
-          <img
+          className=" h-full w-full object-cover transition-all duration-500 group-hover:grayscale"
+          src={product.images[0]}
+          alt={product.title}
+        />
+        <div className="absolute inset-0 z-30 flex items-center justify-center">
+          <Link
             draggable="false"
-            className=" h-full w-full object-cover transition-all duration-500 group-hover:grayscale"
-            src={product.images[0]}
-            alt={product.title}
-          />
-          <div className="absolute inset-0 z-30 flex items-center justify-center">
+            onClick={() => window.scrollTo(0, 0)}
+            to={`/shop/${product.id}`}
+          >
             <div className=" flex aspect-square w-0  items-center justify-center overflow-hidden rounded-full bg-gray-300  bg-opacity-80 text-2xl font-medium uppercase tracking-widest text-black opacity-0 transition-all delay-75 duration-300 ease-out hover:bg-gray-800 hover:bg-opacity-80 hover:text-white group-hover:w-24 group-hover:opacity-100">
               <span>view</span>
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
 
       <div className=" flex flex-1 flex-col justify-between gap-2">

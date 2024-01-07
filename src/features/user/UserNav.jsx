@@ -9,7 +9,7 @@ function UserNav() {
   const user = useSelector((state) => state.user);
 
   return (
-    <ul className="ml-auto mr-4 flex items-center justify-between space-x-2 sm:mr-4 sm:space-x-2  md:ml-0">
+    <ul className="ml-auto flex items-center justify-between space-x-2 max-md:mr-4  sm:space-x-2  md:ml-0">
       {user.isLogged && (
         <li className="text-end">
           <Link

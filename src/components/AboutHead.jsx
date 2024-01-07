@@ -5,7 +5,7 @@ function AboutHead() {
   const { isVisible, ref } = useObserverState({ threshold: 0.4 });
 
   return (
-    <section className="py-24 ">
+    <section className="bg-white py-24 ">
       <div className=" container mx-auto flex flex-wrap items-center gap-14 px-7  ">
         <div
           ref={ref}

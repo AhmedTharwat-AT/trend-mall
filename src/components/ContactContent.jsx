@@ -62,7 +62,7 @@ function ContactContent() {
       });
   }
   return (
-    <section className="relative text-gray-600">
+    <section className="relative bg-white text-gray-600">
       <iframe
         width="100%"
         height="100%"

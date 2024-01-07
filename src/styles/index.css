@@ -41,6 +41,7 @@
   }
 
   html {
+    line-height: 0;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -48,10 +49,18 @@
     scroll-behavior: smooth;
   }
 
-  /* body {
-    height: 100%;
+  body {
     width: 100%;
-  } */
+    height: 100%;
+  }
+
+  section {
+    line-height: 1.5;
+  }
+
+  #root {
+    overflow: hidden;
+  }
 
   button {
     cursor: pointer;

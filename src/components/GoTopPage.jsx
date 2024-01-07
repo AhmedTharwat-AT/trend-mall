@@ -20,12 +20,14 @@ function GoTopPage() {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      onClick={() => window.scrollTo(0, 0)}
-      className="invisible fixed bottom-3 right-3 z-[80] cursor-pointer rounded-full bg-indigo-700 p-1 text-4xl text-gray-200 opacity-0 transition-all hover:animate-bounce sm:bottom-5 sm:right-5"
-    >
-      <MdKeyboardDoubleArrowUp />
+    <div className="group fixed bottom-3 right-3 z-[80] w-fit p-3">
+      <div
+        ref={ref}
+        onClick={() => window.scrollTo(0, 0)}
+        className="invisible  cursor-pointer rounded-full border bg-indigo-100 p-1 text-4xl text-indigo-700 opacity-0 transition-all group-hover:animate-bounce sm:bottom-5 sm:right-5"
+      >
+        <MdKeyboardDoubleArrowUp />
+      </div>
     </div>
   );
 }
