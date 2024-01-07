@@ -10,6 +10,7 @@ function Button({ children, variant = "primary", onClick, size = "base" }) {
 
   const sizes = {
     xs: "text-sm px-2 py-1",
+    sm: "text-xs sm:text-sm px-3 py-2",
     base: " text-sm font-medium capitalize tracking-wider  sm:px-4  sm:py-2 sm:text-base px-3 py-2 ",
   };
 

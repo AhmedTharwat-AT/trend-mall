@@ -19,7 +19,7 @@ function LoginForm() {
   function onSuccess(data) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find((el) => el.email == data.email);
-    if (!user) {
+    if (!user || user.password != data.password) {
       toast.error("Incorrect email or password ");
       return;
     }

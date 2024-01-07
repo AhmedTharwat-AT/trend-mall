@@ -60,28 +60,30 @@ function Checkout() {
       <section className="md:my-8">
         <div className="container flex flex-wrap  gap-8 px-4 py-16 sm:px-7 md:flex-nowrap md:gap-5">
           {isChecked ? (
-            <div className="flex w-full grow items-center justify-center border border-gray-200 bg-gray-100 p-4 py-14 md:w-3/5 lg:w-2/3">
+            <div className="mx-auto flex w-fit items-center justify-center rounded-md border border-gray-200 bg-gray-100 px-8 py-14">
               <div className="flex flex-col items-center gap-2 text-center ">
                 <IoIosCheckmarkCircleOutline className=" text-7xl text-green-700" />
-                <h1 className="mb-4 text-2xl text-gray-700">
+                <h1 className="mb-4 text-xl text-gray-700 sm:text-2xl">
                   Your order checked out successfully !
                 </h1>
                 <Link
                   onClick={() => window.scrollTo(0, 0)}
                   to="/account/orders"
                 >
-                  <Button>track your order</Button>
+                  <Button size="sm">track your order</Button>
                 </Link>
               </div>
             </div>
           ) : (
-            <CheckoutUserInfo register={register} errors={errors} />
+            <>
+              <CheckoutUserInfo register={register} errors={errors} />
+              <CheckoutOrder
+                isChecked={isChecked}
+                handleSubmit={handleSubmit}
+                onSuccess={onSuccess}
+              />
+            </>
           )}
-          <CheckoutOrder
-            isChecked={isChecked}
-            handleSubmit={handleSubmit}
-            onSuccess={onSuccess}
-          />
         </div>
       </section>
     </>
