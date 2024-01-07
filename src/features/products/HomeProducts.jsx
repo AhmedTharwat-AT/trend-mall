@@ -5,10 +5,6 @@ import useObserverState from "../../hooks/useObserverState";
 import Spinner from "../../components/Spinner";
 
 function HomeProducts() {
-  const { data: products, isLoading } = useQuery(
-    ["menProducts"],
-    getMenProducts,
-  );
   const { ref, isVisible } = useObserverState({
     threshold: 0.25,
   });
@@ -16,7 +12,7 @@ function HomeProducts() {
   return (
     <section
       ref={ref}
-      className="relative min-h-fit w-full bg-gray-100 py-20 md:pb-56 md:pt-16"
+      className="relative min-h-fit w-full bg-white py-20 md:pb-40 md:pt-16"
     >
       <div className="text-center">
         <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
@@ -29,39 +25,39 @@ function HomeProducts() {
           </span>
         </h1>
       </div>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <div className="container mx-auto mt-20 grid max-w-5xl grid-cols-1 md:grid-cols-2">
-          <HomeProduct
-            className={`${
-              isVisible
-                ? "visible animate-[slideRight_0.8s_0.7s_both] "
-                : "invisible "
-            }  self-center text-center md:row-span-2 md:-mt-28 md:text-start`}
-            product={products.filter((el) => el.category == "mens-shoes")[2]}
-            key={products[0].id}
-          />
-          <HomeProduct
-            className={`${
-              isVisible
-                ? "visible md:animate-[slideBottom_1s_0.1s_ease-in-out_both] "
-                : "md:invisible "
-            } md:col-span-2 md:row-start-1 md:mr-20 md:justify-self-end lg:mr-44`}
-            textStyle="md:absolute text-center md:text-start md:top-16 md:right-52 w-full"
-            product={products.filter((el) => el.category == "mens-shirts")[4]}
-            key={products[1].id}
-          />
-          <HomeProduct
-            className={`${
-              isVisible ? "visible md:animate-slideLeft" : "md:invisible "
-            }  md:mt-11`}
-            textStyle="md:absolute text-center md:text-start md:right-28 w-full"
-            product={products.filter((el) => el.category == "mens-watches")[2]}
-            key={products[2].id}
-          />
-        </div>
-      )}
+
+      <div className="container mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-x-8 md:grid-cols-2">
+        <HomeProduct
+          className={`${
+            isVisible
+              ? "visible animate-[slideRight_0.8s_0.7s_both] "
+              : "invisible "
+          }  self-center sm:row-span-2 md:mt-40 lg:-mt-28 `}
+          head="Accessories"
+          src="https://preview.colorlib.com/theme/malefashion/img/banner/banner-2.jpg.webp"
+          key={0}
+        />
+        <HomeProduct
+          className={`${
+            isVisible
+              ? "visible md:animate-[slideBottom_1s_0.1s_ease-in-out_both] "
+              : "md:invisible "
+          } md:mr-10 lg:col-span-2 lg:row-start-1 lg:mr-16 lg:justify-self-end`}
+          textStyle="md:absolute text-start md:top-16 md:right-52 w-full"
+          head="Clothing Collections 2030"
+          src="https://preview.colorlib.com/theme/malefashion/img/banner/banner-1.jpg.webp"
+          key={1}
+        />
+        <HomeProduct
+          className={`${
+            isVisible ? "visible md:animate-slideLeft" : "md:invisible "
+          }  md:ml-12 md:mt-16`}
+          textStyle="md:absolute text-start md:right-28 w-full md:absolute text-start md:top-28 md:right-28"
+          head="Shoes Spring 2030"
+          src="https://preview.colorlib.com/theme/malefashion/img/banner/banner-3.jpg.webp"
+          key={2}
+        />
+      </div>
     </section>
   );
 }

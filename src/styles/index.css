@@ -24,6 +24,9 @@
   .slick-active .slide-content {
     @apply visible animate-slideTop opacity-100;
   }
+  .slick-active .slide-content a {
+    @apply animate-slideRight;
+  }
 }
 
 @layer base {

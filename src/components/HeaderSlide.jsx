@@ -10,7 +10,7 @@ function HeaderSlide({ className = "" }) {
       }
     >
       <div className=" container mx-auto h-full py-24 sm:px-6 ">
-        <div className="slide-content flex max-w-fit animate-slideRight flex-col items-start justify-center  md:mb-0 md:w-3/5 lg:flex-grow">
+        <div className="slide-content flex max-w-fit  flex-col items-start justify-center  md:mb-0 md:w-3/5 lg:flex-grow">
           <h1 className="mb-4 text-sm font-medium uppercase tracking-wider text-red-500 sm:text-base">
             summer collection
           </h1>
@@ -23,11 +23,11 @@ function HeaderSlide({ className = "" }) {
             with an unwavering commitment to exceptional quality.
           </p>
 
-          <div className="flex !h-auto  justify-center ">
+          <div className="flex !h-auto animate-slideRight justify-center  ">
             <Link
               onClick={() => window.scrollTo(0, 0)}
               to="/shop"
-              className="flex items-center gap-3 border-0 bg-gray-950 px-7 py-4 text-sm font-medium uppercase tracking-widest text-gray-200 "
+              className="flex items-center gap-3 border-0 bg-gray-950 px-7 py-4 text-sm font-medium uppercase tracking-widest text-gray-200 hover:bg-gray-700 "
             >
               shop now{" "}
               <span className="text-lg font-bold">

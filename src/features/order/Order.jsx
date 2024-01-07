@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { formatCurrency } from "../../utils/helpers";
 import useOrders from "./useOrders";
 import { toast } from "react-hot-toast";
@@ -16,8 +16,6 @@ import OrderTimeLeft from "./OrderTimeLeft";
 function Order({ order, num }) {
   const { updateOrder, deleteOrder } = useOrders(order);
   const [showOrder, setShowOrder] = useState(false);
-  const ref = useRef();
-  const height = useRef();
   const secondsPassed = Math.floor(
     +new Date(Date.now() - +new Date(order.createdAt)) / 1000,
   );
@@ -38,20 +36,8 @@ function Order({ order, num }) {
   }
 
   function handleShowOrder() {
-    if (!showOrder) {
-      ref.current.style.height = height.current + "px";
-    } else {
-      ref.current.style.height = 0;
-    }
     setShowOrder((s) => !s);
   }
-
-  //to get element height before removing it
-  useEffect(() => {
-    if (!ref.current) return;
-    height.current = ref.current.offsetHeight;
-    ref.current.style.height = 0;
-  }, []);
 
   if (!order) return null;
 
@@ -64,7 +50,11 @@ function Order({ order, num }) {
         handleShowOrder={handleShowOrder}
       />
 
-      <div ref={ref} className=" bg-white px-4 transition-all duration-300">
+      <div
+        className={`${
+          showOrder ? "h-auto scale-y-100 " : "h-0 scale-y-0 "
+        } origin-top bg-white px-4 transition-all duration-500 `}
+      >
         <OrderOverview order={order} />
         <div className="flex max-w-[90vw] flex-col  gap-2 py-6">
           <OrderSummary items={order.cart.items} padding />

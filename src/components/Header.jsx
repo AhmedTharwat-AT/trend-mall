@@ -5,7 +5,7 @@ import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 function Header() {
   return (
-    <header className="relative  text-gray-600">
+    <header className="relative animate-slideTop text-gray-600">
       <SliderContainer
         options={{ nextArrow: <NextArrow />, prevArrow: <PrevArrow /> }}
       >
@@ -22,7 +22,7 @@ function Header() {
 function NextArrow({ onClick }) {
   return (
     <div
-      className="absolute left-40 top-12 z-10 cursor-pointer text-3xl sm:left-[calc(50%_+_100px)] "
+      className="absolute left-40 top-12 z-10 cursor-pointer text-3xl transition-all hover:opacity-75 sm:left-[calc(50%_+_100px)] "
       onClick={onClick}
     >
       <FaArrowRightLong />
@@ -33,7 +33,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <div
-      className="absolute left-4 top-12  z-10 cursor-pointer text-3xl sm:left-[calc(50%_-_100px)] "
+      className="absolute left-4 top-12 z-10 cursor-pointer  text-3xl transition-all hover:opacity-75 sm:left-[calc(50%_-_100px)] "
       onClick={onClick}
     >
       <FaArrowLeftLong />

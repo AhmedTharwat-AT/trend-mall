@@ -13,7 +13,6 @@ function OrderTimeLeft({ secondsPassed, handleTimeEnd }) {
       return;
     }
     const timer = setInterval(() => {
-      console.log("timer :", seconds);
       setSeconds((s) => s - 1);
     }, 1000);
 
