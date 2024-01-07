@@ -19,3 +19,5 @@ Below are the features and tools incorporated into the website:
 * react-router-dom / react query / redux toolkit / react hook form 
 * tailwind / react icons / react slick / react hot toast
 * emailjs / brevo SMTP api
+
+> #### Live preview [Click here](https://trend-mall.vercel.app/home)
