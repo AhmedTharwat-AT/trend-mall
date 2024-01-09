@@ -20,9 +20,9 @@ Below are the features and tools incorporated into the website:
 * tailwind / react icons / react slick / react hot toast
 * emailjs / brevo SMTP api
   
-
-> #### [Live preview](https://trend-mall.vercel.app/home)
-> #### [Demo video](https://drive.google.com/file/d/1PeFZqksUx28l4cwIqV_G1eW7Dm7it7GQ/view?usp=sharing)
+---
+#### [Live preview](https://trend-mall.vercel.app/home)  -  [Demo video](https://drive.google.com/file/d/1PeFZqksUx28l4cwIqV_G1eW7Dm7it7GQ/view?usp=sharing)
+---
 
 ## Screenshots
 
