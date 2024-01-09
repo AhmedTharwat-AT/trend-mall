@@ -21,7 +21,8 @@ Below are the features and tools incorporated into the website:
 * emailjs / brevo SMTP api
   
 
-> #### Live preview [Click here](https://trend-mall.vercel.app/home)
+> #### [Live preview](https://trend-mall.vercel.app/home)
+> #### [Demo video](https://drive.google.com/file/d/1PeFZqksUx28l4cwIqV_G1eW7Dm7it7GQ/view?usp=sharing)
 
 ## Screenshots
 
