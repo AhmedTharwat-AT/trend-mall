@@ -12,7 +12,7 @@ Below are the features and tools incorporated into the website:
 * **_Personalized Cart_** : Each user has their own cart, and its contents persist even when refreshing the page.
 * **_Order Tracking_** : Users can track their orders on their profile/orders page and filter them based on their state.
 * **_Order Cancellation_** : Orders that have been checked out within the last 10 minutes can be cancelled. Employees can also mark orders as delivered.
-* **_Password Reset_** : Users can reset their password by requesting a link via email. The link will redirect them to a password reset page, where they can securely set a new password using.
+* **_Password Reset_** : Users can reset their password by requesting a link via email. The link will redirect them to a password reset page, where they can securely set a new password.
 
 ## Tools
 
