@@ -38,7 +38,7 @@ function HomeSales() {
           </h1>
           <CountDownTimer />
           <Link
-            to="/products"
+            to="/shop"
             className="inline-flex border-0 bg-[var(--color-brand-500)] px-8 py-3 text-base font-medium uppercase tracking-wider text-white hover:bg-[var(--color-brand-700)]"
           >
             shop now
