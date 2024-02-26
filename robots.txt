@@ -1,11 +1,11 @@
 User-agent: *
-Allow: /*
 Disallow: /account/
 Disallow: /cart/
-Disallow: /order
-Disallow: /login
-Disallow: /signup
-Disallow: /reset-password
-Disallow: /new-password
+Disallow: /order/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /reset-password/
+Disallow: /new-password/
+Disallow: /cdn-cgi/
 
 Sitemap: https://trend-mall.vercel.app/sitemap.xml

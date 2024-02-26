@@ -1,7 +1,10 @@
+import { lazy } from "react";
+
 import SliderContainer from "./SliderContainer";
-import HeaderSlide from "./HeaderSlide";
 import ContactLinks from "./ContactLinks";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+
+const HeaderSlide = lazy(() => import("./HeaderSlide"));
 
 function Header() {
   return (

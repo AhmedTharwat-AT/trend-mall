@@ -11,9 +11,9 @@ function HomeTrends() {
     <section className="mb-40 mt-16 ">
       <div className="container mx-auto flex flex-col items-center gap-10 px-2 py-4">
         <div className="w-full text-center">
-          <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
+          <p className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
             LATEST NEWS
-          </h3>
+          </p>
           <h1 className="relative my-5  text-4xl font-medium tracking-widest">
             Fashion New Trends
             <span className="absolute -top-4 left-1/2 hidden w-full -translate-x-1/2 whitespace-nowrap text-5xl opacity-20 sm:block ">
