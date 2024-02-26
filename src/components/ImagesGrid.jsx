@@ -6,6 +6,7 @@ function ImagesGrid({ imgs = [] }) {
     <div className="grid w-full  sm:grid-cols-3 sm:grid-rows-3 sm:gap-1 ">
       {images.slice(0, 5).map((el, i) => (
         <img
+        alt="malefashon"
           src={el}
           key={i}
           className={`mx-auto aspect-video h-full w-full max-w-[490px] object-cover transition-all duration-300 hover:scale-105  hover:grayscale sm:mx-0 sm:max-w-full ${

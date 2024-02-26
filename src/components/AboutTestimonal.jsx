@@ -14,6 +14,8 @@ function AboutTestimonal() {
           <span className="mb-6 mt-8 inline-block h-1 w-10 rounded bg-indigo-500"></span>
           <div className="flex items-center justify-center gap-4">
             <img
+              loading="lazy"
+              alt="malefashon"
               className="h-14 w-14 rounded-full object-cover"
               src="https://preview.colorlib.com/theme/malefashion/img/blog/blog-2.jpg.webp"
             />

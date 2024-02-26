@@ -1,7 +1,12 @@
 function Trend({ src }) {
   return (
     <div className="group relative w-full px-2 sm:w-1/2 sm:px-4 lg:w-1/3 ">
-      <img className="h-64 w-full object-cover" src={src} />
+      <img
+        loading="lazy"
+        alt="trend"
+        className="h-64 w-full object-cover"
+        src={src}
+      />
       <div className="absolute -bottom-16 left-[50%] z-10 w-4/5 -translate-x-1/2 space-y-2 bg-gray-50 p-5 transition-all duration-300 group-hover:-bottom-12  ">
         <p className="text-sm text-gray-700">16 feburary 2020</p>
         <h3 className="font-medium tracking-wide">

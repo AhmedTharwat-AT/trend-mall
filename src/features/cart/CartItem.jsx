@@ -22,6 +22,7 @@ function CartItem({ item }) {
     <div className="grid grid-cols-miniCart items-center gap-6 px-0 py-2 sm:grid-cols-cart lg:gap-0">
       <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
         <img
+        alt="cart-item"
           className="aspect-square w-16 rounded-sm object-cover sm:w-20"
           src={item.images[0]}
         />

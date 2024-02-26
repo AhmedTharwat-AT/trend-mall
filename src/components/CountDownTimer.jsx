@@ -23,23 +23,23 @@ function CountDownTimer() {
   return (
     <div className="flex justify-evenly gap-5 text-4xl font-medium lg:justify-start">
       <div className="flex flex-col items-center ">
-        <h3>{days <= 9 ? "0" + days : days}</h3>
-        <h3 className="text-sm font-normal">Days</h3>
+        <p>{days <= 9 ? "0" + days : days}</p>
+        <p className="text-sm font-normal">Days</p>
       </div>
       <span>:</span>
       <div className="flex flex-col items-center">
-        <h3>{hours <= 9 ? "0" + hours : hours}</h3>
-        <h3 className="text-sm font-normal">Hours</h3>
+        <p>{hours <= 9 ? "0" + hours : hours}</p>
+        <p className="text-sm font-normal">Hours</p>
       </div>
       <span>:</span>
       <div className="flex flex-col items-center">
-        <h3>{minutes <= 9 ? "0" + minutes : minutes}</h3>
-        <h3 className="text-sm font-normal">Minutes</h3>
+        <p>{minutes <= 9 ? "0" + minutes : minutes}</p>
+        <p className="text-sm font-normal">Minutes</p>
       </div>
       <span>:</span>
       <div className="flex flex-col items-center">
-        <h3>{secs <= 9 ? "0" + secs : secs}</h3>
-        <h3 className="text-sm font-normal">Seconds</h3>
+        <p>{secs <= 9 ? "0" + secs : secs}</p>
+        <p className="text-sm font-normal">Seconds</p>
       </div>
     </div>
   );

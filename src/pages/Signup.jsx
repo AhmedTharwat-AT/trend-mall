@@ -9,6 +9,7 @@ function Signup() {
         </div>
         <div className="hidden h-auto w-1/2 grow self-stretch overflow-hidden grayscale lg:block lg:rounded-br-3xl lg:rounded-tr-3xl">
           <img
+            alt="signup-img"
             className="h-full object-cover "
             src="assets/carousel/img-1.jpg"
           />

@@ -58,7 +58,8 @@ function NavCartMenu({ showMenu, items, totalPrice, setShowMenu }) {
                     to={`/shop/${item.id}`}
                     className="flex items-center gap-2 p-2 hover:bg-gray-200"
                   >
-                    <img className="h-16 w-16" src={item.images[0]} />
+                    <img
+                    alt="cart-item" className="h-16 w-16" src={item.images[0]} />
                     <div className="flex flex-1 items-end justify-between">
                       <div>
                         <h2 className="max-w-[170px] truncate capitalize">

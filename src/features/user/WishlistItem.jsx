@@ -26,7 +26,7 @@ function WishlistItem({ item }) {
       </div>
       <div className="col-span-2 flex items-center gap-2">
         <Link className=" flex items-center gap-2" to={`/shop/${item.id}`}>
-          <img className="h-12 w-12 object-cover" src={item.images[0]} />
+          <img alt={item.title} className="h-12 w-12 object-cover" src={item.images[0]} />
           <h1 className="max-w-[15ch] truncate text-sm capitalize">
             {item.title}
           </h1>

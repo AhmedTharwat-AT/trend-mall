@@ -9,6 +9,7 @@ function HomeProduct({ className = "", textStyle = "", src, head }) {
     >
       <div className="relative mx-auto aspect-square w-full  transition-all md:aspect-auto md:h-[25rem] md:max-w-[400px]">
         <img
+        alt="product"
           className=" mx-auto h-full w-full  object-cover transition-all "
           src={src}
         />

@@ -13,6 +13,7 @@ function UserNav() {
       {user.isLogged && (
         <li className="text-end">
           <Link
+            aria-label="wishlist"
             to="/account/wishlist"
             className="relative  block cursor-pointer  items-center p-1  "
           >

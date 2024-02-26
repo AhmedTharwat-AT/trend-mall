@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import { getMenProducts } from "../../services/apiProducts";
 import HomeProduct from "./HomeProduct";
 import useObserverState from "../../hooks/useObserverState";
-import Spinner from "../../components/Spinner";
 
 function HomeProducts() {
   const { ref, isVisible } = useObserverState({
@@ -15,15 +14,15 @@ function HomeProducts() {
       className="relative min-h-fit w-full bg-white py-20 md:pb-40 md:pt-16"
     >
       <div className="text-center">
-        <h3 className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
+        <p className="font-semibold uppercase tracking-widest text-[var(--color-brand-500)]">
           new trends
-        </h3>
-        <h1 className="relative my-5 text-3xl font-medium capitalize tracking-widest  md:text-4xl">
+        </p>
+        <h2 className="relative my-5 text-3xl font-medium capitalize tracking-widest  md:text-4xl">
           trending fashion products
           <span className="absolute -top-4 left-1/2 w-full -translate-x-1/2 text-4xl capitalize opacity-20  md:text-5xl ">
             trending fashion products
           </span>
-        </h1>
+        </h2>
       </div>
 
       <div className="container mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-x-8 md:grid-cols-2">

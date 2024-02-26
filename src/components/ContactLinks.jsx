@@ -4,6 +4,7 @@ function ContactLinks({ className = "" }) {
   return (
     <div className={className}>
       <a
+        aria-label="linked-in"
         className="hover:text-[var(--color-brand-500)]"
         href="https://www.linkedin.com/in/ahmed-tharwat-at/"
         target="_blank"
@@ -12,6 +13,7 @@ function ContactLinks({ className = "" }) {
         <FaLinkedin />
       </a>
       <a
+        aria-label="github"
         className="hover:text-[var(--color-brand-500)]"
         href="https://github.com/AhmedTharwat-AT/AhmedTharwat-AT"
         target="_blank"

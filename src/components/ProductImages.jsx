@@ -26,6 +26,7 @@ function ProductImages({ product }) {
         </div>
       )}
       <img
+      
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         alt="ecommerce"

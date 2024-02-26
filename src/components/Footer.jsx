@@ -38,7 +38,7 @@ function Footer() {
             <h2 className="title-font mb-5 text-sm font-medium tracking-widest text-gray-100">
               NAVIGATE
             </h2>
-            <nav className="mb-10 list-none space-y-2 pl-1 capitalize tracking-widest sm:pl-0">
+            <ul className="mb-10 list-none space-y-2 pl-1 capitalize tracking-widest sm:pl-0">
               <li>
                 <NavLink
                   onClick={() => window.scrollTo(0, 0)}
@@ -75,7 +75,7 @@ function Footer() {
                   contact us
                 </NavLink>
               </li>
-            </nav>
+            </ul>
           </div>
           <div className="w-full px-4  sm:w-1/2 lg:w-[24%]">
             <h2 className="title-font mb-5 text-sm font-medium uppercase tracking-widest text-gray-100">

@@ -19,6 +19,7 @@ function TeamSection() {
           </p>
         </div>
         <img
+          alt="malefashon"
           className={`${
             isVisible
               ? "visible animate-[slideTop_0.8s_0.5s_ease-out_both]"
@@ -52,6 +53,7 @@ function TeamMember({ member, num }) {
     >
       <div className=" relative w-fit">
         <img
+          alt="team-photo"
           className="relative z-[4] mx-auto aspect-square w-52 rounded-full  object-cover grayscale-[50%] transition-all group-hover:scale-105 group-hover:shadow-lg group-hover:grayscale-0"
           src={img}
         />

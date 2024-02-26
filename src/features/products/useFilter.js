@@ -18,7 +18,6 @@ function useFilter() {
   }
 
   useEffect(() => {
-    console.log(page, currPage);
     if (currPage === page) return;
     searchParams.set("page", currPage);
     setSearchParams(searchParams);
