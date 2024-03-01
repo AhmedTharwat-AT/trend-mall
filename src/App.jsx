@@ -9,15 +9,17 @@ import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
 import store from "./store";
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 
 import AppLayout from "./components/AppLayout";
+import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProductPage from "./pages/ProductPage";
 import PageNotFound from "./components/PageNotFound";
 import ErrorFallback from "./components/ErrorFallback";
+import ResetPassword from "./pages/ResetPassword";
+import NewPassword from "./pages/NewPassword";
 
-const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -25,13 +27,12 @@ const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const Account = lazy(() => import("./pages/Account"));
 const Cart = lazy(() => import("./pages/Cart"));
-const ResetPassword = lazy(() => import("./pages/ResetPassword"));
-const NewPassword = lazy(() => import("./pages/NewPassword"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 
 import PersonalInfo from "./features/user/PersonalInfo";
 import Orders from "./features/order/Orders";
 import Wishlist from "./features/user/Wishlist";
+import Spinner from "./components/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,17 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <Shop />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Shop />
+          </Suspense>
+        ),
       },
       {
         path: "shop/:productID",
@@ -65,23 +76,87 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "about",
-        element: <About />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "contact",
-        element: <Contact />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "order/checkout",
-        element: <Checkout />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Checkout />
+          </Suspense>
+        ),
       },
       {
         path: "login",
-        element: <Login />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Login />
+          </Suspense>
+        ),
+      },
+      {
+        path: "signup",
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Signup />
+          </Suspense>
+        ),
       },
       {
         path: "reset-password",
@@ -92,12 +167,18 @@ const router = createBrowserRouter([
         element: <NewPassword />,
       },
       {
-        path: "signup",
-        element: <Signup />,
-      },
-      {
         path: "account",
-        element: <Account />,
+        element: (
+          <Suspense
+            fallback={
+              <div className="h-96 w-full">
+                <Spinner />
+              </div>
+            }
+          >
+            <Account />
+          </Suspense>
+        ),
         children: [
           {
             index: true,
