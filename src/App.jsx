@@ -9,33 +9,29 @@ import { Provider } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import { ErrorBoundary } from "react-error-boundary";
 import store from "./store";
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 
 import AppLayout from "./components/AppLayout";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ProductPage from "./pages/ProductPage";
+import PageNotFound from "./components/PageNotFound";
+import ErrorFallback from "./components/ErrorFallback";
 
+const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Account = lazy(() => import("./pages/Account"));
+const Cart = lazy(() => import("./pages/Cart"));
+const ResetPassword = lazy(() => import("./pages/ResetPassword"));
+const NewPassword = lazy(() => import("./pages/NewPassword"));
+const Checkout = lazy(() => import("./pages/Checkout"));
 
-import ProductPage from "./pages/ProductPage";
-import Cart from "./pages/Cart";
-import PageNotFound from "./components/PageNotFound";
-import Checkout from "./pages/Checkout";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-import Account from "./pages/Account";
 import PersonalInfo from "./features/user/PersonalInfo";
 import Orders from "./features/order/Orders";
 import Wishlist from "./features/user/Wishlist";
-// import PaymentMethod from "./features/user/PaymentMethod";
-
-import ResetPassword from "./pages/ResetPassword";
-import NewPassword from "./pages/NewPassword";
-import ErrorFallback from "./components/ErrorFallback";
-import Spinner from "./components/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -73,31 +69,11 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: (
-          <Suspense
-            fallback={
-              <div className="h-96 w-full">
-                <Spinner />
-              </div>
-            }
-          >
-            <About />
-          </Suspense>
-        ),
+        element: <About />,
       },
       {
         path: "contact",
-        element: (
-          <Suspense
-            fallback={
-              <div className="h-96 w-full">
-                <Spinner />
-              </div>
-            }
-          >
-            <Contact />
-          </Suspense>
-        ),
+        element: <Contact />,
       },
       {
         path: "order/checkout",

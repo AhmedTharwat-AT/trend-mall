@@ -53,6 +53,7 @@ function TeamMember({ member, num }) {
     >
       <div className=" relative w-fit">
         <img
+          loading="lazy"
           alt="team-photo"
           className="relative z-[4] mx-auto aspect-square w-52 rounded-full  object-cover grayscale-[50%] transition-all group-hover:scale-105 group-hover:shadow-lg group-hover:grayscale-0"
           src={img}

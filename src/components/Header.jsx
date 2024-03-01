@@ -12,8 +12,8 @@ function Header() {
       <SliderContainer
         options={{ nextArrow: <NextArrow />, prevArrow: <PrevArrow /> }}
       >
-        <HeaderSlide className="bg-[url('https://preview.colorlib.com/theme/malefashion/img/hero/hero-1.jpg.webp')]" />
-        <HeaderSlide className="bg-[url('https://preview.colorlib.com/theme/malefashion/img/hero/hero-2.jpg.webp')]" />
+        <HeaderSlide className="bg-[url('/assets/hero-1.jpg.webp')]" />
+        <HeaderSlide className="bg-[url('/assets/hero-2.jpg.webp')]" />
       </SliderContainer>
       <div className="absolute  bottom-5 z-10 w-full">
         <ContactLinks className="container mx-auto mt-4 flex items-center justify-start gap-3 text-lg text-gray-500 sm:ml-auto sm:px-6 " />

@@ -1,7 +1,4 @@
-function BgSeperator({
-  src = "./src/assets/carousel/img-1.jpg",
-  alt = "Heading",
-}) {
+function BgSeperator({ src = "/assets/carousel/img-1.jpg", alt = "Heading" }) {
   return (
     <div className="relative h-96 w-full overflow-hidden ">
       <img
