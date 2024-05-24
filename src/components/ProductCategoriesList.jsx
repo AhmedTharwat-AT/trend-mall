@@ -80,15 +80,17 @@ function ProductCategoriesList() {
         <div>
           <Select.Toggle title="brands" />
           <Select.Options title="brands">
-            {brands.map((option, i) => (
-              <Option
-                onClick={() => handleSelectingBrand(option)}
-                isActive={option === currBrand}
-                key={i}
-              >
-                {option.replace("-", " ")}
-              </Option>
-            ))}
+            {brands.map((option, i) =>
+              option ? (
+                <Option
+                  onClick={() => handleSelectingBrand(option)}
+                  isActive={option === currBrand}
+                  key={i}
+                >
+                  {option && option.replace("-", " ")}
+                </Option>
+              ) : null,
+            )}
           </Select.Options>
         </div>
       )}
