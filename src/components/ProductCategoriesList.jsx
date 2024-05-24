@@ -25,6 +25,7 @@ function ProductCategoriesList() {
     searchParams.delete("range");
     searchParams.delete("brand");
     searchParams.delete("query");
+    searchParams.delete("page");
     setSearchParams(searchParams);
   }
   function handleSelectingBrand(option) {
@@ -33,6 +34,7 @@ function ProductCategoriesList() {
     } else {
       searchParams.set("brand", option);
     }
+    searchParams.delete("page");
     searchParams.delete("range");
     searchParams.delete("query");
     setSearchParams(searchParams);
@@ -43,6 +45,7 @@ function ProductCategoriesList() {
     } else {
       searchParams.set("range", `${option.from}-${option.to}`);
     }
+    searchParams.delete("page");
     setSearchParams(searchParams);
   }
   function handleReset() {
