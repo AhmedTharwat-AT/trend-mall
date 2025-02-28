@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./cartSlice";
 
 import Quantity from "../../components/Quantity";
-import { FaHeart, FaHeartBroken } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { toggleWishlist } from "../user/userSlice";
 
 function ProductAddtoCart({ product }) {

@@ -14,7 +14,7 @@ function useObserverState(options = {}) {
     }, options);
 
     observer.observe(ref.current);
-  }, []);
+  }, [options]);
 
   return { isVisible, ref };
 }

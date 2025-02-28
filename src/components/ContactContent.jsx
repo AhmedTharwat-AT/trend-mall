@@ -2,7 +2,6 @@ import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
 import { validateEmail } from "../utils/helpers";
 
-import { FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import SmallSpinner from "./SmallSpinner";
 import { useState } from "react";
@@ -25,10 +24,10 @@ function ContactContent() {
   });
 
   let serviceId, templateId, publicKey;
-  if (import.meta.env.NETLIFY === "true") {
-    serviceId = process.env.VITE_EMAILJS_SERVICE;
-    templateId = process.env.VITE_EMAILJS_TEMPLATE;
-    publicKey = process.env.VITE_EMAILJS_KEY;
+  if (import.meta.env.NETLIFY === "true" && process) {
+    serviceId = process?.env.VITE_EMAILJS_SERVICE;
+    templateId = process?.env.VITE_EMAILJS_TEMPLATE;
+    publicKey = process?.env.VITE_EMAILJS_KEY;
   } else {
     serviceId = import.meta.env.VITE_EMAILJS_SERVICE;
     templateId = import.meta.env.VITE_EMAILJS_TEMPLATE;

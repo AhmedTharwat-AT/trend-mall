@@ -1,5 +1,3 @@
-import { useQuery } from "react-query";
-import { getMenProducts } from "../../services/apiProducts";
 import HomeProduct from "./HomeProduct";
 import useObserverState from "../../hooks/useObserverState";
 

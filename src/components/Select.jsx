@@ -49,7 +49,7 @@ function Toggle({ title }) {
   );
 }
 
-function Options({ title, children, onClick }) {
+function Options({ title, children }) {
   const { open, setOpen } = useContext(SelectContext);
 
   return (
